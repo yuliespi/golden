@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <title>EMPLEADO GOLDEN LIONS</title>
+</head>
+<body>
+
+    <div class="contepadre">
+
+        <div class="contenedort">
+            <table>
+                <thead>
+                    <th>Id Empleado</th>
+                    <th>Nombre Empleado</th>
+                    <th>Apellido Empleado</th>
+                    <th>Direccion Empleado</th>
+                    <th>Telefono Empleado</th>
+                    <th>Estado Empleado</th>
+                    <th>Acciones</th>
+                </thead>
+            
+                <tbody>
+                    <tr th:if="${empleados.size()>0}" th:each="e:${empleados}">
+                        <td th:text="${e.idEmpleado}"></td>
+                        <td th:text="${e.nombreEmpleado}"></td>
+                        <td th:text="${e.apellidoEmpleado}"></td>
+                        <td th:text="${e.direccionEmpleado}"></td>
+                        <td th:text="${e.telefonoEmpleado}"></td>
+                        <td th:text="${e.estadoEmpleado}"></td>
+                        <td></td>
+                        <td>
+                            <a role="button" th:href="@{/empleado/actualizarE/} + ${e.idEmpleado}" class="btn btn-outline-secondary"
+                            onclick="return confirm('¿Estás seguro que deseas actualizar el Empleado?')" >Editar</a> 
+    
+                            <br>
+                            
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/empleado/delete/} + ${e.idEmpleado}" 
+                            onclick="return confirm('¿Estas seguro de eliminar el Empleado?');">Eliminar</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="regresar">     
+            <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

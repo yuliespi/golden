@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM CARGO</title>
+</head>
+<body>
+
+    <h1>Formulario Cargo</h1>
+
+    <div class="contenedorc">    
+        <form th:action="@{/cargo/add}" th:object="${cargo}" method="post" class="col s12">
+                    
+            <div class="contef">
+                <label for="nombre">Nombre Cargo</label>
+                <input type="text" class="validate" id="nombre" th:field="*{nombreCargo}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreCargo')}" th:errors="*{nombreCargo}"></div>
+            </div> 
+
+            <div class="contef">
+                <label for="descripcion">Descripción Cargo</label>
+                <input type="text" class="validate" id="descripcion" th:field="*{descripcionCargo}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('descripcionCargo')}" th:errors="*{descripcionCargo}"></div>
+            </div> 
+
+            <div class="contef">
+                <label for="estado">Estado Cargo</label>
+                <input type="text" class="validate" id="estado" th:field="*{estadoCargo}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoCargo')}" th:errors="*{estadoCargo}"></div>
+            </div> 
+
+            <div class="guardarc"> 
+                <button type="submit" class="btn btn-outline-dark">Guardar</button>
+            </div>
+        </form>        
+    </div>       
+    
+    <div class="regresar">     
+        <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+    </div>
+</body>
+</html>

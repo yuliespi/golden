@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/assets/css/estilos.css">
+    <title>FORM ACTIVIDAD</title>
+</head>
+<body>
+
+    <h1>Formulario Actividad</h1>
+    <div class="contenedorc">    
+        <form th:action="@{/actividad/add}" th:object="${actividad}" method="post" class="col s12">
+                    
+            <div class="contef">
+                <label for="tipoActi">Tipo Actividad</label>
+                <input type="text" class="validate" id="tipoActi" th:field="*{tipoActividad}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('tipoActividad')}" th:errors="*{tipoActividad}"></div>
+            </div> 
+
+            <div class="contef">
+                <label for="fechaActi">Fecha Actividad</label>
+                <input type="date" class="validate" id="tipoActi" th:field="*{fechaActividad}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaActividad')}" th:errors="*{fechaActividad}"></div>
+            </div> 
+
+            <div class="contef">
+                <label for="descriActi">Descripción Actividad</label>
+                <input type="text" class="validate" id="descriActi" th:field="*{descripcionActividad}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('descripcionActividad')}" th:errors="*{descripcionActividad}"></div>
+            </div> 
+
+            <div class="guardarc"> 
+                <button type="submit" class="btn btn-outline-dark">Guardar</button>
+            </div>
+        </form>        
+    </div>       
+    
+    <div class="regresar">     
+        <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+    </div>
+</body>
+</html>
