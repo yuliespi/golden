@@ -46,11 +46,11 @@ public class CategoriaController {
         return "redirect:listas";
     } 
 
-    @GetMapping("/actualizarC/{idCategoria}")
-    public String actualizarC(@PathVariable Integer idCategoria,Model c){
+    @GetMapping("/actualizarC/{id}")
+    public String actualizarC(@PathVariable Integer id,Model c){
         Categoria categoria=null;
-        if(idCategoria>0){
-            categoria=categoriag.findOne(idCategoria);
+        if(id>0){
+            categoria=categoriag.findOne(id);
         }else{
             return "views/categorias/form";
         }
@@ -59,11 +59,11 @@ public class CategoriaController {
         return "views/categorias/form";
     }
 
-    @GetMapping("/delete/{idCategoria}")
-    public String delete(@PathVariable Integer idCategoria){
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id){
     
-        if(idCategoria > 0){
-            categoriag.delete(idCategoria);
+        if(id > 0){
+            categoriag.delete(id);
         }
         return "redirect:../listas";
     }

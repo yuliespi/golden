@@ -4,49 +4,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
-    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <link rel="stylesheet" th:href="@{../assets/css/estilosy.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b72f550c62.js" crossorigin="anonymous"></script>
     <title>Formulario Bitacora</title>
 </head>
-<body>
+<body class="bodyB">
+    <nav class="navbar navbar-expand-lg">
+        <div class="logo">
+            <img src="../../../static/assets/img/logo/goldenhorizontal.png">
+          </div>
 
-    <h1>Formulario Bitacora</h1>
-    <div class="contenedorc">    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contenedorbitF">    
+        <h1 class="tituloFB">Formulario Bitacora</h1>
+
         <form th:action="@{/bitacora/add}" th:object="${bitacora}" method="post" class="col s12">
-                    
-            <div class="contef">
-                <label for="obserBitacora">Observación Bitacora</label>
-                <input type="text" class="validate" id="obserBitacora" th:field="*{observacionesBitacora}" required>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
-            </div> 
-            
-            <div>
-                <label for="cantidadImplementosUsados">Cantidad Implementos Usados</label>
-                <input type="number" class="validate" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" required>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
-            </div> 
 
-            <div>
-                <label for="fechaBitacora">Fecha Bitacora</label>
-                <input type="date" class="validate" id="fechaBitacora" th:field="*{fechaBitacora}" required>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
-            </div>
+            <div class="form-group row">
+                <label for="obserBitacora" class="col-sm-2 col-form-label">Observación Bitacora</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="obserBitacora" th:field="*{observacionesBitacora}" required>
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="cantidadImplementosUsados" class="col-sm-2 col-form-label">Cantidad Implementos Usados</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" required>
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="fechaBitacora" class="col-sm-2 col-form-label">Fecha Bitacora</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="fechaBitacora" th:field="*{fechaBitacora}" required>
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="estadoBitacora" class="col-sm-2 col-form-label">Estado Bitacora</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="estadoBitacora" th:field="*{estadoBitacora}" required>
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
+                </div>
+              </div>
             
-            <div>
-                <label for="estadoBitacora">Estado Bitacora</label>
-                <input type="text" class="validate" id="estadoBitacora" th:field="*{estadoBitacora}" required>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
-            </div>
-            
-            <div class="guardarc"> 
+            <div class="guardarb"> 
                 <button type="submit" class="btn btn-outline-dark">Guardar</button>
             </div>
         </form>        
     </div>       
-    
-    <div class="regresar">     
+
+    <div class="btnbregresar">     
         <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
     </div>
+
+    <footer>
+        <div>
+            <h4 class="redess">Redes</h4>
+            <p class="redess"><i class="fa-brands fa-instagram"></i> Goldenlions_2021</p>
+            <p class="redess"><i class="fa-brands fa-square-facebook"></i> Golden_Lions</p>
+        </div>
+        
+        <div>
+            <h4 class="redess">Contactos</h4>
+            <p class="redess"><i class="fa-solid fa-phone"></i> 30215187</p>
+            <p class="redess"><i class="fa-solid fa-phone"></i> 3589212</p>
+        </div>
+
+        <div>
+            <h4 class="redess">Ubicación</h4>
+            <p class="redess"><i class="fa-solid fa-location-dot"></i> Santa Maria del Lago</p>
+            <p class="redess"> Cl. 73 A 74a 1</p>
+        </div>
+    </footer>
     
 </body>
 </html>
