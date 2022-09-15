@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <title>BITACORA GOLDEN LIONS</title>
+</head>
+<body>
+
+    <div class="contepadre">
+
+        <div class="contenedort">
+            <table>
+                <thead>
+                    <th>Id Bitacora</th>
+                    <th>Observaciones Bitacora</th>
+                    <th>Cantidad Implementos Usados</th>
+                    <th>Fecha Bitacora</th>
+                    <th>Estado Bitacora</th>
+                    <th>Acciones</th>
+                </thead>
+            
+                <tbody>
+                    <tr th:if="${bitacoras.size()>0}" th:each="b:${bitacoras}">
+                        <td th:text="${b.id}"></td>
+                        <td th:text="${b.observacionesBitacora}"></td>
+                        <td th:text="${b.cantidadImplementosUsados}"></td>
+                        <td th:text="${b.fechaBitacora}"></td>
+                        <td th:text="${b.estadoBitacora}"></td>
+                        <td></td>
+                        <td>
+                            <a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-outline-secondary"
+                            onclick="return confirm('¿Estás seguro que deseas actualizar la Bitacora?')" >Editar</a> 
+    
+                            <br>
+                            
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/bitacora/delete/} + ${b.id}" 
+                            onclick="return confirm('¿Estas seguro de eliminar la Bitacora?');">Eliminar</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="regresar">     
+            <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Implemento</title>
+</head>
+<body>
+
+    <h1>Formulario Implemento</h1>
+    <div class="contenedorc">    
+        <form th:action="@{/implemento/add}" th:object="${implemento}" method="post" class="col s12">
+                    
+            <div class="contef">
+                <label for="tipo">Tipo Implemento</label>
+                <input type="text" class="validate" id="tipo" th:field="*{tipoImplemento}" required minlength="5" maxlength="10">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('tipoImplemento')}" th:errors="*{tipoImplemento}"></div>
+            </div> 
+            
+            <div>
+                <label for="nombre">Nombre Implemento</label>
+                <input type="text" class="validate" id="nombre" th:field="*{nombreImplemento}" required minlength="5" maxlength="10">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreImplemento')}" th:errors="*{nombreImplemento}"></div>
+            </div> 
+
+            <div>
+                <label for="tamano">Tamaño Implemento</label>
+                <input type="number" class="validate" id="tamano" th:field="*{tamanoImplemento}" required minlength="1" maxlength="2">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('tamanoImplemento')}" th:errors="*{tamanoImplemento}"></div>
+            </div>
+            
+            <div>
+                <label for="peso">Peso Implemento</label>
+                <input type="text" class="validate" id="peso" th:field="*{pesoImplemento}" required minlength="1" maxlength="2">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('pesoImplemento')}" th:errors="*{pesoImplemento}"></div>
+            </div>
+
+            <div>
+                <label for="cantidad">Cantidad Implemento</label>
+                <input type="text" class="validate" id="cantidad" th:field="*{cantidadImplemento}" required minlength="1" maxlength="2">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplemento')}" th:errors="*{cantidadImplemento}"></div>
+            </div>
+
+            <div>
+                <label for="funcion">Funcion Implemento</label>
+                <input type="text" class="validate" id="funcion" th:field="*{funcionImplemento}" required minlength="10" maxlength="15">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('funcionImplemento')}" th:errors="*{funcionImplemento}"></div>
+            </div>
+
+            <div>
+                <label for="observaciones">observaciones Implemento</label>
+                <input type="text" class="validate" id="observaciones" th:field="*{observacionesImplemento}" required minlength="10" maxlength="15">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesImplemento')}" th:errors="*{observacionesImplemento}"></div>
+            </div>
+
+            <div>
+                <label for="estado">Estado Implemento</label>
+                <input type="text" class="validate" id="estado" th:field="*{estadoImplemento}" required minlength="5" maxlength="10">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoImplemento')}" th:errors="*{estadoImplemento}"></div>
+            </div>
+            
+            <div class="guardarc"> 
+                <button type="submit" class="btn btn-outline-dark">Guardar</button>
+            </div>
+        </form>        
+    </div>       
+    
+    <div class="regresar">     
+        <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+    </div>
+    
+</body>
+</html>
