@@ -24,7 +24,7 @@ public class Empleado {
     @Column(name ="direccionEmpleado", length=80)
     private String direccionEmpleado;
 
-    @Column(name ="telefonoEmpleado")
+    @Column(name ="telefonoEmpleado", length=10)
     private Integer telefonoEmpleado;
 
     @Column(name ="estadoEmpleado", length=10)

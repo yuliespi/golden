@@ -29,6 +29,7 @@ public class ActividadController {
 
     @GetMapping(path={"/listas"})
     public String listar(Model a){
+        a.addAttribute("actividad", new Actividad());
     a.addAttribute("actividades", actividadg.findAll());
         return "views/actividades/listas";
     }
@@ -50,11 +51,12 @@ public class ActividadController {
         return "redirect:listas";
     }  
 
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    @GetMapping("/deleteA/{id}")
+    public String deleteA(@PathVariable Integer id) {
         if(id > 0){
             actividadg.delete(id);
         }
+
         return "redirect:../listas";
     }
 
@@ -69,5 +71,5 @@ public class ActividadController {
         a.addAttribute("actividad" ,actividad);
         a.addAttribute("accion", "Actualizar la actividad");
         return "views/actividades/form";
-    }    
+    }  
 }

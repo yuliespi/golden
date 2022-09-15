@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+}
+
+body{
+    background-color: #f5f1f1;
+}
+
+nav {
+    background-color: #F67F11;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.logo img{
+    width: 60px;
+}
+
+/**************INDEX****************/
+
+.container{
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/**************FOOTER****************/
+.redess{
+    color: #fff;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.redess h4{
+    text-align: center;
+    color: #fff;
+}
+
+footer{
+    margin-top: 50px;
+    width: 100%;
+    align-items: center;
+    background-color: #F67F11;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/**************LISTAR CARGO****************/
+
+.barrabusqueda{
+    float: left;
+}
+
+.barrabusqueda input{
+    width: 350px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid #000;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    background-color: rgba(255, 255, 255, 0.39);
+}
+
+.barrabusqueda button{
+    border: none;
+    background-color: #B9AE4C;
+    border-radius: 3px;
+    height: 28px;
+}
+
+.barrabusqueda i{
+    font-size: 15px;
+}
+
+.contenedort{
+    justify-content: center;
+    margin: 80px 150px;
+}
+
+.contenedort th, td{
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+/**************FORMULARIO CARGO****************/
+
+.tituloformcargo{
+    text-align: center;
+}
+
+.contenedorc{
+    width: 600px;
+    margin: 40px 420px;
+    padding: 10px;
+}
+.contenedorc .form-control{
+    width: 300px;
+    height: 30px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.guardarc{
+margin-left: 180px;
+margin-top: 20px;
+}
+
+.regresar{
+    margin: 0px 50px;
+}
+
+/**********VISTA ACTIVIDAD**************/
+
+.botonregistrar{
+    float: right;
+    margin-top: 20px;
+    margin-right: 80px;
+}
+
+.contenedorA{
+    justify-content: center;
+    margin: 80px 300px;
+}
+
+.contenedorA th, td{
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #000;
+} 

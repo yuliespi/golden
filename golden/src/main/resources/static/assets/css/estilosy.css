@@ -7,7 +7,23 @@
     width: 80%;
     margin-left: 11rem;
     margin-top: 5rem;
+
 }
+
+.contenedorb{
+    justify-content: center;
+    margin: 80px 150px;
+}
+
+.contenedorb th, td{
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+
+
+
 
 .btnbregresar{
     margin: 2rem;
@@ -17,6 +33,11 @@
     float: right;
     margin: 2rem;
     width: 15rem;
+}
+
+.logo img{
+    width: 200px;
+    margin-right: 20px;
 }
 
 /*Bitacora formulario*/

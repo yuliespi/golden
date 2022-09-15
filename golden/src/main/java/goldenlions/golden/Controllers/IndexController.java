@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
 
-    @GetMapping(path = {"/","","/index","/home"})
+    @GetMapping(path = {"/index","/home"})
     public String index(Model b){
         return "index";
     }
 
-    @GetMapping("/login")
-    public String login(){
+    @GetMapping(path = {"/","","/login"})
+    public String login(Model b){
         return "login";
     }
+
 }

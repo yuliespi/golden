@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <link rel="stylesheet" th:href="@{../assets/css/estilosN.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b72f550c62.js" crossorigin="anonymous"></script>
     <title>EMPLEADO GOLDEN LIONS</title>
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="logo">
+            <img th:src="@{/assets/img/logo/goldenhorizontal.png}">
+          </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="contepadre">
 
@@ -33,7 +52,7 @@
                         <td th:text="${e.estadoEmpleado}"></td>
                         <td></td>
                         <td>
-                            <a role="button" th:href="@{/empleado/actualizarE/} + ${e.id}" class="btn btn-outline-secondary"
+                            <a role="button" th:href="@{/empleado/actualizarE/} + ${e.id}" class="btn btn-outline-success"
                             onclick="return confirm('¿Estás seguro que deseas actualizar el Empleado?')" >Editar</a> 
     
                             <br>
@@ -49,8 +68,27 @@
         <div class="regresar">     
             <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
         </div>
-        
     </div>
     
+    <footer>
+        <div>
+            <h4 class="redess">Redes</h4>
+            <p class="redess"><i class="fa-brands fa-instagram"></i> Goldenlions_2021</p>
+            <p class="redess"><i class="fa-brands fa-square-facebook"></i> Golden_Lions</p>
+        </div>
+        
+        <div>
+            <h4 class="redess">Contactos</h4>
+            <p class="redess"><i class="fa-solid fa-phone"></i> 30215187</p>
+            <p class="redess"><i class="fa-solid fa-phone"></i> 3589212</p>
+        </div>
+
+        <div>
+            <h4 class="redess">Ubicación</h4>
+            <p class="redess"><i class="fa-solid fa-location-dot"></i> Santa Maria del Lago</p>
+            <p class="redess"> Cl. 73 A 74a 1</p>
+        </div>
+    </footer>
+
 </body>
 </html>

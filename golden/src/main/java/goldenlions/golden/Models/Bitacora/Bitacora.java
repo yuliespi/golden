@@ -18,7 +18,7 @@ public class Bitacora {
     @Column(name ="observacionesBitacora", length=80)
     private String observacionesBitacora;
 
-    @Column(name ="cantidadImplementosUsados")
+    @Column(name ="cantidadImplementosUsados", length=3)
     private Integer cantidadImplementosUsados;
 
     @Column(name ="fechaBitacora", length=10)

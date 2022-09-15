@@ -12,7 +12,7 @@
 <body class="bodyB">
     <nav class="navbar navbar-expand-lg">
         <div class="logo">
-            <img src="../../../static/assets/img/logo/goldenhorizontal.png">
+            <img th:src="@{/assets/img/logo/goldenhorizontal.png}">
           </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,7 +35,7 @@
             <div class="form-group row">
                 <label for="obserBitacora" class="col-sm-2 col-form-label">Observación Bitacora</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="obserBitacora" th:field="*{observacionesBitacora}" required>
+                  <input type="text" class="form-control" id="obserBitacora" th:field="*{observacionesBitacora}" onkeypress="return sololetras(event)" required minlength="10" maxlength="15">
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
               <div class="form-group row">
                 <label for="cantidadImplementosUsados" class="col-sm-2 col-form-label">Cantidad Implementos Usados</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" required>
+                  <input type="number" class="form-control" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="2">
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
                 </div>
               </div>
@@ -60,7 +60,7 @@
               <div class="form-group row">
                 <label for="fechaBitacora" class="col-sm-2 col-form-label">Fecha Bitacora</label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" id="fechaBitacora" th:field="*{fechaBitacora}" min="2020-01-01" max="2040-01-01"required>
+                  <input type="date" class="form-control" id="fechaBitacora" th:field="*{fechaBitacora}" min="2020-01-01" max="2040-01-01" required>
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
                 </div>
               </div>
@@ -74,13 +74,14 @@
                 </select>
             </div><br>
 
-              <div class="form-group row">
-                <label for="estadoBitacora" class="col-sm-2 col-form-label">Estado Bitacora</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="estadoBitacora" th:field="*{estadoBitacora}" required>
-                  <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
-                </div>
+            <div class="form-group row">
+              <label for="estadoB" class="col-sm-2 col-form-label">Estado</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="estadoB" th:field="*{estadoBitacora}" required>
+                <small id="estadoC" class="form-text text-muted">Ingrese si es Activa o Inactiva</small>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
               </div>
+          </div> 
             
             <div class="guardarb"> 
                 <button type="submit" class="btn btn-outline-dark">Guardar</button>
@@ -111,6 +112,69 @@
             <p class="redess"> Cl. 73 A 74a 1</p>
         </div>
     </footer>
+
+    <script>
+      //SOLO NUMEROS INPUT//
+      function solonumeros(e){
+          key=e.keyCode || e.which;
+          teclado=String.fromCharCode(key);
+          numeros="0123456789";
+          especiales="8-37-38-46";
+          teclado_especial=false;
+
+      for(var i in especiales){
+          if(key==especiales[i]){
+              teclado_especial=true
+          }
+      }
+
+      if(numeros.indexOf(teclado)==-1 && !teclado_especial){
+          return false;
+      }
+
+      }
+
+      //SOLO LETRAS INPUT//
+      function sololetras(e){
+          key=e.keyCode || e.which;
+          teclado=String.fromCharCode(key).toLowerCase();
+          letras=" abcdefghijklmnñopqrstuvwxyz";
+          especiales="8-37-38-46-164";
+          teclado_especial=false;
+
+      for(var i in especiales){
+          if(key==especiales[i]){
+              teclado_especial=true;break;
+          }
+      }
+
+      if(letras.indexOf(teclado)==-1 && !teclado_especial){
+          return false;
+      }
+
+      }
+
+      //SOLO LETRAS Y NUM INPUT//
+      function sololetrasynum(e){
+          key=e.keyCode || e.which;
+          teclado=String.fromCharCode(key).toLowerCase();
+          letrasynum=" abcdefghijklmnñopqrstuvwxyz0123456789#-/";
+          especiales="8-37-38-46-164";
+          teclado_especial=false;
+
+      for(var i in especiales){
+          if(key==especiales[i]){
+              teclado_especial=true;break;
+          }
+      }
+
+      if(letrasynum.indexOf(teclado)==-1 && !teclado_especial){
+          return false;
+      }
+
+      }
+      
+  </script>
     
 </body>
 </html>

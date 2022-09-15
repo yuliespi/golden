@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Login Golden Lions</title>
@@ -17,24 +17,25 @@
       <body>
       <!-- partial:index.partial.html -->
       <div class="wrapper">
-        <form class="login">
+        <form th:action="@{index}" class="login">
           
           <img src="assets/img/logo/golden_logo_negro-removebg-preview.png" class="logologin">
           
           <p class="titlee">Inicio Sesión</p>
           
-          <input type="email" placeholder="Usuario o Correo Electronico" autofocus required pattern="[A-Za-z0-9]+"/>
+          <input type="email" placeholder="Usuario o Correo Electronico" autofocus/>
             <i class="fa fa-user"></i>
-          <input type="password" placeholder="Contraseña" required/>
+          <input type="password" placeholder="Contraseña"/>
           
           <i class="fa fa-key"></i>
           
           <a href="#">Olvido su contraseña?</a>
-          
+
+          <a  class="letralogin">
           <button>
             <i class="spinner"></i>
             <span class="state">Ingresar</span>
-          </button>
+          </button></a>
         </form>
         
         <footer></footer>

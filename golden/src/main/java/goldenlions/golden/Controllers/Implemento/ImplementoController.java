@@ -13,6 +13,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import goldenlions.golden.Models.Implemento.Implemento;
 import goldenlions.golden.Service.Implemento.IImplementoService;
+import goldenlions.golden.Service.Categoria.ICategoriaService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -23,22 +24,31 @@ public class ImplementoController {
     @Autowired
     private IImplementoService implementog;
 
+    @Autowired
+    private ICategoriaService categoria;
+
+
+
     @GetMapping(path={"/listas"})
     public String listar(Model i){
-    i.addAttribute("implementos", implementog.findAll());
+        i.addAttribute("implementos", implementog.findAll());
+        i.addAttribute("categoria", categoria.findAll());
         return "views/implementos/listas";
     }
 
     @GetMapping("/form")     
     public String form(Model i){
-    Implemento implemento=new Implemento();
-    i.addAttribute("implemento", implemento);
+        Implemento implemento=new Implemento();
+        i.addAttribute("implemento", implemento);
+        i.addAttribute("categoria", categoria.findAll());
         return "views/implementos/form";
     }
 
     @PostMapping("/add")
     public String add(@Valid Implemento implemento,BindingResult res, Model i,SessionStatus status){
     if(res.hasErrors()){
+        i.addAttribute("categoria", categoria.findAll());
+        i.addAttribute("implemento", implemento);
         return "views/implementos/form";
     }   
     implementog.save(implemento);
@@ -50,6 +60,7 @@ public class ImplementoController {
     public String actualizarI(@PathVariable Integer id,Model i){
         Implemento implemento=null;
         if(id>0){
+            i.addAttribute("categoria", categoria.findAll());
             implemento=implementog.findOne(id);
         }else{
             return "views/implementos/form";
