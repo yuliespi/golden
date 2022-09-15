@@ -21,7 +21,7 @@
 
             <div class="contef">
                 <label for="fechaActi">Fecha Actividad</label>
-                <input type="date" class="validate" id="tipoActi" th:field="*{fechaActividad}" required>
+                <input type="date" class="validate" id="tipoActi" th:field="*{fechaActividad}" min="2020-01-01" max="2040-01-01" required>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaActividad')}" th:errors="*{fechaActividad}"></div>
             </div> 
 

@@ -60,7 +60,7 @@
               <div class="form-group row">
                 <label for="fechaBitacora" class="col-sm-2 col-form-label">Fecha Bitacora</label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" id="fechaBitacora" th:field="*{fechaBitacora}" required>
+                  <input type="date" class="form-control" id="fechaBitacora" th:field="*{fechaBitacora}" min="2020-01-01" max="2040-01-01"required>
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
                 </div>
               </div>
