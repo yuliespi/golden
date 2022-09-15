@@ -27,7 +27,7 @@
             
                 <tbody>
                     <tr th:if="${implementos.size()>0}" th:each="i:${implementos}">
-                        <td th:text="${i.idImplemento}"></td>
+                        <td th:text="${i.id}"></td>
                         <td th:text="${i.tipoImplemento}"></td>
                         <td th:text="${i.nombreImplemento}"></td>
                         <td th:text="${i.tamanoImplemento}"></td>
@@ -38,12 +38,12 @@
                         <td th:text="${i.estadoImplemento}"></td>
                         <td></td>
                         <td>
-                            <a role="button" th:href="@{/implemento/actualizarI/} + ${i.idImplemento}" class="btn btn-outline-secondary"
+                            <a role="button" th:href="@{/implemento/actualizarI/} + ${i.id}" class="btn btn-outline-secondary"
                             onclick="return confirm('¿Estás seguro que deseas actualizar el Implemento?')" >Editar</a> 
     
                             <br>
                             
-                            <a role="button" class="btn btn-outline-danger" th:href="@{/implemento/delete/} + ${i.idImplemento}" 
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/implemento/delete/} + ${i.id}" 
                             onclick="return confirm('¿Estas seguro de eliminar el Implemento?');">Eliminar</a> 
                         </td>
                     </tr>

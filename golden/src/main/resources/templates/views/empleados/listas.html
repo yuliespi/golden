@@ -25,7 +25,7 @@
             
                 <tbody>
                     <tr th:if="${empleados.size()>0}" th:each="e:${empleados}">
-                        <td th:text="${e.idEmpleado}"></td>
+                        <td th:text="${e.id}"></td>
                         <td th:text="${e.nombreEmpleado}"></td>
                         <td th:text="${e.apellidoEmpleado}"></td>
                         <td th:text="${e.direccionEmpleado}"></td>
@@ -33,12 +33,12 @@
                         <td th:text="${e.estadoEmpleado}"></td>
                         <td></td>
                         <td>
-                            <a role="button" th:href="@{/empleado/actualizarE/} + ${e.idEmpleado}" class="btn btn-outline-secondary"
+                            <a role="button" th:href="@{/empleado/actualizarE/} + ${e.id}" class="btn btn-outline-secondary"
                             onclick="return confirm('¿Estás seguro que deseas actualizar el Empleado?')" >Editar</a> 
     
                             <br>
                             
-                            <a role="button" class="btn btn-outline-danger" th:href="@{/empleado/delete/} + ${e.idEmpleado}" 
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/empleado/delete/} + ${e.id}" 
                             onclick="return confirm('¿Estas seguro de eliminar el Empleado?');">Eliminar</a> 
                         </td>
                     </tr>

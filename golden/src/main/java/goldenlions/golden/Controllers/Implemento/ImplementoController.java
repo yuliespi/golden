@@ -46,11 +46,11 @@ public class ImplementoController {
         return "redirect:listas";
     } 
     
-    @GetMapping("/actualizarI/{idImplemento}")
-    public String actualizarI(@PathVariable Integer idImplemento,Model i){
+    @GetMapping("/actualizarI/{id}")
+    public String actualizarI(@PathVariable Integer id,Model i){
         Implemento implemento=null;
-        if(idImplemento>0){
-            implemento=implementog.findOne(idImplemento);
+        if(id>0){
+            implemento=implementog.findOne(id);
         }else{
             return "views/implementos/form";
         }
@@ -60,10 +60,10 @@ public class ImplementoController {
     }
 
     @GetMapping("/delete/{idImplemento}")
-    public String delete(@PathVariable Integer idImplemento){
+    public String delete(@PathVariable Integer id){
     
-        if(idImplemento > 0){
-            implementog.delete(idImplemento);
+        if(id > 0){
+            implementog.delete(id);
         }
         return "redirect:../listas";
     }

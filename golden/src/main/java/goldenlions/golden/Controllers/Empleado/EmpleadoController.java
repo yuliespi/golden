@@ -49,19 +49,19 @@ public class EmpleadoController {
         return "redirect:listas";
     }  
 
-    @GetMapping("/deleteE/{idEmpleado}")
-    public String deleteE(@PathVariable Integer idEmpleado) {
-        if(idEmpleado > 0){
-            empleadog.delete(idEmpleado);
+    @GetMapping("/deleteE/{id}")
+    public String deleteE(@PathVariable Integer id) {
+        if(id > 0){
+            empleadog.delete(id);
         }
         return "redirect:../listas";
     }
 
-    @GetMapping("/actualizarE/{idEmpleado}")
-    public String actualizarE(@PathVariable Integer idEmpleado,Model a){
+    @GetMapping("/actualizarE/{id}")
+    public String actualizarE(@PathVariable Integer id,Model a){
         Empleado empleado=null;
-        if(idEmpleado>0){
-            empleado=empleadog.findOne(idEmpleado);
+        if(id>0){
+            empleado=empleadog.findOne(id);
         }else{
             return "redirect:listas";
         }

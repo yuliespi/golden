@@ -40,6 +40,15 @@
                 </div>
               </div>
 
+              <div class="selectActividad">
+                <label value="">Nombre del implemento</label>
+                  <select th:field="*{Implemento}" class="custom-select">
+                    <th:block th:each="b:${implemento}">
+                        <option th:text="${b.nombreImplemento}" th:value="${b.id}"></option>
+                    </th:block>
+                </select>
+            </div><br>
+
               <div class="form-group row">
                 <label for="cantidadImplementosUsados" class="col-sm-2 col-form-label">Cantidad Implementos Usados</label>
                 <div class="col-sm-10">
@@ -55,6 +64,15 @@
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
                 </div>
               </div>
+
+              <div class="selectActividad">
+                <label value="">Seleccione la actividad</label>
+                  <select th:field="*{Actividad}" class="custom-select">
+                    <th:block th:each="b:${actividad}">
+                        <option th:text="${b.tipoActividad}" th:value="${b.id}"></option>
+                    </th:block>
+                </select>
+            </div><br>
 
               <div class="form-group row">
                 <label for="estadoBitacora" class="col-sm-2 col-form-label">Estado Bitacora</label>

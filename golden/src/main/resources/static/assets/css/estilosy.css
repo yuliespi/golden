@@ -47,6 +47,25 @@
     margin-top: 3rem;
     margin-left: 25rem;
 }
+#inputselect{
+    width: 50%;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    border-radius: 0.3rem;
+    border:1px solid rgba(73, 72, 72, 0.349);
+}
+
+.selectActividad select{
+    width: 50%;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 6.6rem;
+    border-radius: 0.3rem;
+    border:1px solid rgba(73, 72, 72, 0.349);
+}
+
+
 
 /*nav*/
 
@@ -71,10 +90,11 @@ nav {
 }
 
 footer{
-    margin-top: 8rem;
+    margin-top: 15rem;
     width: 100%;
     align-items: center;
     background-color: #F67F11;
     display: flex;
     justify-content: space-evenly;
 }
+
