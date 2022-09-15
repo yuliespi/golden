@@ -18,7 +18,7 @@ public class Bitacora {
     @Column(name ="observacionesBitacora", length=80)
     private String observacionesBitacora;
 
-    @Column(name ="cantidadImplementosUsados", length=11)
+    @Column(name ="cantidadImplementosUsados")
     private Integer cantidadImplementosUsados;
 
     @Column(name ="fechaBitacora", length=10)
@@ -36,7 +36,7 @@ public class Bitacora {
 )
 private List<Implemento> Implemento;
 
-// -------------Relacion con Implemento----------------//
+// -------------Relacion con Empleado----------------//
 @ManyToMany(fetch = FetchType.LAZY)
 @JoinTable(
     name = "bitacora_empleado",

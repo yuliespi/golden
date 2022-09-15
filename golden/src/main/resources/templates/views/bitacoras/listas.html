@@ -48,7 +48,9 @@
                     <tr th:if="${bitacoras.size()>0}" th:each="b:${bitacoras}">
                         <td th:text="${b.id}"></td>
                         <td th:text="${b.observacionesBitacora}"></td>
-                        <!--<td th:text="${b.Implemento.nombreImplemento}"></td>-->
+                        <td>
+                            <p th:each="i:${b.Implemento}" th:text="${i.nombreImplemento}"></p>
+                        </td>
                         <td th:text="${b.cantidadImplementosUsados}"></td>
                         <td th:text="${b.fechaBitacora}"></td>
                         <td th:text="${b.estadoBitacora}"></td>

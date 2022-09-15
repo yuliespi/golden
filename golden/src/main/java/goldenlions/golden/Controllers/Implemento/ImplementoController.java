@@ -59,7 +59,7 @@ public class ImplementoController {
         return "views/implementos/form";
     }
 
-    @GetMapping("/delete/{idImplemento}")
+    @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
     
         if(id > 0){
