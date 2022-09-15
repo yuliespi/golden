@@ -49,8 +49,8 @@ public class EmpleadoController {
         return "redirect:listas";
     }  
 
-    @GetMapping("/deleteE/{id}")
-    public String deleteE(@PathVariable Integer id) {
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
         if(id > 0){
             empleadog.delete(id);
         }

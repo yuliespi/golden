@@ -50,8 +50,8 @@ public class ActividadController {
         return "redirect:listas";
     }  
 
-    @GetMapping("/deleteA/{id}")
-    public String deleteA(@PathVariable Integer id) {
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
         if(id > 0){
             actividadg.delete(id);
         }
