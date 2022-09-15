@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIST IMPLEMENTO</title>
+</head>
+<body>
+
+    <div class="contepadre">
+
+        <div class="contenedort">
+            <table>
+                <thead>
+                    <th>Id Implemento</th>
+                    <th>Tipo Implemento</th>
+                    <th>Nombre Implemento</th>
+                    <th>Tamaño Implemento</th>
+                    <th>Peso Implemento</th>
+                    <th>Cantidad Implemento</th>
+                    <th>Función Implemento</th>
+                    <th>Observaciones Implemento</th>
+                    <th>Estado Implemento</th>
+                    <th>Acciones</th>
+                </thead>
+            
+                <tbody>
+                    <tr th:if="${implementos.size()>0}" th:each="i:${implementos}">
+                        <td th:text="${i.id}"></td>
+                        <td th:text="${i.tipoImplemento}"></td>
+                        <td th:text="${i.nombreImplemento}"></td>
+                        <td th:text="${i.tamanoImplemento}"></td>
+                        <td th:text="${i.pesoImplemento}"></td>
+                        <td th:text="${i.cantidadImplemento}"></td>
+                        <td th:text="${i.funcionImplemento}"></td>
+                        <td th:text="${i.observacionesImplemento}"></td>
+                        <td th:text="${i.estadoImplemento}"></td>
+                        <td></td>
+                        <td>
+                            <a role="button" th:href="@{/implemento/actualizarI/} + ${i.id}" class="btn btn-outline-secondary"
+                            onclick="return confirm('¿Estás seguro que deseas actualizar el Implemento?')" >Editar</a> 
+    
+                            <br>
+                            
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/implemento/delete/} + ${i.id}" 
+                            onclick="return confirm('¿Estas seguro de eliminar el Implemento?');">Eliminar</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="regresar">     
+            <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

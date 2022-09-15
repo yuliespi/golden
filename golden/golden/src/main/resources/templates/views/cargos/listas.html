@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/assets/css/estilos.css">
+    <title>LISTAS CARGOS</title>
+</head>
+<body>
+
+    <div class="contepadre">
+
+        <div class="contenedort">
+            <table>
+                <thead>
+                    <th>Id Cargo</th>
+                    <th>Nombre Cargo</th>
+                    <th>Descripción Cargo</th>
+                    <th>Estado Cargo</th>
+                    <th>Acciones</th>
+                </thead>
+            
+                <tbody>
+                    <tr th:if="${cargos.size()>0}" th:each="c:${cargos}">
+                        <td th:text="${c.id}"></td>
+                        <td th:text="${c.nombreCargo}"></td>
+                        <td th:text="${c.descripcionCargo}"></td>
+                        <td th:text="${c.estadoCargo}"></td>
+                        <td></td>
+                        <td>
+                            <a role="button" th:href="@{/cargo/actualizarC/} + ${c.id}" class="btn btn-outline-secondary"
+                            onclick="return confirm('¿Estás seguro que deseas actualizar el Cargo?')" >Editar</a> 
+    
+                            <br>
+                            
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/cargo/delete/} + ${c.id}" 
+                            onclick="return confirm('¿Estas seguro de eliminar el Cargo?');">Eliminar</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="regresar">     
+            <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+        </div>
+    </div>
+</body>
+</html>

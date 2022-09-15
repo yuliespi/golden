@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <link rel="stylesheet" href="@{../../../../../static/assets/css/estilos.css">
+    <title>Formulario Bitacora</title>
+</head>
+<body>
+
+    <h1>Formulario Bitacora</h1>
+    <div class="contenedorc">    
+        <form th:action="@{/bitacora/add}" th:object="${bitacora}" method="post" class="col s12">
+                    
+            <div class="contef">
+                <label for="obserBitacora">Observación Bitacora</label>
+                <input type="text" class="validate" id="obserBitacora" th:field="*{observacionesBitacora}" required minlength="10" maxlength="15">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
+            </div> 
+            
+            <div>
+                <label for="cantidadImplementosUsados">Cantidad Implementos Usados</label>
+                <input type="number" class="validate" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" required minlength="1" maxlength="3">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
+            </div> 
+
+            <div>
+                <label for="fechaBitacora">Fecha Bitacora</label>
+                <input type="date" class="validate" id="fechaBitacora" th:field="*{fechaBitacora}" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
+            </div>
+            
+            <div>
+                <label for="estadoBitacora">Estado Bitacora</label>
+                <input type="text" class="validate" id="estadoBitacora" th:field="*{estadoBitacora}" required minlength="5" maxlength="10">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
+            </div>
+            
+            <div class="guardarc"> 
+                <button type="submit" class="btn btn-outline-dark">Guardar</button>
+            </div>
+        </form>        
+    </div>       
+    
+    <div class="regresar">     
+        <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+    </div>
+    
+</body>
+</html>

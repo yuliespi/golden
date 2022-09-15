@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/assets/css/estilos.css">
+    <title>LISTA ACTIVIDADES</title>
+</head>
+<body>
+
+    <div class="contepadre">
+
+        <div class="contenedort">
+            <table>
+                <thead>
+                    <th>Id Actividad</th>
+                    <th>Tipo Actividad</th>
+                    <th>Fecha Realización Actividad</th>
+                    <th>Descripción Actividad</th>
+                    <th>Acciones</th>
+                </thead>
+            
+                <tbody>
+                    <tr th:if="${actividades.size()>0}" th:each="a:${actividades}">
+                        <td th:text="${a.id}"></td>
+                        <td th:text="${a.tipoActividad}"></td>
+                        <td th:text="${a.fechaActividad}"></td>
+                        <td th:text="${a.descripcionActividad}"></td>
+                        <td></td>
+                        <td>
+                            <a role="button" th:href="@{/actividad/actualizarA/} + ${a.id}" class="btn btn-outline-secondary"
+                            onclick="return confirm('¿Estás seguro que deseas actualizar la Actividad?')" >Editar</a> 
+    
+                            <br>
+                            
+                            <a role="button" class="btn btn-outline-danger" th:href="@{/actividad/delete/} + ${a.id}" 
+                            onclick="return confirm('¿Estas seguro de eliminar la Actividad?');">Eliminar</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="regresar">     
+            <a th:href="@{/index}" class="btn btn-dark">Regresar</a>
+        </div>
+    </div>
+</body>
+</html>
