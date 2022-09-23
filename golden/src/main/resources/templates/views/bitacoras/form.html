@@ -42,12 +42,12 @@
 
               <div class="selectActividad">
                 <label value="">Nombre del implemento</label>
-                  <select th:field="*{Implemento}" class="custom-select">
-                    <th:block th:each="b:${implemento}">
+                <select class="js-example-basic-multiple" th:field="*{Implemento}" name="states[]" multiple="multiple">
+                  <th:block th:each="b:${implemento}">
                         <option th:text="${b.nombreImplemento}" th:value="${b.id}"></option>
                     </th:block>
                 </select>
-            </div><br>
+            </div><br>  
 
               <div class="form-group row">
                 <label for="cantidadImplementosUsados" class="col-sm-2 col-form-label">Cantidad Implementos Usados</label>
@@ -175,6 +175,6 @@
       }
       
   </script>
-    
+    <script src="../../../static/assets/js/bitacora.js"></script>
 </body>
 </html>
