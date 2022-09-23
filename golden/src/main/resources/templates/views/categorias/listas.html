@@ -47,7 +47,12 @@
                         <td th:text="${c.edadCategoria}"></td>
                         <td th:text="${c.cantidadPersonas}"></td>
                         <td th:text="${c.descripcionCategoria}"></td>
-                        <td th:text="${c.estadoCategoria}"></td>
+                        <td th:if="${c.estadoCategoria==true}"> 
+                            <span class="btn btn-outline-success">Activo</span> 
+                        </td> 
+                        <td th:if="${c.estadoCategoria==false}"> 
+                            <span class="btn btn-outline-danger">Inactivo</span> 
+                        </td> 
                         <td>
                             <a role="button" th:href="@{/categoria/actualizarC/} + ${c.id}" class="btn btn-outline-success">Editar</a> 
     

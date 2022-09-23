@@ -67,4 +67,17 @@ public class CategoriaController {
         }
         return "redirect:../listas";
     }
+
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id, Model c){
+        Categoria categoria=null;
+        categoria=categoriag.findOne(id);
+        if(categoria.getEstadoCategoria()==true){
+            categoria.setEstadoCategoria(false);
+        }else if (categoria.getEstadoCategoria()==false){
+            categoria.setEstadoCategoria(true);
+        }
+        categoria.save(categoria);
+        return "redirect:../";
+    }
 }

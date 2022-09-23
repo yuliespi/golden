@@ -24,8 +24,8 @@ public class Bitacora {
     @Column(name ="fechaBitacora", length=10)
     private String fechaBitacora;
 
-    @Column(name ="estadoBitacora", length=10)
-    private String estadoBitacora;
+    @Column(name ="estadoBitacora", nullable=true)
+    private Boolean estadoBitacora;
 
 // -------------Relacion con Implemento----------------//
 @ManyToMany(fetch = FetchType.LAZY)
@@ -58,7 +58,7 @@ private List<Empleado> Empleado;
 
     
     public Bitacora(Integer id, @NotEmpty String observacionesBitacora, Integer cantidadImplementosUsados,
-            String fechaBitacora, String estadoBitacora,
+            String fechaBitacora, Boolean estadoBitacora,
             List<goldenlions.golden.Models.Implemento.Implemento> implemento,
             List<goldenlions.golden.Models.Empleado.Empleado> empleado,
             goldenlions.golden.Models.Actividad.Actividad actividad) {
@@ -106,11 +106,11 @@ private List<Empleado> Empleado;
         this.fechaBitacora = fechaBitacora;
     }
 
-    public String getEstadoBitacora() {
+    public Boolean getEstadoBitacora() {
         return estadoBitacora;
     }
 
-    public void setEstadoBitacora(String estadoBitacora) {
+    public void setEstadoBitacora(Boolean estadoBitacora) {
         this.estadoBitacora = estadoBitacora;
     }
 

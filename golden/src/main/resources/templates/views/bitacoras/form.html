@@ -78,12 +78,9 @@
 
             <div class="form-group">
               <label for="estadoB">Estado</label>
-              <select class="form-control" id="estadoB" th:field="*{estadoBitacora}" required>
-                <option>Seleccione una opción</option>
-                <option>Activo</option>
-                <option>Inactivo</option>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
-              </select>
+              <input class="form-check-input" type="checkbox" id="estadoC" checked th:field="*{estadoBitacora}">
+              <label for="estadoC">Activo</label>
+              <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
             </div>
             
             <div class="guardarb"> 

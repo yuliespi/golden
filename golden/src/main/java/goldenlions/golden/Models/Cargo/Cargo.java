@@ -20,8 +20,8 @@ public class Cargo {
     @Column(name ="descripcionCargo", length=50)
     private String descripcionCargo;
 
-    @Column(name ="estadoCargo", length=10)
-    private String estadoCargo;
+    @Column(name ="estadoCargo", nullable=true)
+    private Boolean estadoCargo;
 
     // -------------Relacion con Empleado----------------//
     @OneToMany(mappedBy = "Cargo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -30,7 +30,7 @@ private List<Empleado> Empleado;
     public Cargo() {
     }
 
-    public Cargo(Integer id, @NotEmpty String nombreCargo, String descripcionCargo, String estadoCargo,
+    public Cargo(Integer id, @NotEmpty String nombreCargo, String descripcionCargo, Boolean estadoCargo,
             List<goldenlions.golden.Models.Empleado.Empleado> empleado) {
         this.id = id;
         this.nombreCargo = nombreCargo;
@@ -63,11 +63,11 @@ private List<Empleado> Empleado;
         this.descripcionCargo = descripcionCargo;
     }
 
-    public String getEstadoCargo() {
+    public Boolean getEstadoCargo() {
         return estadoCargo;
     }
 
-    public void setEstadoCargo(String estadoCargo) {
+    public void setEstadoCargo(Boolean estadoCargo) {
         this.estadoCargo = estadoCargo;
     }
 

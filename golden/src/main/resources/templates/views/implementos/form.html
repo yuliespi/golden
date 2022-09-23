@@ -46,19 +46,19 @@
 
             <div>
                 <label for="tamano">Tamaño Implemento</label>
-                <input type="text" class="validate" id="tamano" th:field="*{tamanoImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="3">
+                <input type="number" class="validate" id="tamano" th:field="*{tamanoImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="3">
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('tamanoImplemento')}" th:errors="*{tamanoImplemento}"></div>
             </div>
             
             <div>
                 <label for="peso">Peso Implemento</label>
-                <input type="text" class="validate" id="peso" th:field="*{pesoImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="2">
+                <input type="number" class="validate" id="peso" th:field="*{pesoImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="2">
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('pesoImplemento')}" th:errors="*{pesoImplemento}"></div>
             </div>
 
             <div>
                 <label for="cantidad">Cantidad Implemento</label>
-                <input type="text" class="validate" id="cantidad" th:field="*{cantidadImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="3">
+                <input type="number" class="validate" id="cantidad" th:field="*{cantidadImplemento}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="3">
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplemento')}" th:errors="*{cantidadImplemento}"></div>
             </div>
 
@@ -87,12 +87,9 @@
 
             <div class="form-group">
                 <label for="estadoI">Estado</label>
-                <select class="form-control" id="estadoI" th:field="*{estadoImplemento}">
-                  <option>Seleccione una opcion</option>
-                  <option>Buen estado</option>
-                  <option>Mal estado</option>
+                <input class="form-check-input" type="checkbox" id="estadoI" checked th:field="*{estadoImplemento}">
+                <label for="estadoI">Activo</label>
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoImplemento')}" th:errors="*{estadoImplemento}"></div>
-                </select>
             </div>
             
             <div class="guardarc"> 
