@@ -43,7 +43,7 @@
               <div class="selectActividad">
                 <label value="">Nombre del implemento</label>
                 <select class="js-example-basic-multiple" th:field="*{Implemento}" name="states[]" multiple="multiple">
-                  <th:block th:each="b:${implemento}">
+                  <th:block th:each="b:${implemento}" class="custom-select">
                         <option th:text="${b.nombreImplemento}" th:value="${b.id}"></option>
                     </th:block>
                 </select>
