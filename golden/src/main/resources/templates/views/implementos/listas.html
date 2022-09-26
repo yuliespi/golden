@@ -57,7 +57,14 @@
                         <td th:text="${i.cantidadImplemento}"></td>
                         <td th:text="${i.funcionImplemento}"></td>
                         <td th:text="${i.observacionesImplemento}"></td>
-                        <td th:text="${i.estadoImplemento}"></td>
+                        <td>
+                            <a th:if="${i.estadoImplemento==true}" role="button" class="btn btn-outline-danger" th:href="@{/implemento/estado/} + ${i.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>
+                            
+                            <a th:if="${i.estadoImplemento==false}" role="button" class="btn btn-outline-success" th:href="@{/implemento/estado/} + ${i.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Activar</a>
+                        
+                        </td>
                         <th:block th:each="c:${i.categoria}">
                             <td th:text="${c.id}"></td>
                         <td th:text="${c.descripcionCategoria}"></td>

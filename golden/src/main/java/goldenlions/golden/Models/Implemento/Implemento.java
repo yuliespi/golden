@@ -36,8 +36,8 @@ public class Implemento {
     @Column(name ="observacionesImplemento", length=100)
     private String observacionesImplemento;
 
-    @Column(name ="estadoImplemento", nullable=true)
-    private Boolean estadoImplemento;
+    @Column(name ="estadoImplemento")
+    private Boolean estadoImplemento=true;
 
 // -------------Relacion con Bitacora----------------//
     @ManyToMany(mappedBy = "Implemento", fetch = FetchType.LAZY)

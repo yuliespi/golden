@@ -70,4 +70,17 @@ public class CargoController {
         }
         return "redirect:../listas";
     }
+
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Cargo cargo=new Cargo();
+        cargo=cargog.findOne(id);
+        if(cargo.getEstadoCargo()==true){
+            cargo.setEstadoCargo(false);
+        }else if (cargo.getEstadoCargo()==false){
+            cargo.setEstadoCargo(true);
+        }
+        cargog.save(cargo);
+        return "redirect:../listas";
+    }
 }

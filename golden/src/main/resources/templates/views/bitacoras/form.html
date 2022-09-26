@@ -75,13 +75,6 @@
             </div>
             
             <br>
-
-            <div class="form-group">
-              <label for="estadoB">Estado</label>
-              <input class="form-check-input" type="checkbox" id="estadoC" checked th:field="*{estadoBitacora}">
-              <label for="estadoC">Activo</label>
-              <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
-            </div>
             
             <div class="guardarb"> 
                 <button type="submit" class="btn btn-outline-dark">Guardar</button>

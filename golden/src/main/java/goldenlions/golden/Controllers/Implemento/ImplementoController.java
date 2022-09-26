@@ -78,4 +78,17 @@ public class ImplementoController {
         }
         return "redirect:../listas";
     }
+
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Implemento implemento=new Implemento();
+        implemento=implementog.findOne(id);
+        if(implemento.getEstadoImplemento()==true){
+            implemento.setEstadoImplemento(false);
+        }else if (implemento.getEstadoImplemento()==false){
+            implemento.setEstadoImplemento(true);
+        }
+        implementog.save(implemento);
+        return "redirect:../listas";
+    }
 }

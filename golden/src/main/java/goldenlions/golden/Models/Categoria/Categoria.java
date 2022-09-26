@@ -24,8 +24,8 @@ public class Categoria {
     @Column(name ="descripcionCategoria", length=50)
     private String descripcionCategoria;
 
-    @Column(name ="estadoCategoria", nullable=true)
-    private Boolean estadoCategoria;
+    @Column(name ="estadoCategoria")
+    private Boolean estadoCategoria=true;
 
 // -------------Relacion con Bitacora----------------//
 @ManyToMany(mappedBy = "Categoria", fetch = FetchType.LAZY)
@@ -96,12 +96,5 @@ public List<Implemento> getImplemento() {
 public void setImplemento(List<Implemento> implemento) {
     Implemento = implemento;
 }
-
-
-
-
-public void save(Categoria categoria) {
-}
-
 
 }

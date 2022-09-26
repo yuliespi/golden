@@ -27,8 +27,8 @@ public class Empleado {
     @Column(name ="telefonoEmpleado", length=10)
     private Integer telefonoEmpleado;
 
-    @Column(name ="estadoEmpleado", nullable=true)
-    private Boolean estadoEmpleado;
+    @Column(name ="estadoEmpleado")
+    private Boolean estadoEmpleado=true;
 
     // -------------Relacion con Bitacora----------------//
     @ManyToMany(mappedBy = "Empleado", fetch = FetchType.LAZY)

@@ -49,8 +49,15 @@
                         <td th:text="${e.apellidoEmpleado}"></td>
                         <td th:text="${e.direccionEmpleado}"></td>
                         <td th:text="${e.telefonoEmpleado}"></td>
-                        <td th:text="${e.estadoEmpleado}"></td>
-                        <td></td>
+                        <td >
+                            <a th:if="${e.estadoEmpleado==true}" role="button" class="btn btn-outline-danger" th:href="@{/empleado/estado/} + ${e.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>
+                            
+                            <a th:if="${e.estadoEmpleado==false}" role="button" class="btn btn-outline-success" th:href="@{/empleado/estado/} + ${e.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Activar</a>
+                        
+                        </td>
+                        
                         <td>
                             <a role="button" th:href="@{/empleado/actualizarE/} + ${e.id}" class="btn btn-outline-success"
                             onclick="return confirm('¿Estás seguro que deseas actualizar el Empleado?')" >Editar</a> 

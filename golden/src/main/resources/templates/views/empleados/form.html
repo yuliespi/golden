@@ -56,13 +56,6 @@
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('telefonoEmpleado')}" th:errors="*{telefonoEmpleado}"></div>
             </div> 
 
-            <div class="form-group">
-                <label for="estadoE">Estado</label>
-                <input class="form-check-input" type="checkbox" id="estadoE" checked th:field="*{estadoEmpleado}">
-                <label for="estadoE">Activo</label>
-                  <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoEmpleado')}" th:errors="*{estadoEmpleado}"></div>
-            </div>
-
             <div class="guardarc"> 
                 <button type="submit" class="btn btn-outline-dark">Guardar</button>
             </div>

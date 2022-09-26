@@ -20,8 +20,8 @@ public class Cargo {
     @Column(name ="descripcionCargo", length=50)
     private String descripcionCargo;
 
-    @Column(name ="estadoCargo", nullable=true)
-    private Boolean estadoCargo;
+    @Column(name ="estadoCargo")
+    private Boolean estadoCargo=true;
 
     // -------------Relacion con Empleado----------------//
     @OneToMany(mappedBy = "Cargo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -78,8 +78,4 @@ private List<Empleado> Empleado;
     public void setEmpleado(List<Empleado> empleado) {
         Empleado = empleado;
     }
-
-
-
 }
-

@@ -24,8 +24,8 @@ public class Bitacora {
     @Column(name ="fechaBitacora", length=10)
     private String fechaBitacora;
 
-    @Column(name ="estadoBitacora", nullable=true)
-    private Boolean estadoBitacora;
+    @Column(name ="estadoBitacora")
+    private Boolean estadoBitacora=true;
 
 // -------------Relacion con Implemento----------------//
 @ManyToMany(fetch = FetchType.LAZY)

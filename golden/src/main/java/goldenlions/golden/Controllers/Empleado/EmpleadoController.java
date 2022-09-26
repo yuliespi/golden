@@ -69,4 +69,17 @@ public class EmpleadoController {
         a.addAttribute("accion", "Actualizar el empleado");
         return "views/empleados/form";
     }    
+
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Empleado empleado=new Empleado();
+        empleado=empleadog.findOne(id);
+        if(empleado.getEstadoEmpleado()==true){
+            empleado.setEstadoEmpleado(false);
+        }else if (empleado.getEstadoEmpleado()==false){
+            empleado.setEstadoEmpleado(true);
+        }
+        empleadog.save(empleado);
+        return "redirect:../listas";
+    }
 }

@@ -53,7 +53,14 @@
                         </td>
                         <td th:text="${b.cantidadImplementosUsados}"></td>
                         <td th:text="${b.fechaBitacora}"></td>
-                        <td th:text="${b.estadoBitacora}"></td>
+                        <td>
+                            <a th:if="${b.estadoBitacora==true}" role="button" class="btn btn-outline-danger" th:href="@{/bitacora/estado/} + ${b.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>
+                            
+                            <a th:if="${b.estadoBitacora==false}" role="button" class="btn btn-outline-success" th:href="@{/bitacora/estado/} + ${b.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Activar</a>
+                        </td>
+                        
                         <td th:text="${b.Actividad.tipoActividad}"></td>
                         <td>
                             <a role="button"  th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-outline-success">Editar</a> 
