@@ -28,7 +28,6 @@ public class ImplementoController {
     private ICategoriaService categoria;
 
 
-
     @GetMapping(path={"/listas"})
     public String listar(Model i){
         i.addAttribute("implementos", implementog.findAll());
