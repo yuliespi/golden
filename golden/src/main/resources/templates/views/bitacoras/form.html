@@ -69,10 +69,10 @@
               </div>
 
               <div class="selectActividad">
-                <label value="">Seleccione la actividad</label>
+                <label value="">Seleccione la Fechas de la Actividad</label>
                   <select th:field="*{Actividad}" class="custom-select">
                     <th:block th:each="b:${actividad}">
-                        <option th:text="${b.tipoActividad}" th:value="${b.id}"></option>
+                        <option th:text="${b.fechaActividad}" th:value="${b.id}"></option>
                     </th:block>
                 </select>
             </div><br>

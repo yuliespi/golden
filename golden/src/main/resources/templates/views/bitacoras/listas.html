@@ -40,7 +40,7 @@
                     <th>Cantidad Implementos Usados</th>
                     <th>Fecha Bitacora</th>
                     <th>Estado Bitacora</th>
-                    <th>Actividad</th>
+                    <th> Fecha de Actividad</th>
                     <th>Acciones</th>
                 </thead>
             
@@ -54,7 +54,7 @@
                         <td th:text="${b.cantidadImplementosUsados}"></td>
                         <td th:text="${b.fechaBitacora}"></td>
                         <td th:text="${b.estadoBitacora}"></td>
-                        <td th:text="${b.Actividad.tipoActividad}"></td>
+                        <td th:text="${b.Actividad.fechaActividad}"></td>
                         <td>
                             <a role="button"  th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-outline-success">Editar</a> 
     
