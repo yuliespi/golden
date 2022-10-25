@@ -55,6 +55,15 @@
                 <input type="text" class="validate" id="teleEmpleado" th:field="*{telefonoEmpleado}" onkeypress="return solonumeros(event)" required minlength="7" maxlength="10">
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('telefonoEmpleado')}" th:errors="*{telefonoEmpleado}"></div>
             </div> 
+            
+            <div class="contef">
+                <label value="">Seleccione el cargo</label>
+                  <select th:field="*{Cargo}" class="custom-select">
+                    <th:block th:each="e:${cargo}">
+                        <option th:text="${e.nombreCargo}" th:value="${e.id}"></option>
+                    </th:block>
+                </select>
+            </div>
 
             <div class="guardarc"> 
                 <button type="submit" class="btn btn-outline-dark">Guardar</button>

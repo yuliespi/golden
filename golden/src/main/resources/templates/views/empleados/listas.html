@@ -39,6 +39,7 @@
                     <th>Direccion Empleado</th>
                     <th>Telefono Empleado</th>
                     <th>Estado Empleado</th>
+                    <th>Cargo Empleado</th>
                     <th>Acciones</th>
                 </thead>
             
@@ -49,6 +50,8 @@
                         <td th:text="${e.apellidoEmpleado}"></td>
                         <td th:text="${e.direccionEmpleado}"></td>
                         <td th:text="${e.telefonoEmpleado}"></td>
+                        <td th:text="${e.Cargo.nombreCargo}"></td>
+                        
                         <td >
                             <a th:if="${e.estadoEmpleado==true}" role="button" class="btn btn-outline-danger" th:href="@{/empleado/estado/} + ${e.id}" 
                             onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>

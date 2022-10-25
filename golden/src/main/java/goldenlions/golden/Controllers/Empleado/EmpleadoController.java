@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import goldenlions.golden.Models.Empleado.Empleado;
+import goldenlions.golden.Service.Cargo.ICargoService;
 import goldenlions.golden.Service.Empleado.IEmpleadoService;
 import jakarta.validation.Valid;
 
@@ -25,10 +26,13 @@ public class EmpleadoController {
     @Autowired
     private IEmpleadoService empleadog;
 
+    @Autowired
+    private ICargoService cargog;
 
     @GetMapping(path={"/listas"})
     public String listar(Model a){
     a.addAttribute("empleados", empleadog.findAll());
+    a.addAttribute("cargo", cargog.findAll());
         return "views/empleados/listas";
     }
 
@@ -36,12 +40,14 @@ public class EmpleadoController {
     public String form(Model a){
     Empleado empleado=new Empleado();
     a.addAttribute("empleado", empleado);
+    a.addAttribute("cargo", cargog.findAll());
         return "views/empleados/form";
     }
         
     @PostMapping("/add")
     public String add(@Valid Empleado empleado,BindingResult res, Model a,SessionStatus status){
     if(res.hasErrors()){
+        a.addAttribute("cargo", cargog.findAll());
         return "views/empleados/form";
     }   
     empleadog.save(empleado);
@@ -61,10 +67,12 @@ public class EmpleadoController {
     public String actualizarE(@PathVariable Integer id,Model a){
         Empleado empleado=null;
         if(id>0){
+            a.addAttribute("cargo", cargog.findAll());
             empleado=empleadog.findOne(id);
         }else{
             return "redirect:listas";
         }
+        a.addAttribute("cargo", cargog.findAll());
         a.addAttribute("empleado" ,empleado);
         a.addAttribute("accion", "Actualizar el empleado");
         return "views/empleados/form";
