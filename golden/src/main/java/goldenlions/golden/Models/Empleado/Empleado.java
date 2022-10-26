@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import goldenlions.golden.Models.Bitacora.Bitacora;
 import goldenlions.golden.Models.Cargo.Cargo;
 
@@ -15,19 +16,35 @@ public class Empleado {
     private Integer id;
 
     @NotEmpty
-    @Column(name ="nombreEmpleado", length=50)
+    @Column(length=10)
+    @Size(min = 2, max = 10)
     private String nombreEmpleado;
 
-    @Column(name ="apellidoEmpleado", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 2, max = 10)
     private String apellidoEmpleado;
 
-    @Column(name ="direccionEmpleado", length=80)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 20)
     private String direccionEmpleado;
 
-    @Column(name ="telefonoEmpleado", length=10)
-    private Integer telefonoEmpleado;
+    
+    @NotEmpty
+    @Column(length=20)
+    @Size(min = 10, max = 30)
+    private String correoEmpleado;
 
-    @Column(name ="estadoEmpleado", length=10)
+
+    @NotEmpty
+    @Column(length=20)
+    @Size(min = 10, max = 30)
+    private String telefonoEmpleado;
+
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 10)
     private String estadoEmpleado;
 
     // -------------Relacion con Bitacora----------------//
@@ -42,7 +59,7 @@ public class Empleado {
     }
 
     public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
-            Integer telefonoEmpleado, String estadoEmpleado, List<goldenlions.golden.Models.Bitacora.Bitacora> bitacora,
+            String telefonoEmpleado, String estadoEmpleado, List<goldenlions.golden.Models.Bitacora.Bitacora> bitacora,
             goldenlions.golden.Models.Cargo.Cargo cargo) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
@@ -86,11 +103,11 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
     }
 
-    public Integer getTelefonoEmpleado() {
+    public String getTelefonoEmpleado() {
         return telefonoEmpleado;
     }
 
-    public void setTelefonoEmpleado(Integer telefonoEmpleado) {
+    public void setTelefonoEmpleado(String telefonoEmpleado) {
         this.telefonoEmpleado = telefonoEmpleado;
     }
 
