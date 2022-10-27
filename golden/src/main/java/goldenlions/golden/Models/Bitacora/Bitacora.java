@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import goldenlions.golden.Models.Implemento.Implemento;
 import goldenlions.golden.Models.Actividad.Actividad;
 import goldenlions.golden.Models.Empleado.Empleado;
@@ -14,17 +15,23 @@ public class Bitacora {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotEmpty
-    @Column(name ="observacionesBitacora", length=80)
+
+      @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 15)
     private String observacionesBitacora;
 
-    @Column(name ="cantidadImplementosUsados", length=3)
-    private Integer cantidadImplementosUsados;
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 1, max = 2)
+    private String cantidadImplementosUsados;
 
-    @Column(name ="fechaBitacora", length=10)
+    
     private String fechaBitacora;
 
-    @Column(name ="estadoBitacora", length=10)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 10)
     private String estadoBitacora;
 
 // -------------Relacion con Implemento----------------//
@@ -57,7 +64,7 @@ private List<Empleado> Empleado;
 
 
     
-    public Bitacora(Integer id, @NotEmpty String observacionesBitacora, Integer cantidadImplementosUsados,
+    public Bitacora(Integer id, @NotEmpty String observacionesBitacora, String cantidadImplementosUsados,
             String fechaBitacora, String estadoBitacora,
             List<goldenlions.golden.Models.Implemento.Implemento> implemento,
             List<goldenlions.golden.Models.Empleado.Empleado> empleado,
@@ -90,11 +97,11 @@ private List<Empleado> Empleado;
         this.observacionesBitacora = observacionesBitacora;
     }
 
-    public Integer getCantidadImplementosUsados() {
+    public String getCantidadImplementosUsados() {
         return cantidadImplementosUsados;
     }
 
-    public void setCantidadImplementosUsados(Integer cantidadImplementosUsados) {
+    public void setCantidadImplementosUsados(String cantidadImplementosUsados) {
         this.cantidadImplementosUsados = cantidadImplementosUsados;
     }
 

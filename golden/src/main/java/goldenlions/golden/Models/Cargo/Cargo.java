@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import goldenlions.golden.Models.Empleado.Empleado;
 
 @Entity
@@ -14,13 +15,18 @@ public class Cargo {
     private Integer id;
 
     @NotEmpty
-    @Column(name ="nombreCargo", length=50)
+    @Column(length=50)
+    @Size(min = 5, max = 50)
     private String nombreCargo;
 
-    @Column(name ="descripcionCargo", length=50)
+    @NotEmpty
+    @Column(length=50)
+    @Size(min = 10, max = 30)
     private String descripcionCargo;
 
-    @Column(name ="estadoCargo", length=10)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 10)
     private String estadoCargo;
 
     // -------------Relacion con Empleado----------------//

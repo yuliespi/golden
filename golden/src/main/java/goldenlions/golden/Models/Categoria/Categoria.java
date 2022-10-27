@@ -2,6 +2,7 @@ package goldenlions.golden.Models.Categoria;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -15,16 +16,23 @@ public class Categoria {
     private Integer id;
 
     @NotEmpty
-    @Column(name ="edadCategoria", length=10)
+    @Column(length=11)
+    @Size(min = 2, max = 3)
     private String edadCategoria;
 
-    @Column(name ="cantidadPersonas", length=10)
-    private Integer cantidadPersonas;
+    @NotEmpty
+    @Column(length=11)
+    @Size(min = 1, max = 3)
+    private String cantidadPersonas;
 
-    @Column(name ="descripcionCategoria", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 10, max = 50)
     private String descripcionCategoria;
 
-    @Column(name ="estadoCategoria", length=10)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 10)
     private String estadoCategoria;
 
 // -------------Relacion con Bitacora----------------//
@@ -40,7 +48,7 @@ public Categoria() {
 public Integer getId() {
     return id;
 }
-public Categoria(Integer id, @NotEmpty String edadCategoria, Integer cantidadPersonas, String descripcionCategoria,
+public Categoria(Integer id, @NotEmpty String edadCategoria, String cantidadPersonas, String descripcionCategoria,
         String estadoCategoria, List<goldenlions.golden.Models.Implemento.Implemento> implemento) {
     this.id = id;
     this.edadCategoria = edadCategoria;
@@ -65,11 +73,11 @@ public void setEdadCategoria(String edadCategoria) {
     this.edadCategoria = edadCategoria;
 }
 
-public Integer getCantidadPersonas() {
+public String getCantidadPersonas() {
     return cantidadPersonas;
 }
 
-public void setCantidadPersonas(Integer cantidadPersonas) {
+public void setCantidadPersonas(String cantidadPersonas) {
     this.cantidadPersonas = cantidadPersonas;
 }
 

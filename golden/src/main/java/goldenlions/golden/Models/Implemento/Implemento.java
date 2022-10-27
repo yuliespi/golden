@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import goldenlions.golden.Models.Bitacora.Bitacora;
 import goldenlions.golden.Models.Categoria.Categoria;
 
@@ -15,28 +16,43 @@ public class Implemento {
     private Integer id;
 
     @NotEmpty
-    @Column(name ="tipoImplemento", length=50)
+    @Column(length=50)
+    @Size(min = 8, max = 50)
     private String tipoImplemento;
 
-    @Column(name ="nombreImplemento", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 4, max = 10)
     private String nombreImplemento;
 
-    @Column(name ="tamanoImplemento", length=11)
-    private Integer tamanoImplemento;
+    @NotEmpty
+    @Column(length=11)
+    @Size(min = 1, max = 3)
+    private String tamanoImplemento;
 
-    @Column(name ="pesoImplemento", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 1, max = 10)
     private String pesoImplemento;
 
-    @Column(name ="catidadImplemento", length=11)
-    private Integer cantidadImplemento;
+    @NotEmpty
+    @Column(length=11)
+    @Size(min = 1, max = 3)
+    private String cantidadImplemento;
 
-    @Column(name ="funcionImplemento", length=80)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 20)
     private String funcionImplemento;
 
-    @Column(name ="observacionesImplemento", length=100)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 6, max = 50)
     private String observacionesImplemento;
 
-    @Column(name ="estadoImplemento", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 5, max = 10)
     private String estadoImplemento;
 
 // -------------Relacion con Bitacora----------------//
@@ -55,8 +71,8 @@ private List<Categoria> Categoria;
 public Implemento() {
 }
 
-public Implemento(Integer id, @NotEmpty String tipoImplemento, String nombreImplemento, Integer tamanoImplemento,
-        String pesoImplemento, Integer cantidadImplemento, String funcionImplemento, String observacionesImplemento,
+public Implemento(Integer id, @NotEmpty String tipoImplemento, String nombreImplemento, String tamanoImplemento,
+        String pesoImplemento, String cantidadImplemento, String funcionImplemento, String observacionesImplemento,
         String estadoImplemento, List<goldenlions.golden.Models.Bitacora.Bitacora> bitacora,
         List<goldenlions.golden.Models.Categoria.Categoria> categoria) {
     this.id = id;
@@ -96,11 +112,11 @@ public void setNombreImplemento(String nombreImplemento) {
     this.nombreImplemento = nombreImplemento;
 }
 
-public Integer getTamanoImplemento() {
+public String getTamanoImplemento() {
     return tamanoImplemento;
 }
 
-public void setTamanoImplemento(Integer tamanoImplemento) {
+public void setTamanoImplemento(String tamanoImplemento) {
     this.tamanoImplemento = tamanoImplemento;
 }
 
@@ -112,11 +128,11 @@ public void setPesoImplemento(String pesoImplemento) {
     this.pesoImplemento = pesoImplemento;
 }
 
-public Integer getCantidadImplemento() {
+public String getCantidadImplemento() {
     return cantidadImplemento;
 }
 
-public void setCantidadImplemento(Integer cantidadImplemento) {
+public void setCantidadImplemento(String cantidadImplemento) {
     this.cantidadImplemento = cantidadImplemento;
 }
 

@@ -48,7 +48,19 @@
                 <label for="direcEmpleado">Direccion Empleado</label>
                 <input type="text" class="validate" id="direcEmpleado" th:field="*{direccionEmpleado}" onkeypress="return letrasynum(event)" required >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('direccionEmpleado')}" th:errors="*{direccionEmpleado}"></div>
-            </div> 
+            </div>
+            
+            <div class="contef">
+                <label for="correEmpleado">Correo Empleado</label>
+                <input type="email" class="validate" id="correEmpleado" th:field="*{correoEmpleado}" required >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('correoEmpleado')}" th:errors="*{correoEmpleado}"></div>
+            </div>
+
+            <div class="contef">
+                <label for="contraEmpleado">Contraseña Empleado</label>
+                <input type="password" class="validate" id="contraEmpleado" th:field="*{contrasenaEmpleado}" onkeypress="return solonumeros(event)" required >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('contrasenaEmpleado')}" th:errors="*{contrasenaEmpleado}"></div>
+            </div>
 
             <div class="contef">
                 <label for="teleEmpleado">Telefono Empleado</label>

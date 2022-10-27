@@ -38,8 +38,8 @@
             <div class="form-group row">
                 <label for="obserBitacora" class="col-sm-2 col-form-label">Observación Bitacora</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="obserBitacora" th:field="*{observacionesBitacora}" onkeypress="return sololetras(event)" required minlength="10" maxlength="15">
-                  <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
+                  <input type="text" class="form-control" id="obserBitacora" th:field="*{observacionesBitacora}" onkeypress="return sololetras(event)" required >
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionesBitacora}"></div>
                 </div>
               </div>
       
@@ -55,7 +55,7 @@
               <div class="form-group row">
                 <label for="cantidadImplementosUsados" class="col-sm-2 col-form-label">Cantidad Implementos Usados</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="2">
+                  <input type="text" class="form-control" id="cantidadImplementosUsados" th:field="*{cantidadImplementosUsados}" onkeypress="return solonumeros(event)" required minlength="1" maxlength="2">
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
                 </div>
               </div>

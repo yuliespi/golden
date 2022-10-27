@@ -27,19 +27,24 @@ public class Empleado {
 
     @NotEmpty
     @Column(length=10)
-    @Size(min = 5, max = 20)
+    @Size(min = 5, max = 30)
     private String direccionEmpleado;
 
     
     @NotEmpty
     @Column(length=20)
-    @Size(min = 10, max = 30)
+    @Size(min = 15, max = 30)
     private String correoEmpleado;
+
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 10, max = 20)
+    private String contrasenaEmpleado;
 
 
     @NotEmpty
-    @Column(length=20)
-    @Size(min = 10, max = 30)
+    @Column(length=10)
+    @Size(min = 8, max = 10)
     private String telefonoEmpleado;
 
     @NotEmpty
@@ -58,13 +63,15 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
-            String telefonoEmpleado, String estadoEmpleado, List<goldenlions.golden.Models.Bitacora.Bitacora> bitacora,
+    public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado, String correoEmpleado,
+    String contrasenaEmpleado, String telefonoEmpleado, String estadoEmpleado, List<goldenlions.golden.Models.Bitacora.Bitacora> bitacora,
             goldenlions.golden.Models.Cargo.Cargo cargo) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
         this.direccionEmpleado = direccionEmpleado;
+        this.correoEmpleado = correoEmpleado;
+        this.contrasenaEmpleado = contrasenaEmpleado;
         this.telefonoEmpleado = telefonoEmpleado;
         this.estadoEmpleado = estadoEmpleado;
         Bitacora = bitacora;
@@ -103,6 +110,22 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
     }
 
+    public String getCorreoEmpleado() {
+        return correoEmpleado;
+    }
+
+    public void setCorreoEmpleado(String correoEmpleado) {
+        this.correoEmpleado = correoEmpleado;
+    }
+
+    public String getContrasenaEmpleado() {
+        return contrasenaEmpleado;
+    }
+
+    public void setContrasenaEmpleado(String contrasenaEmpleado) {
+        this.contrasenaEmpleado = contrasenaEmpleado;
+    }
+
     public String getTelefonoEmpleado() {
         return telefonoEmpleado;
     }
@@ -134,7 +157,6 @@ public class Empleado {
     public void setCargo(Cargo cargo) {
         Cargo = cargo;
     }
-
     
 }
 
