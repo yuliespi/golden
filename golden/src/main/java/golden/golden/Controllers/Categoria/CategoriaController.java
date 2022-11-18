@@ -67,4 +67,9 @@ public class CategoriaController {
         }
         return "redirect:../listas";
     }
+
+    @RequestMapping("/**")
+    public String handleError() {
+        return "/error404";
+    }
 }

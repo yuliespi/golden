@@ -17,5 +17,4 @@ public class IndexController {
     public String login(Model b){
         return "login";
     }
-
 }

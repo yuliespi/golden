@@ -69,4 +69,9 @@ public class EmpleadoController {
         a.addAttribute("accion", "Actualizar el empleado");
         return "views/empleados/form";
     }    
+
+    @RequestMapping("/**")
+    public String handleError() {
+        return "/error404";
+    }
 }

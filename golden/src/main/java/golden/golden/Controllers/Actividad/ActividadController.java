@@ -72,4 +72,9 @@ public class ActividadController {
         a.addAttribute("accion", "Actualizar la actividad");
         return "views/actividades/form";
     }  
+ 
+    @RequestMapping("/**")
+    public String handleError() {
+        return "/error404";
+    }
 }

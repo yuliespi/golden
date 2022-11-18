@@ -78,4 +78,9 @@ public class ImplementoController {
         }
         return "redirect:../listas";
     }
+
+    @RequestMapping("/**")
+    public String handleError() {
+        return "/error404";
+    }
 }

@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+    color: aliceblue;
+}
+
+h1{
+    font-size: 100%;
+    align-items: center;
+    margin: 15%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+h2{
+    margin-left: 5%;
+    margin-top: 25%;
+}
+.balonn{
+    background-image: url(../img/4042.png);
+    background-size: cover;
+    height: 30vh;
+    width: 400px;
+    animation-name: mover;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+
+}
+
+@keyframes mover {
+
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(80%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+    
+}
