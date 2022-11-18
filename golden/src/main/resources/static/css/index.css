@@ -401,16 +401,17 @@ html,body{
 }
 
 .single-slide-item.slide-2 {
-	background-image:url(../img/banner/mysterious-nature-african-american-young-basketball-player-of-red-team-in-action-and-neon-lights-over-dark-studio-background-concept-of-sport-movement-energy-and-dynamic-healthy-lifestyle.jpg);
+	background-image:url(../img/banner/the-comet-young-caucasian-basketball-player-of-red-team-in-action.jpg);
 	position:relative;
 	z-index:1;
 }
 
 .single-slide-item.slide-3 {
-	background-image:url(../img/banner/the-comet-young-caucasian-basketball-player-of-red-team-in-action.jpg);
+	background-image:url(../img/banner/becoming-winner-young-caucasian-basketball-player-of-red-team-in-action.jpg);
 	position:relative;
 	z-index:1;
 }
+
 
 
 .single-slide-item.slide-1:before,.single-slide-item.slide-2:before,.single-slide-item.slide-3:before,.single-slide-item.slide-4:before,.single-slide-item.slide-5:before,

@@ -19,7 +19,7 @@ public class IndexController {
         return "Login";
     }
 
-    @PostMapping(path = {"/menu"})
+    @GetMapping(path = {"/menu"})
     public String menu(Model b){
         return "menuu";
     }
