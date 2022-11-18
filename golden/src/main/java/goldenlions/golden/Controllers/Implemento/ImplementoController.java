@@ -28,19 +28,19 @@ public class ImplementoController {
     private ICategoriaService categoria;
 
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaI"})
     public String listar(Model i){
         i.addAttribute("implementos", implementog.findAll());
         i.addAttribute("categoria", categoria.findAll());
-        return "views/implementos/listas";
+        return "views/Implemento/tableI";
     }
 
-    @GetMapping("/form")     
+    @GetMapping("/formI")     
     public String form(Model i){
         Implemento implemento=new Implemento();
         i.addAttribute("implemento", implemento);
         i.addAttribute("categoria", categoria.findAll());
-        return "views/implementos/form";
+        return "views/Implemento/formI";
     }
 
     @PostMapping("/add")
@@ -48,11 +48,11 @@ public class ImplementoController {
     if(res.hasErrors()){
         i.addAttribute("categoria", categoria.findAll());
         i.addAttribute("implemento", implemento);
-        return "views/implementos/form";
+        return "views/Implemento/formI";
     }   
     implementog.save(implemento);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaI";
     } 
     
     @GetMapping("/actualizarI/{id}")
@@ -62,11 +62,11 @@ public class ImplementoController {
             i.addAttribute("categoria", categoria.findAll());
             implemento=implementog.findOne(id);
         }else{
-            return "views/implementos/form";
+            return "views/Implementos/formI";
         }
         i.addAttribute("implemento" ,implemento);
         i.addAttribute("accion", "Actualizar implemento");
-        return "views/implementos/form";
+        return "views/Implemento/formI";
     }
 
     @GetMapping("/delete/{id}")
@@ -75,6 +75,6 @@ public class ImplementoController {
         if(id > 0){
             implementog.delete(id);
         }
-        return "redirect:../listas";
+        return "redirect:../tablaI";
     }
 }

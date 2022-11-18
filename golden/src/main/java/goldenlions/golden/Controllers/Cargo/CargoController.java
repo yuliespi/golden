@@ -25,28 +25,28 @@ public class CargoController {
     @Autowired
     private ICargoService cargog;
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaC"})
     public String listar(Model c){
     c.addAttribute("cargos", cargog.findAll());
     c.addAttribute("cargo",cargog.findAll());
-        return "views/cargos/listas";
+        return "views/Cargo/tableCA";
     }
 
-    @GetMapping("/form")     
+    @GetMapping("/formC")     
     public String form(Model c){
     Cargo cargo=new Cargo();
     c.addAttribute("cargo", cargo);
-        return "views/cargos/form";
+        return "views/Cargo/formCA";
     }
         
     @PostMapping("/add")
     public String add(@Valid Cargo cargo,BindingResult res, Model c,SessionStatus status){
     if(res.hasErrors()){
-        return "views/cargos/form";
+        return "views/Cargo/formC";
     }   
     cargog.save(cargo);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaC";
     }  
     
     @GetMapping("/actualizarC/{id}")
@@ -55,11 +55,11 @@ public class CargoController {
         if(id>0){
             cargo=cargog.findOne(id);
         }else{
-            return "redirect:listas";
+            return "redirect:tablaC";
         }
         c.addAttribute("cargo" ,cargo);
         c.addAttribute("accion", "Actualizar el cargo");
-        return "views/cargos/form";
+        return "views/Cargo/formC";
     }   
 
     @GetMapping("/delete/{id}")
@@ -68,6 +68,6 @@ public class CargoController {
         if(id > 0){
             cargog.delete(id);
         }
-        return "redirect:../listas";
+        return "redirect:../tablaC";
     }
 }

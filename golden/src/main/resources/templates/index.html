@@ -1,111 +1,659 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/b72f550c62.js" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" th:href="@{assets/css/estilosJ.css}">
-    <title>INDEX</title>
-</head>
-<body>
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="logo">
-          <img th:src="@{/assets/img/logo/goldenhorizontal.png}">
-        </div>
+    <head>
+        <!-- META DATA -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+		
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" th:href="@{/index}">Home</a>
-              </li>
-            </ul>
-        </div>
-    </nav>
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-    <div class="container"> 
-        <div>
-            <a th:href="@{/actividad/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA ACTIVIDAD</button></a>
-        </div>            
-   
-        <br>
+		<!-- Favicons -->
+		<link rel="icon" type="image/icon" th:href="@{/img/buscador.ico}"> 
 
-        <div>
-            <a th:href="@{/bitacora/form}"><button type="button" class="btn btn-outline-dark">FORMULARIO BITACORA</button></a>
+		
+        <!-- TITLE OF SITE -->
+        <title>Log Blog</title>
 
-            <br>
+        <!-- for title img -->
+		<!-- <link rel="shortcut icon" type="image/icon" th:href="@{/img/logo/lgol.png}"/> -->
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+		
+		<!--linear icon css-->
+		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+		
+		<!--animate.css-->
+        <link rel="stylesheet" th:href="@{/css/animate.css}">
 
-            <a th:href="@{/bitacora/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA</button></a>
-        </div>            
+		
+		<!--hover.css-->
+        <link rel="stylesheet" th:href="@{/css/hover-min.css}">
+		
+		<!--vedio player css-->
+        <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
 
-        <br>
+		<!--owl.carousel.css-->
+        <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+		<link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet"/>
+
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		
+		<!-- bootsnav -->
+		<link th:href="@{/css/bootsnav.css}" rel="stylesheet"/>	
         
-        <div>
-            <a th:href="@{/cargo/form}"><button type="button" class="btn btn-outline-dark">FORMULARIO CARGO</button></a>
-
-            <br>
-
-            <a th:href="@{/cargo/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA CARGO</button></BITACORA></a>
-        </div>            
-
-        <br>
+        <!--style.css-->
+        <link rel="stylesheet" th:href="@{/css/index.css}">
         
-        <div>
-            <a th:href="@{/categoria/form}"><button type="button" class="btn btn-outline-dark">FORMULARIO CATEGORIA</button></a>
+        <!--responsive.css-->
+        <link rel="stylesheet" th:href="@{/css/responsive.css}">
 
-            <br>
+    </head>
+	
+	<body>
 
-            <a th:href="@{/categoria/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA CATEGORIA</button></a>
-        </div>            
+		</section><!--/.header-->	
+		<!--header end-->
+		
+		<!--menu start-->
+		<section id="menu">
+			<div class="container">
+				<div class="menubar">
+					<nav class="navbar navbar-default">
+					
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button> -->
+							<a class="navbar-brand" th:href="index.html">
+								<img th:src="@{/img/logo/logocompletofondooscuro.png}" alt="logo" width="180">
+							</a>
+						</div><!--/.navbar-header -->
 
-        <br>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a href="#0i">Inicio</a></li>
+								<li class="hoverr"><a href="#1a">Acerca De</a></li>
+								<li class="hoverr"><a href="#2m">Módulos</a></li>
+								<li class="hoverr"><a href="#3f">Funcionalidades</a></li>
+								<li class="hoverr"><a href="#4v">Ventajas</a></li>
+								<li class="hoverr"><a href="#5c">Contacto</a></li>
+								<li class="hoverr"><a th:href="@{/login}">Iniciar Sesión</a></li>
+							</ul><!-- / ul -->
+						</div><!-- /.navbar-collapse -->
+					</nav><!--/nav -->
+				</div><!--/.menubar -->
+			</div><!-- /.container -->
 
-        <div>
-            <a th:href="@{/empleado/form}"><button type="button" class="btn btn-outline-dark">FORMULARIO EMPLEADO</button></a>
+		</section><!--/#menu-->
+		<!--menu end-->
+		
+		<!-- header-slider-area start -->
+		<section class="header-slider-area" id="0i">
+			<div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+			
+			  <!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				</ol>
 
-            <br>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<div class="single-slide-item slide-1">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="single-slide-item-content">
+											<h2>Golden Lions</h2>
+											<p>
+                                              Bitácora de entrenamientos, campeonatos y torneos.
+											</p>
+										</div><!-- /.single-slide-item-content-->
+									</div><!-- /.col-->
+								</div><!-- /.row-->
+							</div><!-- /.container-->
+						</div><!-- /.single-slide-item-->
+					</div><!-- /.item .active-->
+					
+					<div class="item">
+						<div class="single-slide-item slide-2">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="single-slide-item-content">
+											<h2>Club Deportivo</h2>
+											<p>
+											  Enfocado en la diciplina, respeto y amor por el deporte.
+											</p>
+										</div><!-- /.single-slide-item-content-->
+									
+									</div><!-- /.col-->
+								</div><!-- /.row-->
+							</div><!-- /.container-->
+						</div><!-- /.single-slide-item-->
+					</div><!-- /.item .active-->
 
-            <a th:href="@{/empleado/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA EMPLEADO</button></a>
-        </div>            
+					<div class="item">
+						<div class="single-slide-item slide-3">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="single-slide-item-content">
+											<h2>Golden Lions</h2>
+											<p>
+											   Cumple tu sueño y conviertete en un profesional paso a paso.
+											</p>
+										</div><!-- /.single-slide-item-content-->
+									
+									</div><!-- /.col-->
+								</div><!-- /.row-->
+							</div><!-- /.container-->
+						</div><!-- /.single-slide-item-->
+					</div><!-- /.item .active-->
+				</div><!-- /.carousel-inner-->
 
-        <br>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="lnr lnr-chevron-left"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="lnr lnr-chevron-right"></span>
+				</a>
+			</div><!-- /.carousel-->
 
-        <div>
-            <a th:href="@{/implemento/form}"><button type="button" class="btn btn-outline-dark">FORMULARIO IMPLEMENTO</button></a>
+		</section><!-- /.header-slider-area-->
+		<!-- header-slider-area end -->
+		
 
-            <br>
+		<!--about-us start -->
+		<section class="about-us" id="1a">
+			<div class="container">
+				<div class="about-us-content">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="single-about-us">
+								<div class="about-us-txt">
+									<h2>acerca de</h2>
+									<p>
+										El sistema de información consiste en almacenar los 
+										datos de los implementos que se usan para los entrenamientos,
+										campeonatos y torneos en una bitácora "Digital" de una manera 
+										rápida, segura, sin tanto papeleo y sin el perder u olvidar 
+								        alguna información importante.
+									</p>
+								</div><!--/.about-us-txt-->
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+						<div class="col-sm-6">
+							<div class="single-about-us">
+								<div class="about-us-img">
+									<img th:src="@{/img/about/young-basketball-player-of-team-wearing-sportwear-training-practicing-in-action-motion-in-run-isolated-on-white-background.jpg}" alt="about img">
+								</div><!--/.about-us-img-->
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.about-us-content-->
+			</div><!--/.container-->
 
-            <a th:href="@{/implemento/listas}"><button type="button" class="btn btn-outline-secondary">BITACORA IMPLEMENTO</button></a>
-        </div>            
+		</section><!--/.about-us-->
+		<!--about-us end -->
 
-        <br>
+		<!--Modulos-->
+		<section class="site-section section-services gray-bg text-center" id="2m">
+            <div class="container">
+                <h2 class="heading-separator">módulos a trabajar</h2>
+				<h3 class="heading-separatorr">Bitácora</h3>
+				<p class="service-infoo">Esta permite
+				hacer retroalimentación sobre los distintos procesos que se 
+				llevan a cabo en el club mas fondo en el area de la organización de las herramientas y implementos. Es un instrumento que 
+				posibilita el acompañamiento, asesoría y facilidad al usuario pues ya que permiten hacer estas tareas en un tiempo más corto y rapido. Y sus acciones sé 
+				fundamental en:</p>
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img th:src="@{/img/servicee/lupas.png}">
+                            <h3 class="service-title">1. Consultar Implementos y Herramientas.</h3>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img th:src="@{/img/servicee/registro.png}">
+                            <h3 class="service-title">2. Registrar Implementos y Herramientas.</h3>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img th:src="@{/img/servicee/componer.png}">
+                            <h3 class="service-title">3. Actualizar Implementos y Herramientas.</h3>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img th:src="@{/img/servicee/contenedor-de-basura.png}">
+                            <h3 class="service-title">4. Eliminar Implementos y Herramientas.</h3>
+                        </div><!-- /.service -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-services -->
 
-        <div>
-            <a th:href="@{/login}">LOGIN</a>
-        </div>            
-    </div>
+	
+		<!--service start-->
+		<section  class="service" id="3f">
+				<div class="container">
+					<div class="service-details">
+						<div class="section-header text-center">
+							<h2>funcionalidades</h2>
+						</div><!--/.section-header-->
+						<div class="service-content-one">
+							<div class="row">
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/server.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Recolección de Datos</a>
+											</h2>
+											<p>
+												Recoge la información externa e interna, para evitar 
+												duplicidades e información inútil. 
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/carpeta.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Almacenamiento</a>
+											</h2>
+											<p>
+												Almacena la información para que esta sea accesible 
+												a sus usuarios(Coach y Gerente). 
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/investigar.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Tratamiento de Información</a>
+											</h2>
+											<p>
+												Transforma los datos de la información almacenada en 
+												información significativa.
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+							</div><!--/.row-->
+						</div><!--/.service-content-one-->
+						<div class="service-content-two">
+							<div class="row">
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/usuario.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Distribución y Diseminación</a>
+											</h2>
+											<p>
+												Distribuye a cada uno de los dos usuarios la información 
+												de la bitácora.
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/mantenimiento.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Soporte Informativo</a>
+											</h2>
+											<p>
+												Actualiza el S.I, chequeando el funcionamiento 
+												del hardware y software. 
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+								<div class="col-sm-4 col-xs-12">
+									<div class="service-single text-center">
+										<div class="service-img">
+											<img th:src="@{/img/servicee/recursos-humanos.png}" alt="image of service" />
+										</div><!--/.service-img-->
+										<div class="service-txt">
+											<h2>
+												<a href="#">Recursos Informativos</a>
+											</h2>
+											<p>
+												Ayuda a mantener la vida útil de los equipos o descubrir 
+												problemas en una fase.
+											</p>
+										</div><!--/.service-txt-->
+									</div><!--/.service-single-->
+								</div><!--/.col-->
+							</div><!--/.row-->
+						</div><!--/.service-content-two-->
+					</div><!--/.service-details-->
+				</div><!--/.container-->
 
-    <footer>
-        <div>
-            <h4 class="redess">Redes</h4>
-            <p class="redess"><i class="fa-brands fa-instagram"></i> Goldenlions_2021</p>
-            <p class="redess"><i class="fa-brands fa-square-facebook"></i> Golden_Lions</p>
-        </div>
+		</section><!--/.service-->
+		<!--service end-->
+
+		<!--Ventajas -->
+		<section  class="we-do" id="4v">
+			<div class="container">
+				<div class="we-do-details">
+					<div class="section-header text-center">
+						<h2>ventajas del sistema</h2>
+						<p>Las ventajas que ofrecen este sitema de información son:</p>
+					</div><!--/.section-header-->
+					<div class="we-do-carousel">
+						<div class="row">
+							<div class="col-sm-4 col-xs-12">
+								<div class="single-we-do-box text-center">
+									<div class="we-do-description">
+										<div class="we-do-info">
+											<div class="we-do-img">
+												<img th:src="@{/img/home/calendario.png}" alt="image of consultency" />
+											</div><!--/.we-do-img-->}
+											<div class="we-do-topics">
+												<h2>
+													<a href="#">
+														Organización
+													</a>
+												</h2>
+											</div><!--/.we-do-topics-->
+										</div><!--/.we-do-info-->
+										<div class="we-do-comment">
+											<p>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Control efectivo de las actividades de la bitácora.<br>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Control eficaz de los papeleos de la bitácora.
+											</p>
+										</div><!--/.we-do-comment-->
+									</div><!--/.we-do-description-->
+								</div><!--/.single-we-do-box-->
+							</div><!--/.col-->
+							<div class="col-sm-4 col-xs-12">
+								<div class="single-we-do-box text-center">
+									<div class="we-do-description">
+										<div class="we-do-info">
+											<div class="we-do-img">
+												<img th:src="@{/img/home/apoyo-tecnico.png}" alt="image of business" />
+											</div><!--/.we-do-img-->
+											<div class="we-do-topics">
+												<h2>
+													<a href="#">
+														Nuevas Herramientas
+													</a>
+												</h2>
+											</div><!--/.we-do-topics-->
+										</div><!--/.we-do-info-->
+										<div class="we-do-comment">
+											<p>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Trabajo de un mismo sistema en diferentes puntos.<br>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Manejo de la información en un solo lugar.
+											</p>
+										</div><!--/.we-do-comment-->
+									</div><!--/.we-do-description-->
+								</div><!--/.single-we-do-box-->
+							</div><!--/.col-->
+							<!--<div class="col-sm-4 col-xs-12">
+								<div class="single-we-do-box text-center">
+									<div class="we-do-description">
+										<div class="we-do-info">
+											<div class="we-do-img">
+												<img src="@{/img/home/apoya-a-las-empresas-locales.png" alt="image of support" />
+											<div class="we-do-topics">
+												<h2>
+													<a href="#">
+														Eficiencia
+													</a>
+
+												</h2>
+										</div>
+										<div class="we-do-comment">
+											<p>
+												<img src="@{/img/home/lista-de-verificacion.png"> Disponibilidad de la información para los usuarios en tiempo real.<br>
+												<img src="@{/img/home/lista-de-verificacion.png"> Proceso facil y rápido.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>-->
+							<div class="col-sm-4 col-xs-12">
+								<div class="single-we-do-box text-center">
+									<div class="we-do-description">
+										<div class="we-do-info">
+											<div class="we-do-img">
+												<img th:src="@{/img/home/verificado.png}" alt="image of support" />
+											</div><!--/.we-do-img-->
+											<div class="we-do-topics">
+												<h2>
+													<a href="#">
+														Seguridad
+													</a>
+
+												</h2>
+											</div><!--/.we-do-topics-->
+										</div><!--/.we-do-info-->
+										<div class="we-do-comment">
+											<p>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Validaciónes de usuarios y contraseñas.<br>
+												<img th:src="@{/img/home/lista-de-verificacion.png}"> Información segura y viable paras los usuarios.
+											</p>
+										</div><!--/.we-do-comment-->
+									</div><!--/.we-do-description-->
+								</div><!--/.single-we-do-box-->
+							</div><!--/.col-->
+						</div><!--/.row-->
+					</div><!--/.we-do-carousel-->
+				</div><!--/.we-do-details-->
+			</div><!--/.container-->
+
+		</section><!--/.we-do-->
+		<!--we-do end-->
+
+		
+		<!--contact start-->
+		<section  class="contact" id="5c">
+			<div class="container">
+				<div class="contact-details">
+					<div class="section-header contact-head  text-center">
+						<h2>contacto</h2>
+					</div><!--/.section-header-->
+					<div class="contact-content">
+						<div class="row">
+							<div class="col-sm-offset-1 col-sm-5">
+								<div class="single-contact-box">
+									<div class="contact-right">
+										<div class="contact-adress">
+											<div class="contact-office-address">
+												<h3>Información de Contacto:</h3>
+												<p>
+													
+												</p>
+												<div class="contact-online-address">
+													<div class="single-online-address">
+														<img th:src="@{/img/mapas-y-banderas.png}">
+														Parque Santa María del Lago,<br>
+														Cl.73 A #74a 1 (Engativa)
+													</div><!--/.single-online-address-->
+												</div><!--/.contact-online-address-->
+
+												<div class="contact-online-address">
+													<div class="single-online-address">
+														<i class="fa fa-phone"></i>
+														+57 305-7670156
+													</div><!--/.single-online-address-->
+													
+													<div class="single-online-address">
+														<i class="fa fa-envelope-o"></i>
+														<span>@golden_lions_2021</span>
+													</div><!--/.single-online-address-->
+												</div><!--/.contact-online-address-->
+											</div><!--/.contact-office-address-->
+										</div><!--/.contact-address-->
+									</div><!--/.contact-right-->
+								</div><!--/.single-contact-box-->
+							</div><!--/.col-->
+							<div class="col-sm-5">
+								<div class="single-contact-box">
+									<div class="contact-form">
+										<h3>Dejanos Un Mensaje Aqui</h3>
+										<form>
+											<div class="row">
+												<div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+													  <input type="text" class="form-control" id="firstname" placeholder="Nombres" name="firstname">
+													</div><!--/.form-group-->
+												</div><!--/.col-->
+												<div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+													  <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="laststname">
+													</div><!--/.form-group-->
+												</div><!--/.col-->
+											</div><!--/.row-->
+											<div class="row">
+												<div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+														<input type="email" class="form-control" id="email" placeholder="Correo" name="email">
+													</div><!--/.form-group-->
+												</div><!--/.col-->
+												<div class="col-sm-6 col-xs-12">
+													<div class="form-group">
+														<input type="text" class="form-control" id="phone" placeholder="Telefono" name="phone">
+													</div><!--/.form-group-->
+												</div><!--/.col-->
+											</div><!--/.row-->
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<textarea class="form-control" rows="7" id="comment" placeholder="Mensage" ></textarea>
+													</div><!--/.form-group-->
+												</div><!--/.col-->
+											</div><!--/.row-->
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="single-contact-btn pull-right">
+														<button class="contact-btn" type="button">Enviar Mensaje</button>
+													</div><!--/.single-single-contact-btn-->
+												</div><!--/.col-->
+											</div><!--/.row-->
+										</form><!--/form-->
+									</div><!--/.contact-form-->
+								</div><!--/.single-contact-box-->
+							</div><!--/.col-->
+						</div><!--/.row-->
+					</div><!--/.contact-content-->
+				</div><!--/.contact-details-->
+			</div><!--/.container-->
+
+		</section><!--/.contact-->
+		
+		<!-- footer-copyright start -->
+		<footer class="footer-copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-7">
+						<div class="foot-copyright pull-left">
+							<img th:src="@{/img/logo/lgol.png}" class="logologin" width="40">
+								Copyright &copy; 2022 - Derechos Reservados - LogBlog
+						</div><!--/.foot-copyright-->
+					</div><!--/.col-->
+
+					<div class="col-sm-5">
+						<div class="foot-menu pull-right">	  
+							<ul>
+								<li ><a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a>
+									<li ><a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a>
+									<li ><a class="instagram-bg" href="#"><i class="fa fa-instagram"></i></a></li>
+									<li ><a class="whatsapp-bg" href="#"><i class="fa fa-whatsapp"></i></a></li>
+							</ul>
+						</div><!-- /.foot-menu-->
+					</div><!--/.col-->
+				</div><!--/.row-->
+			</div><!-- /.container-->
+			<div id="scroll-Top" class="arriba">
+				<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+			</div><!--/.scroll-Top-->
+
+		</footer><!-- /.footer-copyright-->
+		<!-- footer-copyright end -->
+
+
+
+		<!-- jaquery link -->
+
+		<script th:src="@{/js/jquery.js}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
         
-        <div>
-            <h4 class="redess">Contactos</h4>
-            <p class="redess"><i class="fa-solid fa-phone"></i> 30215187</p>
-            <p class="redess"><i class="fa-solid fa-phone"></i> 3589212</p>
-        </div>
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+		
+		<!-- bootsnav js -->
+		<script th:src="@{/js/bootsnav.js}"></script>
+		
+		<!-- for manu -->
+		<script th:src="@{/js/jquery.hc-sticky.min.js}" type="text/javascript"></script>
 
-        <div>
-            <h4 class="redess">Ubicación</h4>
-            <p class="redess"><i class="fa-solid fa-location-dot"></i> Santa Maria del Lago</p>
-            <p class="redess"> Cl. 73 A 74a 1</p>
-        </div>
-    </footer>
-</body>
+		
+		<!-- vedio player js -->
+		<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+
+
+		<script type="text/javascript" th:src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+		
+		<!-- counter js -->
+		<script th:src="@{/js/jquery.counterup.min.js}"></script>
+		<script th:src="@{/js/waypoints.min.js}"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" th:src="@{/js/jak-menusearch.js}"></script>
+        <script type="text/javascript" th:src="@{/js/custom.js}"></script>
+		
+
+    </body>
+	
 </html>

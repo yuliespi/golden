@@ -27,28 +27,28 @@ public class ActividadController {
     private IActividadService actividadg;
 
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaA"})
     public String listar(Model a){
         a.addAttribute("actividad", new Actividad());
     a.addAttribute("actividades", actividadg.findAll());
-        return "views/actividades/listas";
+        return "views/Actividad/tableA";
     }
 
-    @GetMapping("/form")     
+    @GetMapping("/formA")     
     public String form(Model a){
     Actividad actividad=new Actividad();
     a.addAttribute("actividad", actividad);
-        return "views/actividades/form";
+        return "views/Actividad/formA";
     }
         
     @PostMapping("/add")
     public String add(@Valid Actividad actividad,BindingResult res, Model a,SessionStatus status){
     if(res.hasErrors()){
-        return "views/actividades/form";
+        return "views/Actividad/formA";
     }   
     actividadg.save(actividad);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaA";
     }  
 
     @GetMapping("/deleteA/{id}")
@@ -57,7 +57,7 @@ public class ActividadController {
             actividadg.delete(id);
         }
 
-        return "redirect:../listas";
+        return "redirect:../tablaA";
     }
 
     @GetMapping("/actualizarA/{id}")
@@ -66,10 +66,10 @@ public class ActividadController {
         if(id>0){
             actividad=actividadg.findOne(id);
         }else{
-            return "redirect:listas";
+            return "redirect:tablaA";
         }
         a.addAttribute("actividad" ,actividad);
         a.addAttribute("accion", "Actualizar la actividad");
-        return "views/actividades/form";
+        return "views/Actividad/formA";
     }  
 }

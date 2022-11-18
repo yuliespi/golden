@@ -1,46 +1,79 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Login Golden Lions</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/img/logo/leon.png"/>   
+  <title>Login</title>
+  <link rel="shortcut icon" type="image/icon" th:src="@{/img/logo/lgol.png}" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <!--font-awesome.min.css-->
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="assets/css/Login.css">
+  <link rel="stylesheet" th:href="@{/css/Login.css}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  <!----SWEETALERT---->
-  <script src="sweetalert2.all.min.js"></script>
-  <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
-      <body>
-      <!-- partial:index.partial.html -->
-      <div class="wrapper">
-        <form th:action="@{index}" class="login">
-          
-          <img src="assets/img/logo/golden_logo_negro-removebg-preview.png" class="logologin">
-          
-          <p class="titlee">Inicio Sesión</p>
-          
-          <input type="email" placeholder="Usuario o Correo Electronico" autofocus/>
-            <i class="fa fa-user"></i>
-          <input type="password" placeholder="Contraseña"/>
-          
-          <i class="fa fa-key"></i>
-          
-          <a href="#">Olvido su contraseña?</a>
 
-          <a  class="letralogin">
-          <button>
-            <i class="spinner"></i>
-            <span class="state">Ingresar</span>
-          </button></a>
-        </form>
-        
-        <footer></footer>
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="wrapper">
+    <form th:action="@{/menu}" method="post" class="login">
+      <img th:src="@{/img/logo/lgol.png}" class="logologin">
+      <p class="titlee">Inicio Sesión</p>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-form-label" for="correouser">Correo Electroníco
+          <span class="text-danger">*</span>
+        </label>
+        <input type="email" placeholder="Digite aqui su correo electroníco" id="correouser" name="correouser"  onkeypress="return sololetrasynum(event)"/>
+        <i class="fa fa-user"></i>
       </div>
-      <!-- partial -->
-      <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-form-label" for="tipouser">Tipo Usuario
+          <span class="text-danger">*</span>
+        </label>
+        <select class="selecttusuario" id="tipouser" name="tipouser" >
+          <option value="">Coach</option>
+          <option value="">Gerente Administrativo</option>
+        </select>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-form-label" for="contraseñauser">Contraseña
+          <span class="text-danger">*</span>
+        </label>
+        <input type="password" placeholder="Digite aqui su contraseña" id="contraseñauser" name="contraseñauser"  onkeypress="return sololetrasynum(event)"/>
+        <i class="fa fa-key"></i>
+      </div>
+
+      <a class="labelcontra" href="#">Olvido su contraseña?</a>
+
+
+      <!--<div class="form-group row">
+        <div class="col-lg-8 ml-auto">
+          <button class="btn btn-primary" href="dashboard/xhtml/menu.html">Ingresar</button>
+        </div>
+      </div>-->
+
+
+      <button>
+        <i class="spinner"></i>
+        <span class="state"><a class="state2" th:href="@{/menu}">Ingresar</a></span>
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <!-- Jquery Validation -->
+  <script th:src="@{/vendor/jquery-validation/jquery.validate.min.js}"></script>
+  <!-- Form validate init -->
+  <script th:src="@{/js/plugins-init/jquery.validate-init.js}"></script>
+
+
 </body>
+
 </html>

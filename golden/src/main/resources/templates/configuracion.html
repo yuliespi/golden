@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuración</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" th:src="@{/img/favicon.png}">
+    <!-- Chartist -->
+    <link rel="stylesheet" th:href="@{/vendor/chartist/css/chartist.min.css}">
+	<link th:href="@{/vendor/bootstrap-select/dist/css/bootstrap-select.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a th:href="@{menu}" class="brand-logo" >
+                <img class="logo-abbr" th:src="@{/img/logo/lgol.png}">
+                <img class="logo-compact" th:src="@{/img/logotext.png}">
+                <img class="brand-title" th:src="@{/img/logotext.png}">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+								Configuración
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
+                                    <img th:src="@{/img/profile/profile.jpg}" width="20" alt=""/>
+									<!-- <div class="header-info">
+										<span class="text-black"><strong>Brian Lee</strong></span>
+										<p class="fs-12 mb-0">Admin</p>
+									</div> -->
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a th:href="@{/login}" class="dropdown-item ai-icon">
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-networking"></i>
+							<span class="nav-text">Inicio</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a th:href="@{/menu}">Menú</a></li>
+                            <li><a th:href="@{/calendario}">Calendario</a></li>
+						</ul>
+                    </li>
+                    <li><a th:href="@{configuracion}" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-381-settings-2"></i>
+							<span class="nav-text">Configuración</span>
+						</a>
+					</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-notepad"></i>
+                        <span class="nav-text">Formularios</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{/actividad/formA}">Actividad</a></li>
+                        <li><a th:href="@{/bitacora/formB}">Bitácora</a></li>
+                        <li><a th:href="@{/cargo/formC}">Cargo</a></li>
+                        <li><a th:href="@{/categoria/formCT}">Catégoria</a></li>
+                        <li><a th:href="@{/empleado/formE}">Empleado</a></li>
+                        <li><a th:href="@{/implemento/formI}">Implemento</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-network"></i>
+                        <span class="nav-text">Tablas</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{/actividad/tablaA}">Actividad</a></li>
+                        <li><a th:href="@{/bitacora/tablaB}">Bitácora</a></li>
+                        <li><a th:href="@{/cargo/tablaC}">Cargo</a></li>
+                        <li><a th:href="@{/categoria/tablaCT}">Catégoria</a></li>
+                        <li><a th:href="@{/empleado/tablaE}">Empleado</a></li>
+                        <li><a th:href="@{/implemento/tablaI}">Implemento</a></li>
+                    </ul>
+                </li>
+            </ul>
+			</div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Config</a></li>
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Estadísticas</a></li>
+					</ol>
+                </div>
+
+                <!-- row -->
+                <div class="row">
+					<!--<div class="col-xl-4 col-xxl-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Timeline</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="DZ_W_TimeLine" class="widget-timeline dz-scroll height370">
+                                    <ul class="timeline">
+                                        <li>
+                                            <div class="timeline-badge primary"></div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>10 minutes ago</span>
+                                                <h6 class="mb-0">Youtube, a video-sharing website, goes live <strong class="text-primary">$500</strong>.</h6>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge info">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>20 minutes ago</span>
+                                                <h6 class="mb-0">New order placed <strong class="text-info">#XF-2356.</strong></h6>
+												<p class="mb-0">Quisque a consequat ante Sit amet magna at volutapt...</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge danger">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>30 minutes ago</span>
+                                                <h6 class="mb-0">john just buy your product <strong class="text-warning">Sell $250</strong></h6>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge success">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>15 minutes ago</span>
+                                                <h6 class="mb-0">StumbleUpon is acquired by eBay. </h6>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge warning">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>20 minutes ago</span>
+                                                <h6 class="mb-0">Mashable, a news website and blog, goes live.</h6>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="timeline-badge dark">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>20 minutes ago</span>
+                                                <h6 class="mb-0">Mashable, a news website and blog, goes live.</h6>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+
+					<div class="col-xl-4 col-xxl-6 col-lg-6">
+                        <div class="card border-0 pb-0">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Pendientes</h4>
+                            </div>
+                            <div class="card-body"> 
+                                <div id="DZ_W_Todo4" class="widget-media dz-scroll height370">
+                                    <ul class="timeline">
+                                        <li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox1" required="">
+													<label class="custom-control-label" for="customCheckBox1"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Get up</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+										<li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-warning check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox2" required="">
+													<label class="custom-control-label" for="customCheckBox2"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Stand up</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+										<li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-primary check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox3" required="">
+													<label class="custom-control-label" for="customCheckBox3"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Don't give up the fight.</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+										<li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-info check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox4" required="">
+													<label class="custom-control-label" for="customCheckBox4"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Do something else</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+										<li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox5" required="">
+													<label class="custom-control-label" for="customCheckBox5"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Get up</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+										<li>
+                                            <div class="timeline-panel">
+												<div class="custom-control custom-checkbox checkbox-warning check-lg mr-3">
+													<input type="checkbox" class="custom-control-input" id="customCheckBox6" required="">
+													<label class="custom-control-label" for="customCheckBox6"></label>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-0">Stand up</h5>
+													<small class="text-muted">29 July 2020 - 02:26 PM</small>
+												</div>
+											</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+					</div>-->
+					
+					<div class="col-xl-12 col-lg-12 col-xxl-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Usuarios Del Sistema</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive recentOrderTable">
+                                    <table class="table verticle-middle table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
+                                                <th scope="col">Télefono</th>
+                                                <th scope="col">Correo</th>
+                                                <th scope="col">Cargo</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+												<td>Mary</td>
+                                                <td>Moreno</td>
+                                                <td>325622522</td>
+                                                <td>mary-golden@gmail.com</td>
+                                                <td><span class="badge badge-rounded badge-primary">Coach</span></td>
+                                                <td>
+                                                    <div class="dropdown custom-dropdown mb-0">
+                                                        <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="12" cy="5" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="12" cy="19" r="2"/></g></svg>
+														</div>
+														<div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" th:href="@{views/Empleado/tableE}">Detalles del Usuario</a>
+                                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Cancelar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>2</td>
+												<td>Wendy</td>
+                                                <td>Espitia</td>
+                                                <td>315489645</td>
+                                                <td>wendy-golden@gmail.com</td>
+                                                <td><span class="badge badge-rounded badge-primary">G. Aministrativa</span></td>
+                                                <td>
+                                                    <div class="dropdown custom-dropdown mb-0">
+                                                        <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="12" cy="5" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="12" cy="19" r="2"/></g></svg>
+														</div>
+														<div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" th:href="@{views/Empleado/tableE}">Detalles del Usuario</a>
+                                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Cancelar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<div class="col-xl-3 col-xxl-3 col-sm-6">
+						<div class="card">
+							<div class="social-graph-wrapper widget-facebook" href="#">
+								<span class="s-icon"><i class="fa fa-facebook"></i></span>
+							</div>
+							<div class="row">
+								<div class="col-6 border-right">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">89</span> k</h4>
+										<p class="m-0">Publicaciones</p>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">119</span> k</h4>
+										<p class="m-0">Seguidores</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-xxl-3 col-sm-6">
+						<div class="card">
+							<div class="social-graph-wrapper widget-linkedin" href="#">
+								<span class="s-icon"><i class="fa fa-instagram"></i></span>
+							</div>
+							<div class="row">
+								<div class="col-6 border-right">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">89</span> k</h4>
+										<p class="m-0">Publicaciones</p>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">119</span> k</h4>
+										<p class="m-0">Seguidores</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-xxl-3 col-sm-6">
+						<div class="card">
+							<div class="social-graph-wrapper widget-googleplus" href="#">
+								<span class="s-icon"><i class="fa fa-google"></i></span>
+							</div>
+							<div class="row">
+								<div class="col-6 border-right">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">89</span> k</h4>
+										<p class="m-0">Publicaciones</p>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">119</span> k</h4>
+										<p class="m-0">Seguidores</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    
+					<div class="col-xl-3 col-xxl-3 col-sm-6">
+						<div class="card">
+							<div class="social-graph-wrapper widget-twitter">
+								<span class="s-icon"><i class="fa fa-whatsapp"></i></span>
+							</div>
+							<div class="row">
+								<div class="col-6 border-right">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">89</span> k</h4>
+										<p class="m-0">Publicaciones</p>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="pt-3 pb-3 pl-0 pr-0 text-center">
+										<h4 class="m-1"><span class="counter">119</span> k</h4>
+										<p class="m-0">Seguidores</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; 2022 - Derechos Reservados - LogBlog</p>
+			</div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script th:src="@{/vendor/global/global.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap-select/dist/js/bootstrap-select.min.js}"></script>
+    <script th:src="@{/js/custom2.js}"></script>
+	<script th:src="@{/js/deznav-init.js}"></script>
+	
+	
+	<!-- Chartist -->
+    <script th:src="@{/vendor/chartist/js/chartist.min.js}"></script>
+    <script th:src="@{/vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js}"></script>
+    
+	<!-- Flot -->
+    <script th:src="@{/vendor/flot/jquery.flot.js}"></script>
+    <script th:src="@{/vendor/flot/jquery.flot.pie.js}"></script>
+    <script th:src="@{/vendor/flot/jquery.flot.resize.js}"></script>
+    <script th:src="@{/vendor/flot-spline/jquery.flot.spline.min.js}"></script>
+	
+	<!-- Chart sparkline plugin files -->
+    <script th:src="@{/vendor/jquery-sparkline/jquery.sparkline.min.js}"></script>
+	<script th:src="@{/js/plugins-init/sparkline-init.js}"></script>
+	
+	<!-- Chart piety plugin files -->
+    <script th:src="@{/vendor/peity/jquery.peity.min.js}"></script>
+	<script th:src="@{/js/plugins-init/piety-init.js}"></script>
+    <script th:src="@{/vendor/chart.js/Chart.bundle.min.js}"></script>
+	
+    <!-- Init file -->
+    <script th:src="@{/js/plugins-init/widgets-script-init.js}"></script>
+
+
+
+	
+	
+</body>
+</html>
