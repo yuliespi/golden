@@ -3,7 +3,6 @@ package goldenlions.golden.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class IndexController {
@@ -16,7 +15,7 @@ public class IndexController {
 
     @GetMapping(path = {"/login"})
     public String login(Model b){
-        return "Login";
+        return "login";
     }
 
     @GetMapping(path = {"/menu"})

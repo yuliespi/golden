@@ -27,52 +27,58 @@ public class ImplementoController {
     @Autowired
     private ICategoriaService categoria;
 
-
-    @GetMapping(path={"/tablaI"})
-    public String listar(Model i){
+    @GetMapping(path = { "/tablaI" })
+    public String listar(Model i) {
         i.addAttribute("implementos", implementog.findAll());
         i.addAttribute("categoria", categoria.findAll());
         return "views/Implemento/tableI";
     }
 
-    @GetMapping("/formI")     
-    public String form(Model i){
-        Implemento implemento=new Implemento();
+    @GetMapping("/formI")
+    public String form(Model i) {
+        Implemento implemento = new Implemento();
         i.addAttribute("implemento", implemento);
         i.addAttribute("categoria", categoria.findAll());
         return "views/Implemento/formI";
     }
 
     @PostMapping("/add")
-    public String add(@Valid Implemento implemento,BindingResult res, Model i,SessionStatus status){
-    if(res.hasErrors()){
-        i.addAttribute("categoria", categoria.findAll());
-        i.addAttribute("implemento", implemento);
-        return "views/Implemento/formI";
-    }   
-    implementog.save(implemento);
-    status.setComplete();
-        return "redirect:tablaI";
-    } 
-    
-    @GetMapping("/actualizarI/{id}")
-    public String actualizarI(@PathVariable Integer id,Model i){
-        Implemento implemento=null;
-        if(id>0){
+    public String add(@Valid Implemento implemento, BindingResult res, Model i, SessionStatus status) {
+        String mensaje = implementog.dublicado(implemento);
+        if (mensaje != null) {
             i.addAttribute("categoria", categoria.findAll());
-            implemento=implementog.findOne(id);
-        }else{
+            i.addAttribute("implemento", implemento);
+            i.addAttribute("duplicado", mensaje);
+            return "views/Implemento/formI";
+        }
+        if (res.hasErrors()) {
+            i.addAttribute("categoria", categoria.findAll());
+            i.addAttribute("implemento", implemento);
+            return "views/Implemento/formI";
+        }
+        implementog.save(implemento);
+        status.setComplete();
+        return "redirect:tablaI";
+    }
+
+    @GetMapping("/actualizarI/{id}")
+    public String actualizarI(@PathVariable Integer id, Model i) {
+        Implemento implemento = null;
+        if (id > 0) {
+            i.addAttribute("categoria", categoria.findAll());
+            implemento = implementog.findOne(id);
+        } else {
             return "views/Implementos/formI";
         }
-        i.addAttribute("implemento" ,implemento);
+        i.addAttribute("implemento", implemento);
         i.addAttribute("accion", "Actualizar implemento");
         return "views/Implemento/formI";
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id){
-    
-        if(id > 0){
+    public String delete(@PathVariable Integer id) {
+
+        if (id > 0) {
             implementog.delete(id);
         }
         return "redirect:../tablaI";

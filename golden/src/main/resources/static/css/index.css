@@ -485,7 +485,7 @@ html,body{
 }
 .carousel-control.left,
 .carousel-control.right {
-    background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 0%);
+    background-image: linear-gradient(to right,rgb(0, 0, 0),rgba(255, 123, 0, 0.603));
 }
 /* .carousel-control */
 

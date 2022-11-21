@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="shortcut icon" type="image/icon" th:src="@{/img/logo/lgol.png}" />
+  <link rel="shortcut icon" type="image/icon" th:href="@{/img/favicon.png}"/>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <!--font-awesome.min.css-->
   <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
@@ -17,7 +17,7 @@
   <!-- partial:index.partial.html -->
   <div class="wrapper">
     <form th:action="@{/menu}" method="post" class="login">
-      <img th:src="@{/img/logo/lgol.png}" class="logologin">
+      <a th:href="@{index}"><img th:src="@{/img/logo/lgol.png}" class="logologin"></a>
       <p class="titlee">Inicio Sesión</p>
 
       <div class="form-group row">

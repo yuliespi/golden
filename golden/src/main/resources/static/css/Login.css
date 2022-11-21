@@ -43,7 +43,7 @@ body {
 
 .logologin{
   width: 150px;
-  margin-left: 135px;
+  margin-left: 1px;
 }
 
 .login.loading button {

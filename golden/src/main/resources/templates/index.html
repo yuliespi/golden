@@ -18,8 +18,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
 		<!-- Favicons -->
-		<link rel="icon" type="image/icon" th:href="@{/img/buscador.ico}"> 
-
+		<link rel="shortcut icon" type="image/icon" th:href="@{/img/favicon.png}"/>
 		
         <!-- TITLE OF SITE -->
         <title>Log Blog</title>
@@ -172,10 +171,10 @@
 				</div><!-- /.carousel-inner-->
 
 				<!-- Controls -->
-				<a class="left carousel-control" th:href="@{#carousel-example-generic}" role="button" data-slide="prev">
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 					<span class="lnr lnr-chevron-left"></span>
 				</a>
-				<a class="right carousel-control" th:href="@{#carousel-example-generic}" role="button" data-slide="next">
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 					<span class="lnr lnr-chevron-right"></span>
 				</a>
 			</div><!-- /.carousel-->
@@ -539,31 +538,31 @@
 											<div class="row">
 												<div class="col-sm-6 col-xs-12">
 													<div class="form-group">
-													  <input type="text" class="form-control" id="firstname" placeholder="Nombres" name="firstname">
+													  <input type="text" class="form-control" id="firstname" placeholder="Nombres" name="firstname" required maxlength="10" minlength="8" onkeypress="return sololetras(event)">
 													</div><!--/.form-group-->
 												</div><!--/.col-->
 												<div class="col-sm-6 col-xs-12">
 													<div class="form-group">
-													  <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="laststname">
+													  <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="laststname" required maxlength="10" minlength="8" onkeypress="return sololetras(event)">
 													</div><!--/.form-group-->
 												</div><!--/.col-->
 											</div><!--/.row-->
 											<div class="row">
 												<div class="col-sm-6 col-xs-12">
 													<div class="form-group">
-														<input type="email" class="form-control" id="email" placeholder="Correo" name="email">
+														<input type="email" class="form-control" id="email" placeholder="Correo" name="email" required maxlength="20" minlength="10" onkeypress="return sololetrasynum(event)">
 													</div><!--/.form-group-->
 												</div><!--/.col-->
 												<div class="col-sm-6 col-xs-12">
 													<div class="form-group">
-														<input type="text" class="form-control" id="phone" placeholder="Telefono" name="phone">
+														<input type="text" class="form-control" id="phone" placeholder="Telefono" name="phone" required maxlength="10" minlength="7" onkeypress="return solonumeros(event)">
 													</div><!--/.form-group-->
 												</div><!--/.col-->
 											</div><!--/.row-->
 											<div class="row">
 												<div class="col-sm-12">
 													<div class="form-group">
-														<textarea class="form-control" rows="7" id="comment" placeholder="Mensage" ></textarea>
+														<textarea class="form-control" rows="7" id="comment" placeholder="Mensage" required maxlength="15" minlength="10" onkeypress="return sololetras(event)"></textarea>
 													</div><!--/.form-group-->
 												</div><!--/.col-->
 											</div><!--/.row-->
@@ -648,6 +647,9 @@
 		<!-- counter js -->
 		<script th:src="@{/js/jquery.counterup.min.js}"></script>
 		<script th:src="@{/js/waypoints.min.js}"></script>
+
+		<!--VALIDACION CONTACTOS INFO-->
+		<script th:src="@{/js/validaciones.js}"></script>
 		
         <!--Custom JS-->
         <script type="text/javascript" th:src="@{/js/jak-menusearch.js}"></script>
