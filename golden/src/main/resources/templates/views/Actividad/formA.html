@@ -76,7 +76,7 @@
                                                         <input type="text" class="form-control" id="tipoactividad"
                                                             name="tipoactividad" th:field="*{tipoActividad}"
                                                             placeholder="Digite aqui el tipo de su actividad.." required
-                                                            onkeypress="return sololetras(event)" maxlength="8" minlength="5">
+                                                            onkeypress="return sololetras(event)">
                                                         <div class="form-text text-danger"
                                                             th:if="${#fields.hasErrors('tipoActividad')}"
                                                             th:errors="*{tipoActividad}"></div>
@@ -104,7 +104,7 @@
                                                             name="descripactividad" th:field="*{descripcionActividad}"
                                                             rows="5"
                                                             placeholder="Digite aqui la descripción de la actividad.."
-                                                            required onkeypress="return sololetras(event)" maxlength="10" minlength="8"></textarea>
+                                                            required onkeypress="return sololetras(event)"></textarea>
                                                         <div class="form-text text-danger"
                                                             th:if="${#fields.hasErrors('descripcionActividad')}"
                                                             th:errors="*{descripcionActividad}"></div>

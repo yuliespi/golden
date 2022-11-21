@@ -1,5 +1,7 @@
 package goldenlions.golden.Controllers.Bitacora;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,9 +36,9 @@ public class BitacoraController{
 
     @GetMapping(path={"/tablaB"})
     public String listar(Model b){
-    b.addAttribute("bitacoras", bitacorag.findAll());
-    b.addAttribute("actividad", bactividad.findAll());
-    b.addAttribute("implemento", bimplemento.findAll());
+        b.addAttribute("bitacoras", bitacorag.findAll());
+        b.addAttribute("actividad", bactividad.findAll());
+        b.addAttribute("implemento", bimplemento.findAll());
         return "views/Bitacora/tableB";
     }
 

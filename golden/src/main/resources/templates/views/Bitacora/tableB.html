@@ -87,9 +87,9 @@
                                                 <td th:text="${b.observacionesBitacora}"></td>
                                                 <td th:text="${b.cantidadImplementosUsados}"></td>
                                                 <td th:text="${b.fechaBitacora}"></td>
-                                                <td th:text="${b.Actividad.id"></td>
+                                                <td th:text="${b.Actividad.id}"></td>
                                                 <td th:text="${b.Actividad.tipoActividad}"></td>
-                                                <td th:text="${b.Implemento.id}"></td>
+                                                <td th:each="i:${b.Implemento}" th:text="${i.id}"></td>
                                                 <td>
                                                     <p th:each="i:${b.Implemento}" th:text="${i.nombreImplemento}"></p>
                                                 </td>
@@ -101,7 +101,7 @@
                                                         <!--EDITAR-->
 														<a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
 														<!--ELIMINAR-->
-                                                        <a role="button" th:href="@{/bitacora/delete/} + ${b.id}" onclick="return confirm('¿Estas seguro de eliminar la Bitacora?');" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                        <a role="button" th:href="@{/bitacora/delete/} + ${b.id}" onclick="return confirm('¿Estas seguro de eliminar la Bitácora?');" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
 													</div>												
 												</td>	
                                             </tr>
