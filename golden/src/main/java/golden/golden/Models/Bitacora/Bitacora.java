@@ -78,65 +78,161 @@ private List<Empleado> Empleado;
         return id;
     }
 
+
+
     public void setId(Integer id) {
         this.id = id;
     }
+
+
 
     public String getObservacionesBitacora() {
         return observacionesBitacora;
     }
 
+
+
     public void setObservacionesBitacora(String observacionesBitacora) {
         this.observacionesBitacora = observacionesBitacora;
     }
+
+
 
     public Integer getCantidadImplementosUsados() {
         return cantidadImplementosUsados;
     }
 
+
+
     public void setCantidadImplementosUsados(Integer cantidadImplementosUsados) {
         this.cantidadImplementosUsados = cantidadImplementosUsados;
     }
+
+
 
     public String getFechaBitacora() {
         return fechaBitacora;
     }
 
+
+
     public void setFechaBitacora(String fechaBitacora) {
         this.fechaBitacora = fechaBitacora;
     }
+
+
 
     public String getEstadoBitacora() {
         return estadoBitacora;
     }
 
+
+
     public void setEstadoBitacora(String estadoBitacora) {
         this.estadoBitacora = estadoBitacora;
     }
+
+
 
     public List<Implemento> getImplemento() {
         return Implemento;
     }
 
+
+
     public void setImplemento(List<Implemento> implemento) {
         Implemento = implemento;
     }
+
+    
 
     public List<Empleado> getEmpleado() {
         return Empleado;
     }
 
+
+
     public void setEmpleado(List<Empleado> empleado) {
         Empleado = empleado;
     }
+
+
 
     public Actividad getActividad() {
         return Actividad;
     }
 
+
+
     public void setActividad(Actividad actividad) {
         Actividad = actividad;
     }
+
+
+
+    // public Integer getId() {
+    //     return id;
+    // }
+
+    // public void setId(Integer id) {
+    //     this.id = id;
+    // }
+
+    // public String getObservacionesBitacora() {
+    //     return observacionesBitacora;
+    // }
+
+    // public void setObservacionesBitacora(String observacionesBitacora) {
+    //     this.observacionesBitacora = observacionesBitacora;
+    // }
+
+    // public Integer getCantidadImplementosUsados() {
+    //     return cantidadImplementosUsados;
+    // }
+
+    // public void setCantidadImplementosUsados(Integer cantidadImplementosUsados) {
+    //     this.cantidadImplementosUsados = cantidadImplementosUsados;
+    // }
+
+    // public String getFechaBitacora() {
+    //     return fechaBitacora;
+    // }
+
+    // public void setFechaBitacora(String fechaBitacora) {
+    //     this.fechaBitacora = fechaBitacora;
+    // }
+
+    // public String getEstadoBitacora() {
+    //     return estadoBitacora;
+    // }
+
+    // public void setEstadoBitacora(String estadoBitacora) {
+    //     this.estadoBitacora = estadoBitacora;
+    // }
+
+    // public List<Implemento> getImplemento() {
+    //     return Implemento;
+    // }
+
+    // public void setImplemento(List<Implemento> implemento) {
+    //     Implemento = implemento;
+    // }
+
+    // public List<Empleado> getEmpleado() {
+    //     return Empleado;
+    // }
+
+    // public void setEmpleado(List<Empleado> empleado) {
+    //     Empleado = empleado;
+    // }
+
+    // public Actividad getActividad() {
+    //     return Actividad;
+    // }
+
+    // public void setActividad(Actividad actividad) {
+    //     Actividad = actividad;
+    // }
 
     
 }

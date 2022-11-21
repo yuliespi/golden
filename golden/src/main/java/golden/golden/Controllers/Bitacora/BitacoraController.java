@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import golden.golden.Models.Bitacora.Bitacora;
+import golden.golden.Models.Implemento.Implemento;
 import golden.golden.Service.Actividad.IActividadService;
 import golden.golden.Service.Bitacora.IBitacoraService;
 import golden.golden.Service.Implemento.IImplementoService;
@@ -37,6 +38,7 @@ public class BitacoraController{
     b.addAttribute("bitacoras", bitacorag.findAll());
     b.addAttribute("actividad", bactividad.findAll());
     b.addAttribute("implemento", bimplemento.findAll());
+
         return "views/bitacoras/listas";
     }
 
@@ -56,6 +58,16 @@ public class BitacoraController{
         b.addAttribute("implemento",bimplemento.findAll());
         return "views/bitacoras/form";
     }   
+
+    //trigger
+    System.out.print(bitacora.getImplemento().get(0).getId());
+    for (int i = 0; i < bitacora.getImplemento().size(); i++) {
+        Implemento imple = bimplemento.findOne(bitacora.getImplemento().get(i).getId());
+
+        Integer cantidadImpl=imple.getCantidadImplemento()-bitacora.getCantidadImplementosUsados();
+        imple.setCantidadImplemento(cantidadImpl);
+    }
+
     bitacorag.save(bitacora);
     status.setComplete();
         return "redirect:listas";

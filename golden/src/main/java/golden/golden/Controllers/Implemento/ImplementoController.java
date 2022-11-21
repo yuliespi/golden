@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import golden.golden.Models.Bitacora.IBitacora;
 import golden.golden.Models.Implemento.Implemento;
 import golden.golden.Service.Implemento.IImplementoService;
 import golden.golden.Service.Categoria.ICategoriaService;
@@ -26,6 +27,8 @@ public class ImplementoController {
 
     @Autowired
     private ICategoriaService categoria;
+
+    
 
 
 
@@ -50,7 +53,10 @@ public class ImplementoController {
         i.addAttribute("categoria", categoria.findAll());
         i.addAttribute("implemento", implemento);
         return "views/implementos/form";
-    }   
+    }
+
+    //  Integer newimplemento = bitacora.
+
     implementog.save(implemento);
     status.setComplete();
         return "redirect:listas";
