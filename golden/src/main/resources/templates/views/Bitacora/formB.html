@@ -26,7 +26,7 @@
         <!--**********************************
             Nav header end
         ***********************************-->
-		
+
         <!--**********************************
             Header start
         ***********************************-->
@@ -49,12 +49,12 @@
         <div class="content-body">
             <div class="container-fluid">
                 <div class="page-titles">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Bitácoa</a></li>
-					</ol>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Bitácora</a></li>
+                    </ol>
                 </div>
-                
+
                 <!-- row -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -64,63 +64,92 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" th:action="@{/bitacora/add}" th:object="${bitacora}" method="post">
+                                    <form class="form-valide" th:action="@{/bitacora/add}" th:object="${bitacora}"
+                                        method="post">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="observabita">Observaciones Bitácora
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="observabita">Observaciones Bitácora
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="observabita" name="observabita" placeholder="Digite aqui la obsevaciones de la bitácora" th:field="*{observacionesBitacora}" minlength="10" maxlength="15" required onkeypress="return sololetras(event)">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('observacionesBitacora')}" th:errors="*{observacionBitacora}"></div>
+                                                        <input type="text" class="form-control" id="observabita"
+                                                            name="observabita"
+                                                            placeholder="Digite aqui la obsevaciones de la bitácora"
+                                                            th:field="*{observacionesBitacora}" minlength="10"
+                                                            maxlength="15" required
+                                                            onkeypress="return sololetras(event)">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('observacionesBitacora')}"
+                                                            th:errors="*{observacionBitacora}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="cantibita">Cantidad Implementos Usados <span
-                                                            class="text-danger">*</span>
+                                                    <label class="col-lg-4 col-form-label" for="cantibita">Cantidad
+                                                        Implementos Usados <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="number" class="form-control" id="cantibita" placeholder="Digite aqui la cantidad de implentos que se usaran." th:field="*{cantidadImplementosUsados}" minlength="1" maxlength="3" required onkeypress="return solonumeros(event)">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadImplementosUsados')}" th:errors="*{cantidadImplementosUsados}"></div>
+                                                        <input type="number" class="form-control" id="cantibita"
+                                                            placeholder="Digite aqui la cantidad de implentos que se usaran."
+                                                            th:field="*{cantidadImplementosUsados}" minlength="1"
+                                                            maxlength="3" required
+                                                            onkeypress="return solonumeros(event)">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('cantidadImplementosUsados')}"
+                                                            th:errors="*{cantidadImplementosUsados}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="fechabita">Fecha Bitácora 
+                                                    <label class="col-lg-4 col-form-label" for="fechabita">Fecha
+                                                        Bitácora
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="date" class="form-control" id="fechabita" name="fechabita" th:field="*{fechaBitacora}" min="2020-01-01" max="2040-01-01">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaBitacora')}" th:errors="*{fechaBitacora}"></div>
+                                                        <input type="date" class="form-control" id="fechabita"
+                                                            name="fechabita" th:field="*{fechaBitacora}"
+                                                            min="2020-01-01" max="2040-01-01">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('fechaBitacora')}"
+                                                            th:errors="*{fechaBitacora}"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="selectactiv">Nombre Actividad
+                                                    <label class="col-lg-4 col-form-label" for="selectactiv">Fecha
+                                                        Actividad
                                                         <span class="text-danger">*</span>
                                                     </label>
+
                                                     <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="selectactiv" name="selectactiv" th:field="*{Actividad}">
+                                                        <select class="form-control default-select" id="selectactiv"
+                                                            name="selectactiv" th:field="*{Actividad}">
                                                             <th:block th:each="b:${actividad}">
-                                                                <option th:text="${b.tipoActividad}" th:value="${b.id}"></option>
+                                                                <option th:text="${b.fechaActividad}"
+                                                                    th:value="${b.id}"></option>
                                                             </th:block>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="selectimple">Nombre Implemento
+
+                                                <!-- <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">Nombre Implemento
                                                         <span class="text-danger">*</span>
                                                     </label>
+
                                                     <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="selectimple" name="selectimple" th:field="*{Implemento}">
+                                                        <select class="form-control default-select"
+                                                            class="js-example-basic-multiple" name="Implemento"
+                                                            multiple="multiple" th:field="*{Implemento}">
                                                             <th:block th:each="b:${implemento}">
-                                                                <option th:text="${b.nombreImplemento}" th:value="${b.id}"></option>
+                                                                <option th:text="${b.nombreImplemento}"
+                                                                    th:value="${b.id}"></option>
                                                             </th:block>
                                                         </select>
                                                     </div>
-                                                </div>
-                                                
+                                                </div> -->
+
                                                 <!-- <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="estadobita">Estado Bitácora
                                                         <span class="text-danger">*</span>
@@ -133,7 +162,7 @@
                                                         <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoBitacora')}" th:errors="*{estadoBitacora}"></div>
                                                     </div>
                                                 </div> -->
-                                                
+
                                                 <div class="form-group row">
                                                     <div class="col-lg-8 ml-auto">
                                                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -170,7 +199,7 @@
            Support ticket button end
         ***********************************-->
 
-        
+
     </div>
     <!--**********************************
         Main wrapper end

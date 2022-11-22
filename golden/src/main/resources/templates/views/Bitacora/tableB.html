@@ -26,7 +26,7 @@
         <!--**********************************
             Nav header end
         ***********************************-->
-		
+
         <!--**********************************
             Header start
         ***********************************-->
@@ -49,16 +49,16 @@
         <div class="content-body">
             <div class="container-fluid">
                 <div class="page-titles">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Bitácora</a></li>
-					</ol>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Bitácora</a></li>
+                    </ol>
                 </div>
                 <!-- row -->
 
 
                 <div class="row">
-					<div class="col-12">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Listado Registros Bitácora</h4>
@@ -72,15 +72,15 @@
                                                 <th>Observación</th>
                                                 <th>Cantidad Implementos Usados</th>
                                                 <th>Fecha</th>
-                                                <th>Id Catégoria</th>
-                                                <th>Tipo Catégoria</th>
+                                                <th>Id Actividad</th>
+                                                <th>Fecha Actividad</th>
                                                 <th>Id Implemento</th>
-                                                <th>Tipo Implemento</th>
+                                                <th>Nombre Implemento</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        
+
                                         <tbody>
                                             <tr th:if="${bitacoras.size()>0}" th:each="b:${bitacoras}">
                                                 <td th:text="${b.id}"></td>
@@ -88,31 +88,46 @@
                                                 <td th:text="${b.cantidadImplementosUsados}"></td>
                                                 <td th:text="${b.fechaBitacora}"></td>
                                                 <td th:text="${b.Actividad.id}"></td>
-                                                <td th:text="${b.Actividad.tipoActividad}"></td>
+                                                <td th:text="${b.Actividad.fechaActividad}"></td>
                                                 <td th:each="i:${b.Implemento}" th:text="${i.id}"></td>
                                                 <td>
                                                     <p th:each="i:${b.Implemento}" th:text="${i.nombreImplemento}"></p>
                                                 </td>
-                                                <td th:text="${b.estadoBitacora}"></td>
-                                                
+                                                <td>
+                                                    <a th:if="${b.estadoBitacora==true}" role="button"
+                                                        class="btn btn-outline-warning"
+                                                        th:href="@{/bitacora/estado/} + ${b.id}"
+                                                        onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>
+
+                                                    <a th:if="${b.estadoBitacora==false}" role="button"
+                                                        class="btn btn-outline-success"
+                                                        th:href="@{/bitacora/estado/} + ${b.id}"
+                                                        onclick="return confirm('¿Estas seguro de cambiar el estado?');">Activar</a>
+                                                </td>
+
                                                 <!--BOTONES ACCIONES-->
                                                 <td>
-													<div class="d-flex">
+                                                    <div class="d-flex">
                                                         <!--EDITAR-->
-														<a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-														<!--ELIMINAR-->
-                                                        <a role="button" th:href="@{/bitacora/delete/} + ${b.id}" onclick="return confirm('¿Estas seguro de eliminar la Bitácora?');" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-													</div>												
-												</td>	
+                                                        <a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}"
+                                                            class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                                class="fa fa-pencil"></i></a>
+                                                        <!--ELIMINAR-->
+                                                        <a role="button" th:href="@{/bitacora/delete/} + ${b.id}"
+                                                            onclick="return confirm('¿Estas seguro de eliminar la Bitácora?');"
+                                                            class="btn btn-danger shadow btn-xs sharp"><i
+                                                                class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-				</div>
+                </div>
             </div>
         </div>
         <!--**********************************
@@ -136,7 +151,7 @@
            Support ticket button end
         ***********************************-->
 
-        
+
     </div>
     <!--**********************************
         Main wrapper end
