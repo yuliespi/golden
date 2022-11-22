@@ -29,30 +29,27 @@ public class EmpleadoController {
     @Autowired
     private ICargoService cargog;
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaE"})
     public String listar(Model a){
     a.addAttribute("empleados", empleadog.findAll());
-    a.addAttribute("cargo", cargog.findAll());
-        return "views/empleados/listas";
+        return "views/Empleado/tableE";
     }
 
-    @GetMapping("/form")     
+    @GetMapping("/formE")     
     public String form(Model a){
     Empleado empleado=new Empleado();
     a.addAttribute("empleado", empleado);
-    a.addAttribute("cargo", cargog.findAll());
-        return "views/empleados/form";
+        return "views/Empleado/formE";
     }
         
     @PostMapping("/add")
     public String add(@Valid Empleado empleado,BindingResult res, Model a,SessionStatus status){
     if(res.hasErrors()){
-        a.addAttribute("cargo", cargog.findAll());
-        return "views/empleados/form";
+        return "views/Empleado/formE";
     }   
     empleadog.save(empleado);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaE";
     }  
 
     @GetMapping("/delete/{id}")
@@ -60,7 +57,7 @@ public class EmpleadoController {
         if(id > 0){
             empleadog.delete(id);
         }
-        return "redirect:../listas";
+        return "redirect:../tablaE";
     }
 
     @GetMapping("/actualizarE/{id}")
@@ -70,12 +67,12 @@ public class EmpleadoController {
             a.addAttribute("cargo", cargog.findAll());
             empleado=empleadog.findOne(id);
         }else{
-            return "redirect:listas";
+            return "redirect:tablaE";
         }
         a.addAttribute("cargo", cargog.findAll());
         a.addAttribute("empleado" ,empleado);
         a.addAttribute("accion", "Actualizar el empleado");
-        return "views/empleados/form";
+        return "views/Empleado/formE";
     }    
 
     @GetMapping("/estado/{id}")

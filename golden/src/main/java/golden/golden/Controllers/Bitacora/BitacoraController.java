@@ -1,5 +1,7 @@
 package golden.golden.Controllers.Bitacora;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,22 +35,21 @@ public class BitacoraController{
     @Autowired
     private IBitacoraService bitacorag;
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaB"})
     public String listar(Model b){
-    b.addAttribute("bitacoras", bitacorag.findAll());
-    b.addAttribute("actividad", bactividad.findAll());
-    b.addAttribute("implemento", bimplemento.findAll());
-
-        return "views/bitacoras/listas";
+        b.addAttribute("bitacoras", bitacorag.findAll());
+        b.addAttribute("actividad", bactividad.findAll());
+        b.addAttribute("implemento", bimplemento.findAll());
+        return "views/Bitacora/tableB";
     }
 
-    @GetMapping("/form")     
+    @GetMapping("/formB")     
     public String form(Model b){
     Bitacora bitacora=new Bitacora();
     b.addAttribute("bitacora", bitacora);
     b.addAttribute("actividad",bactividad.findAll());
     b.addAttribute("implemento",bimplemento.findAll());
-        return "views/bitacoras/form";
+        return "views/Bitacora/formB";
     }
         
     @PostMapping("/add")
@@ -56,7 +57,7 @@ public class BitacoraController{
     if(res.hasErrors()){
         b.addAttribute("actividad",bactividad.findAll());
         b.addAttribute("implemento",bimplemento.findAll());
-        return "views/bitacoras/form";
+        return "views/Bitacora/formB";
     }   
 
     //trigger
@@ -70,7 +71,7 @@ public class BitacoraController{
 
     bitacorag.save(bitacora);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaB";
     }  
     
     @GetMapping("/actualizarB/{id}")
@@ -81,12 +82,12 @@ public class BitacoraController{
             b.addAttribute("implemento",bimplemento.findAll());
             bitacora=bitacorag.findOne(id);
         }else{
-            return "views/bitacoras/form";
+            return "views/Bitacora/formB";
         }
         b.addAttribute("actividad",bactividad.findAll());
         b.addAttribute("bitacora" ,bitacora);
         b.addAttribute("accion", "Actualizar bitacora");
-        return "views/bitacoras/form";
+        return "views/Bitacora/formB";
     }
 
     @GetMapping("/delete/{id}")
@@ -95,24 +96,6 @@ public class BitacoraController{
         if(id > 0){
             bitacorag.delete(id);
         }
-        return "redirect:../listas";
-    }
-
-    @GetMapping("/estado/{id}")
-    public String estado(@PathVariable Integer id){
-        Bitacora bitacora=new Bitacora();
-        bitacora=bitacorag.findOne(id);
-        if(bitacora.getEstadoBitacora()==true){
-            bitacora.setEstadoBitacora(false);
-        }else if (bitacora.getEstadoBitacora()==false){
-            bitacora.setEstadoBitacora(true);
-        }
-        bitacorag.save(bitacora);
-        return "redirect:../listas";
-    }
-
-    @RequestMapping("/**")
-    public String handleError() {
-        return "/error404";
+        return "redirect:../tablaB";
     }
 }

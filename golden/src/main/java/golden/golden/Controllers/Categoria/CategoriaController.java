@@ -23,27 +23,27 @@ public class CategoriaController {
     @Autowired
     private ICategoriaService categoriag;
 
-    @GetMapping(path={"/listas"})
+    @GetMapping(path={"/tablaCT"})
     public String listar(Model c){
     c.addAttribute("categorias", categoriag.findAll());
-        return "views/categorias/listas";
+        return "views/Categoria/tableCT";
     }
     
-    @GetMapping("/form")     
+    @GetMapping("/formCT")     
     public String form(Model c){
     Categoria categoria=new Categoria();
     c.addAttribute("categoria", categoria);
-        return "views/categorias/form";
+        return "views/Categoria/formCT";
     }
 
     @PostMapping("/add")
     public String add(@Valid Categoria categoria,BindingResult res, Model c,SessionStatus status){
     if(res.hasErrors()){
-        return "views/categorias/form";
+        return "views/Categoria/formCT";
     }   
     categoriag.save(categoria);
     status.setComplete();
-        return "redirect:listas";
+        return "redirect:tablaCT";
     } 
 
     @GetMapping("/actualizarC/{id}")
@@ -52,11 +52,11 @@ public class CategoriaController {
         if(id>0){
             categoria=categoriag.findOne(id);
         }else{
-            return "views/categorias/form";
+            return "views/Categoria/formCT";
         }
         c.addAttribute("categoria" ,categoria);
         c.addAttribute("accion", "Actualizar categoria");
-        return "views/categorias/form";
+        return "views/Categoria/formCT";
     }
 
     @GetMapping("/delete/{id}")
@@ -65,7 +65,7 @@ public class CategoriaController {
         if(id > 0){
             categoriag.delete(id);
         }
-        return "redirect:../listas";
+        return "redirect:../tablaCT";
     }
 
     @GetMapping("/estado/{id}")

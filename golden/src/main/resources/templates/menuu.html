@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="layout/base::head"></head>
+
+<body>
+
+	<!--*******************
+        Preloader start
+    ********************-->
+	<div th:replace="layout/base::preloader" id="preloader"></div>
+	<!--*******************
+        Preloader end
+    ********************-->
+
+
+	<!--**********************************
+        Main wrapper start
+    ***********************************-->
+	<div id="main-wrapper">
+
+		<!--**********************************
+            Nav header start
+        ***********************************-->
+		<div th:replace="layout/base::logo" class="nav-header"></div>
+		<!--**********************************
+            Nav header end
+        ***********************************-->
+
+		<!--**********************************
+            Header start
+        ***********************************-->
+		<div th:replace="layout/base::nav" class="header"></div>
+		<!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+		<!--**********************************
+            Sidebar start
+        ***********************************-->
+		<div th:replace="layout/base::menu" class="deznav"> </div>
+		<!--**********************************
+            Sidebar end
+        ***********************************-->
+
+		<!--**********************************
+            Content body start
+        ***********************************-->
+		<div class="content-body">
+			<!-- row -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-3 col-xxl-4">
+						<div class="row">
+							<div class="col-xl-12 col-md-6">
+								<div class="card">
+									<div class="card-header border-0 pb-0">
+										<h4 class="fs-20">Eventos Importantes Golden Lions</h4>
+									</div>
+									<div class="card-body pb-0 dz-scroll height630 loadmore-content"
+										id="latestSalesContent">
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Torneo Liga Juvenil</a></p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Ago 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Campeonato Liga Juvenil</a></p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Sep 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Torneo Compa Champions Liga
+													Juvenil</a></p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Ene 2020</span>
+												</div>
+											</div>
+										</div>
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Campeonato Equipo Liga Kids</a>
+											</p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Jul 2020</span>
+												</div>
+											</div>
+										</div>
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Torneo Liga Juvenil-Kids</a></p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Nov 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="pb-3 mb-3 border-bottom">
+											<p class="font-w600"><a class="text-black">Torneo Liga Juvenil</a></p>
+											<div class="d-flex align-items-end">
+												<div class="mr-auto">
+													<h4 class="fs-14 mb-0"><a class="text-black">Golden Lions</a></h4>
+													<span class="fs-12">Mar 2021</span>
+												</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-9 col-xxl-8">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header border-0 pb-sm-0 pb-5">
+									<h4 class="fs-20">Orgullos (Golden Lions)</h4>
+									<div class="dropdown custom-dropdown mb-0">
+										<div data-toggle="dropdown">
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="event-bx owl-carousel">
+										<div class="items" id="event1">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/nik-shuliahin-BWRyS1-KKrs-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Torneo Liga
+															Juvenil</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="items" id="event2">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/max-winkler-UFIZodJgScQ-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Campeonato Equipo
+															GoldenLions</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="items" id="event3">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/kenny-eliason-6mRaiW6DDCM-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Torneo Compa
+															Champions Liga Juvenil</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2020</span>
+												</div>
+											</div>
+										</div>
+										<div class="items" id="event4">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/jesse-orrico-mse1vdzZXjA-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Campeonato Equipo
+															GoldenLions Kids</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2020</span>
+												</div>
+											</div>
+										</div>
+										<div class="items" id="event5">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/kenny-eliason-O4zhy0zLAQc-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Torneo Liga
+															Juneil-Kids</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2019</span>
+												</div>
+											</div>
+										</div>
+										<div class="items" id="event6">
+											<div class="image-bx">
+												<img th:src="@{/img/eventss/katrina-berban-rsaDNKpKotM-unsplash.jpg}"
+													alt="">
+												<div class="info">
+													<p class="fs-18 font-w600"><a class="text-black">Torneo Liga
+															Juvenil</a></p>
+													<span class="fs-14 text-black d-block mb-3">Colombia, 2021</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--**********************************
+            Content body end
+        ***********************************-->
+
+
+	<!--**********************************
+            Footer start
+        ***********************************-->
+	<div th:replace="layout/base::footer" class="footer"></div>
+	<!--**********************************
+            Footer end
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+	</div>
+	<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+	<!--**********************************
+        Scripts
+    ***********************************-->
+	<!-- Required vendors -->
+	<div th:replace="layout/base::script"></div>
+
+</body>
+
+</html>

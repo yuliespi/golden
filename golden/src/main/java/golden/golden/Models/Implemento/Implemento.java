@@ -159,4 +159,13 @@ public List<Categoria> getCategoria() {
 public void setCategoria(List<Categoria> categoria) {
     Categoria = categoria;
 }
+
+@Override
+public String toString() {
+    return "Implemento [id=" + id + "]";
+}
+
+
+
+
 }

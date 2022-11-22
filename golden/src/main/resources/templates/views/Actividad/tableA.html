@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="layout/base::head"></head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div th:replace="layout/base::preloader" id="preloader"></div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div th:replace="layout/base::logo" class="nav-header"></div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div th:replace="layout/base::nav" class="header"></div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div th:replace="layout/base::menu" class="deznav"> </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+				<!-- Add Order -->
+				<div class="modal fade" id="addOrderModalside">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Registrar Nueva Actividad</h5>
+								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+                                <form class="form-valide" th:action="@{/actividad/add}" th:object="${actividad}" method="post" >
+                                    <div class="row">
+                                        <div class="col-xl-10">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="tipoactividad">Tipo Actividad
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-7">
+                                                    <input type="text" class="form-control" id="tipoactividad" name="tipoactividad" th:field="*{tipoActividad}" placeholder="Digite aqui el tipo de su actividad.." required onkeypress="return sololetras(event)" maxlength="8" minlength="5">
+                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('tipoActividad')}" th:errors="*{tipoActividad}"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fechaactividad" >Fecha Realización Actividad  <span
+                                                        class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="date" class="form-control" id="fechaactividad" name="fechaactividad" th:field="*{fechaActividad}">
+                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaActividad')}" th:errors="*{fechaActividad}"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="descripactividad">Descripción Actividad <span
+                                                        class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <textarea class="form-control" id="descripactividad" name="descripactividad" th:field="*{descripcionActividad}" rows="5" placeholder="Digite aqui la descripción de la actividad.." required onkeypress="return sololetras(event)" maxlength="10" minlength="8"></textarea>
+                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('descripcionActividad')}" th:errors="*{descripcionActividad}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-10">
+                                        <div class="form-group row">
+                                            <div class="col-lg-10 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Actividad</a></li>
+					</ol>
+                </div>
+
+
+                <!-- row -->
+                <div class="row">
+					<div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Listado Registros Actividad</h4>
+                                <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ Registrar</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example3" class="display min-w850">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Tipo</th>
+                                                <th>Fecha</th>
+                                                <th>Descripción</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr th:if="${actividades.size()>0}" th:each="a:${actividades}">
+                                                <td th:text="${a.id}"></td>
+                                                <td th:text="${a.tipoActividad}"></td>
+                                                <td th:text="${a.fechaActividad}"></td>
+                                                <td th:text="${a.descripcionActividad}"></td>
+
+                                            <!--BOTONES ACCIONES-->
+                                                <td>
+													<div class="d-flex">
+                                                        <!--EDITAR-->
+														<a role="button" th:href="@{/actividad/actualizarA/} + ${a.id}"  class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+														<!--ELIMINAR-->
+                                                        <a role="button" th:href="@{/actividad/deleteA/}+${a.id}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('¿Estas seguro de eliminar la Actividad?');"><i class="fa fa-trash"></i></a>
+													</div>												
+												</td>	
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div th:replace="layout/base::footer" class="footer"></div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <div th:replace="layout/base::script"></div>
+
+</body>
+
+</html>

@@ -5,6 +5,7 @@ import java.util.List;
 import golden.golden.Models.Bitacora.Bitacora;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="actividad")
@@ -14,13 +15,16 @@ public class Actividad {
     private Integer id;
     
     @NotEmpty
-    @Column(name ="tipoActividad", length=50)
+    @Column(length=10)
+    @Size(min = 5, max = 20)
     private String tipoActividad;
 
-    @Column(name ="fechaActividad", length=10)
+    
     private String fechaActividad;
 
-    @Column(name ="descripcionActividad", length=50)
+    @NotEmpty
+    @Column(length=10)
+    @Size(min = 10, max = 50)
     private String descripcionActividad;
     
     // -------------Relacion con Bitacora----------------//
