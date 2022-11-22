@@ -27,6 +27,7 @@ public class Actividad {
     @Size(min = 10, max = 50)
     private String descripcionActividad;
     
+    
     // -------------Relacion con Bitacora----------------//
     @OneToMany(mappedBy = "Actividad", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bitacora> Bitacora;

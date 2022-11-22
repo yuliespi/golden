@@ -85,7 +85,7 @@ public class EmpleadoController {
             empleado.setEstadoEmpleado(true);
         }
         empleadog.save(empleado);
-        return "redirect:../listas";
+        return "redirect:../tablaE";
     }
 
     @RequestMapping("/**")

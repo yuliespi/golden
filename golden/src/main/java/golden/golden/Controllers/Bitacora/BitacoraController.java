@@ -59,7 +59,7 @@ public class BitacoraController{
         b.addAttribute("implemento",bimplemento.findAll());
         return "views/Bitacora/formB";
     }   
-
+    
     //trigger
     System.out.print(bitacora.getImplemento().get(0).getId());
     for (int i = 0; i < bitacora.getImplemento().size(); i++) {
@@ -88,6 +88,19 @@ public class BitacoraController{
         b.addAttribute("bitacora" ,bitacora);
         b.addAttribute("accion", "Actualizar bitacora");
         return "views/Bitacora/formB";
+    }
+
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Bitacora bitacora=new Bitacora();
+        bitacora=bitacorag.findOne(id);
+        if(bitacora.getEstadoBitacora()==true){
+            bitacora.setEstadoBitacora(false);
+        }else if (bitacora.getEstadoBitacora()==false){
+            bitacora.setEstadoBitacora(true);
+        }
+        bitacorag.save(bitacora);
+        return "redirect:../tablasB";
     }
 
     @GetMapping("/delete/{id}")

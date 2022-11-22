@@ -81,7 +81,7 @@ public class CargoController {
             cargo.setEstadoCargo(true);
         }
         cargog.save(cargo);
-        return "redirect:../listas";
+        return "redirect:../tablaC";
     }
 
     @RequestMapping("/**")

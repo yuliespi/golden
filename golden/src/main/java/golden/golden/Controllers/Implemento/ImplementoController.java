@@ -75,6 +75,19 @@ public class ImplementoController {
         return "views/Implemento/formI";
     }
 
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Implemento implemento=new Implemento();
+        implemento=implementog.findOne(id);
+        if(implemento.getEstadoImplemento()==true){
+            implemento.setEstadoImplemento(false);
+        }else if (implemento.getEstadoImplemento()==false){
+            implemento.setEstadoImplemento(true);
+        }
+        implementog.save(implemento);
+        return "redirect:../tablasI";
+    }
+
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
 
