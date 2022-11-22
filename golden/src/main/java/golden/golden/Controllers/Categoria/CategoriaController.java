@@ -68,6 +68,19 @@ public class CategoriaController {
         return "redirect:../listas";
     }
 
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Categoria categoria=new Categoria();
+        categoria=categoriag.findOne(id);
+        if(categoria.getEstadoCategoria()==true){
+            categoria.setEstadoCategoria(false);
+        }else if (categoria.getEstadoCategoria()==false){
+            categoria.setEstadoCategoria(true);
+        }
+        categoriag.save(categoria);
+        return "redirect:../listas";
+    }
+
     @RequestMapping("/**")
     public String handleError() {
         return "/error404";

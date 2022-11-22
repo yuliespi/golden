@@ -36,8 +36,8 @@ public class Implemento {
     @Column(name ="observacionesImplemento", length=100)
     private String observacionesImplemento;
 
-    @Column(name ="estadoImplemento", length=50)
-    private String estadoImplemento;
+    @Column(name ="estadoImplemento")
+    private Boolean estadoImplemento=true;
 
 // -------------Relacion con Bitacora----------------//
     @ManyToMany(mappedBy = "Implemento", fetch = FetchType.LAZY)
@@ -57,7 +57,7 @@ public Implemento() {
 
 public Implemento(Integer id, @NotEmpty String tipoImplemento, String nombreImplemento, Integer tamanoImplemento,
         String pesoImplemento, Integer cantidadImplemento, String funcionImplemento, String observacionesImplemento,
-        String estadoImplemento, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
+        Boolean estadoImplemento, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
         List<golden.golden.Models.Categoria.Categoria> categoria) {
     this.id = id;
     this.tipoImplemento = tipoImplemento;
@@ -136,11 +136,11 @@ public void setObservacionesImplemento(String observacionesImplemento) {
     this.observacionesImplemento = observacionesImplemento;
 }
 
-public String getEstadoImplemento() {
+public Boolean getEstadoImplemento() {
     return estadoImplemento;
 }
 
-public void setEstadoImplemento(String estadoImplemento) {
+public void setEstadoImplemento(Boolean estadoImplemento) {
     this.estadoImplemento = estadoImplemento;
 }
 
@@ -159,6 +159,4 @@ public List<Categoria> getCategoria() {
 public void setCategoria(List<Categoria> categoria) {
     Categoria = categoria;
 }
-
-
 }

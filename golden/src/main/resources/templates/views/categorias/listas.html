@@ -47,12 +47,19 @@
                         <td th:text="${c.edadCategoria}"></td>
                         <td th:text="${c.cantidadPersonas}"></td>
                         <td th:text="${c.descripcionCategoria}"></td>
-                        <td th:text="${c.estadoCategoria}"></td>
+                        <td> 
+                            <a th:if="${c.estadoCategoria==true}" role="button" class="btn btn-outline-danger" th:href="@{/categoria/estado/} + ${c.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Inactivar</a>
+                            
+                            <a th:if="${c.estadoCategoria==false}" role="button" class="btn btn-outline-success" th:href="@{/categoria/estado/} + ${c.id}" 
+                            onclick="return confirm('¿Estas seguro de cambiar el estado?');">Activar</a>
+                        </td>
+                             
                         <td>
                             <a role="button" th:href="@{/categoria/actualizarC/} + ${c.id}" class="btn btn-outline-success">Editar</a> 
     
                             <br>
-                            
+
                             <a role="button" class="btn btn-outline-danger" th:href="@{/categoria/delete/} + ${c.id}" 
                             onclick="return confirm('¿Estas seguro de eliminar la Categoria?');">Eliminar</a> 
                         </td>

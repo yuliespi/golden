@@ -27,8 +27,8 @@ public class Empleado {
     @Column(name ="telefonoEmpleado", length=10)
     private Integer telefonoEmpleado;
 
-    @Column(name ="estadoEmpleado", length=10)
-    private String estadoEmpleado;
+    @Column(name ="estadoEmpleado")
+    private Boolean estadoEmpleado=true;
 
     // -------------Relacion con Bitacora----------------//
     @ManyToMany(mappedBy = "Empleado", fetch = FetchType.LAZY)
@@ -42,7 +42,7 @@ public class Empleado {
     }
 
     public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
-            Integer telefonoEmpleado, String estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
+            Integer telefonoEmpleado, Boolean estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
             golden.golden.Models.Cargo.Cargo cargo) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
@@ -94,11 +94,11 @@ public class Empleado {
         this.telefonoEmpleado = telefonoEmpleado;
     }
 
-    public String getEstadoEmpleado() {
+    public Boolean getEstadoEmpleado() {
         return estadoEmpleado;
     }
 
-    public void setEstadoEmpleado(String estadoEmpleado) {
+    public void setEstadoEmpleado(Boolean estadoEmpleado) {
         this.estadoEmpleado = estadoEmpleado;
     }
 
@@ -117,7 +117,6 @@ public class Empleado {
     public void setCargo(Cargo cargo) {
         Cargo = cargo;
     }
-
     
 }
 

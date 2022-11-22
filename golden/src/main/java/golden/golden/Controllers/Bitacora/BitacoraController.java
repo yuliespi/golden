@@ -98,6 +98,19 @@ public class BitacoraController{
         return "redirect:../listas";
     }
 
+    @GetMapping("/estado/{id}")
+    public String estado(@PathVariable Integer id){
+        Bitacora bitacora=new Bitacora();
+        bitacora=bitacorag.findOne(id);
+        if(bitacora.getEstadoBitacora()==true){
+            bitacora.setEstadoBitacora(false);
+        }else if (bitacora.getEstadoBitacora()==false){
+            bitacora.setEstadoBitacora(true);
+        }
+        bitacorag.save(bitacora);
+        return "redirect:../listas";
+    }
+
     @RequestMapping("/**")
     public String handleError() {
         return "/error404";

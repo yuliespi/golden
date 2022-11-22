@@ -24,8 +24,8 @@ public class Categoria {
     @Column(name ="descripcionCategoria", length=50)
     private String descripcionCategoria;
 
-    @Column(name ="estadoCategoria", length=10)
-    private String estadoCategoria;
+    @Column(name ="estadoCategoria")
+    private Boolean estadoCategoria=true;
 
 // -------------Relacion con Bitacora----------------//
 @ManyToMany(mappedBy = "Categoria", fetch = FetchType.LAZY)
@@ -41,7 +41,7 @@ public Integer getId() {
     return id;
 }
 public Categoria(Integer id, @NotEmpty String edadCategoria, Integer cantidadPersonas, String descripcionCategoria,
-        String estadoCategoria, List<golden.golden.Models.Implemento.Implemento> implemento) {
+        Boolean estadoCategoria, List<golden.golden.Models.Implemento.Implemento> implemento) {
     this.id = id;
     this.edadCategoria = edadCategoria;
     this.cantidadPersonas = cantidadPersonas;
@@ -81,11 +81,11 @@ public void setDescripcionCategoria(String descripcionCategoria) {
     this.descripcionCategoria = descripcionCategoria;
 }
 
-public String getEstadoCategoria() {
+public Boolean getEstadoCategoria() {
     return estadoCategoria;
 }
 
-public void setEstadoCategoria(String estadoCategoria) {
+public void setEstadoCategoria(Boolean estadoCategoria) {
     this.estadoCategoria = estadoCategoria;
 }
 
@@ -96,6 +96,5 @@ public List<Implemento> getImplemento() {
 public void setImplemento(List<Implemento> implemento) {
     Implemento = implemento;
 }
-
 
 }

@@ -27,13 +27,9 @@ public class Actividad {
     @OneToMany(mappedBy = "Actividad", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bitacora> Bitacora;
 
-
-    
     public Actividad() {
     }
 
-
-    
     public Actividad(Integer id, @NotEmpty String tipoActividad, String fechaActividad, String descripcionActividad,
             List<golden.golden.Models.Bitacora.Bitacora> bitacora) {
         this.id = id;
@@ -42,8 +38,6 @@ public class Actividad {
         this.descripcionActividad = descripcionActividad;
         Bitacora = bitacora;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -85,5 +79,8 @@ public class Actividad {
         Bitacora = bitacora;
     }
 
-    
 }
+    
+
+    
+    
