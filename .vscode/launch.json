@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GoldenApplication<golden>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "golden.golden.GoldenApplication",
+            "projectName": "golden",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
