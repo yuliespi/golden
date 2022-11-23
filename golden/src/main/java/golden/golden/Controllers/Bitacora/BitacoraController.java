@@ -105,8 +105,17 @@ public class BitacoraController{
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-    
+
         if(id > 0){
+
+            Bitacora bita=bitacorag.findOne(id);
+            for (int i = 0; i < bita.getImplemento().size(); i++) {
+                Implemento imple = bimplemento.findOne(bita.getImplemento().get(i).getId());
+        
+                Integer cantidadImpl=imple.getCantidadImplemento()+bita.getCantidadImplementosUsados();
+                imple.setCantidadImplemento(cantidadImpl);
+            }
+
             bitacorag.delete(id);
         }
         return "redirect:../tablaB";
