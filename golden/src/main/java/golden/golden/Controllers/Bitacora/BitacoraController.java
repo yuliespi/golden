@@ -100,7 +100,7 @@ public class BitacoraController{
             bitacora.setEstadoBitacora(true);
         }
         bitacorag.save(bitacora);
-        return "redirect:../tablasB";
+        return "redirect:../tablaB";
     }
 
     @GetMapping("/delete/{id}")

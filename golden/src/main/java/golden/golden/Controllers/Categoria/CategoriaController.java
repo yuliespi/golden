@@ -78,7 +78,7 @@ public class CategoriaController {
             categoria.setEstadoCategoria(true);
         }
         categoriag.save(categoria);
-        return "redirect:../tablasCT";
+        return "redirect:../tablaCT";
     }
 
     @RequestMapping("/**")

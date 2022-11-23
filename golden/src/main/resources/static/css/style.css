@@ -1891,6 +1891,43 @@ pre {
     background-color: #e9ecef;
     opacity: 1; }
 
+  /*MULTI SELECT ESTILOS*/
+  .js-example-basic-multiple {
+    display: block;
+    width: 100%;
+    height: calc(2.5em + 0.80rem + 3px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f0f1f5;
+    border-radius: 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+    @media (prefers-reduced-motion: reduce) {
+      .js-example-basic-multiple {
+        transition: none; } }
+    .js-example-basic-multiple::-ms-expand {
+      background-color: transparent;
+      border: 0; }
+    .js-example-basic-multiple:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #495057; }
+    .js-example-basic-multiple:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #ffd3cd;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(254, 99, 78, 0.25); }
+    .js-example-basic-multiple::placeholder {
+      color: #6c757d;
+      opacity: 1; }
+    .js-example-basic-multiple:disabled, .js-example-basic-multiple[readonly] {
+      background-color: #e9ecef;
+      opacity: 1; }
+
 input[type="date"].form-control,
 input[type="time"].form-control,
 input[type="datetime-local"].form-control,
@@ -1898,6 +1935,10 @@ input[type="month"].form-control {
   appearance: none; }
 
 select.form-control:focus::-ms-value {
+  color: #495057;
+  background-color: #fff; }
+
+select.js-example-basic-multiple:focus::-ms-value {
   color: #495057;
   background-color: #fff; }
 

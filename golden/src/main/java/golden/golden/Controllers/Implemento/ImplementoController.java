@@ -85,7 +85,7 @@ public class ImplementoController {
             implemento.setEstadoImplemento(true);
         }
         implementog.save(implemento);
-        return "redirect:../tablasI";
+        return "redirect:../tablaI";
     }
 
     @GetMapping("/delete/{id}")
