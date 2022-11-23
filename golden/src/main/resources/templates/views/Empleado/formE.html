@@ -105,51 +105,39 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="correoEmpleado">Correo Empleado
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="email" class="form-control" id="correoEmpleado" name="correoEmpleado" placeholder="Digite aqui el correo del empleado" th:field="*{correoEmpleado}">
+                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('correoEmpleado')}" th:errors="*{correoEmpleado}"></div>
+                                                </div>
+                                            </div>
                                             
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="passEmpleado">Contraseña Empleado
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" class="form-control" id="passEmpleado" name="passEmpleado" placeholder="Digite aqui la contraseña del empleado" th:field="*{contrasenaEmpleado}">
+                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('contrasenaEmpleado')}" th:errors="*{contrasenaEmpleado}"></div>
+                                                </div>
+                                            </div>
+
                                             <div class="col-xl-6">
-                                                <!-- <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="corrempleado">Correo Electroníco Empleado
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="email" class="form-control" id="corrempleado" name="corrempleado" placeholder="Digite aqui el correo electroníco del empleado" th:field="*{correoEmpleado}" onkeypress="return sololetrasynum(event)" required minlength="7" maxlength="15">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('correoEmpleado')}" th:errors="*{correoEmpleado}"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="contraempleado">Contraseña Empelado
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="password" class="form-control" id="contraempleado" name="contraempleado" placeholder="Digite aqui la contraseña del empleado" th:field="*{contraseñaEmpleado}" onkeypress="return sololetrasynum(event)" required minlength="5" maxlength="10">         
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('contraseñaEmpleado')}" th:errors="*{contraseñaEmpleado}"></div>
-                                                    </div>
-                                                </div>-->
                                                 <div class="form-group row"> 
-                                                    <label class="col-lg-4 col-form-label" for="selectcargo">Nombre Cargo
+                                                    <label class="col-lg-4 col-form-label" for="selectcargo">Seleccione el Cargo
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="selectcargo" name="selectcargo" th:field="*{Cargo}">
-                                                            <th:block th:each="e:${cargo}">
-                                                                <option th:text="${e.nombreCargo}" th:value="${e.id}"></option>
-                                                            </th:block>
+                                                        <select class="form-control default-select" id="selectcargo" name="selectcargo" th:field="*{roles}" th:if="${roles != null}">
+                                                            <option value=""></option>
+                                                            <option th:each="e:${roles}" th:text="${e.nombreRol}" th:value="${e.id}"></option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="esempleado">Estado Empleado
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="esempleado" name="esempleado" th:field="*{estadoEmpleado}">
-                                                            <option value="">Activo</option>
-                                                            <option value="">Inactivo</option>
-                                                        </select>
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoEmpleado')}" th:errors="*{estadoEmpleado}"></div>
-                                                    </div>
-                                                </div> -->
-                                                
+                                            
                                                 <div class="form-group row">
                                                     <div class="col-lg-8 ml-auto">
                                                         <button type="submit" class="btn btn-primary">Registrar</button>

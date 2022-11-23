@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import golden.golden.Models.Bitacora.Bitacora;
 import golden.golden.Models.Cargo.Cargo;
+import golden.golden.Models.Rol.Roles;
 
 @Entity
 @Table(name="empleado")
@@ -27,6 +28,14 @@ public class Empleado {
     @Column(name ="telefonoEmpleado", length=10)
     private Integer telefonoEmpleado;
 
+    @NotEmpty
+    @Column(length=50)
+    private String correoEmpleado;
+
+    @NotEmpty
+    @Column(length=300)
+    private String contrasenaEmpleado;
+
     @Column(name ="estadoEmpleado")
     private Boolean estadoEmpleado=true;
 
@@ -38,20 +47,33 @@ public class Empleado {
     @ManyToOne(fetch = FetchType.LAZY)
     private Cargo Cargo;
 
+    // -------------Relacion con Rol----------------//
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "empleados_roles",
+        joinColumns = @JoinColumn(name = "empleado_id"),
+        inverseJoinColumns = @JoinColumn(name = "rol_id")
+    )
+    private List<Roles> roles;
+
     public Empleado() {
     }
 
     public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
-            Integer telefonoEmpleado, Boolean estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
-            golden.golden.Models.Cargo.Cargo cargo) {
+            Integer telefonoEmpleado, @NotEmpty String correoEmpleado, @NotEmpty String contrasenaEmpleado,
+            Boolean estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
+            golden.golden.Models.Cargo.Cargo cargo, List<Roles> roles) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
         this.direccionEmpleado = direccionEmpleado;
         this.telefonoEmpleado = telefonoEmpleado;
+        this.correoEmpleado = correoEmpleado;
+        this.contrasenaEmpleado = contrasenaEmpleado;
         this.estadoEmpleado = estadoEmpleado;
         Bitacora = bitacora;
         Cargo = cargo;
+        this.roles = roles;
     }
 
     public Integer getId() {
@@ -94,6 +116,22 @@ public class Empleado {
         this.telefonoEmpleado = telefonoEmpleado;
     }
 
+    public String getCorreoEmpleado() {
+        return correoEmpleado;
+    }
+
+    public void setCorreoEmpleado(String correoEmpleado) {
+        this.correoEmpleado = correoEmpleado;
+    }
+
+    public String getContrasenaEmpleado() {
+        return contrasenaEmpleado;
+    }
+
+    public void setContrasenaEmpleado(String contrasenaEmpleado) {
+        this.contrasenaEmpleado = contrasenaEmpleado;
+    }
+
     public Boolean getEstadoEmpleado() {
         return estadoEmpleado;
     }
@@ -117,6 +155,12 @@ public class Empleado {
     public void setCargo(Cargo cargo) {
         Cargo = cargo;
     }
-    
-}
 
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
+}

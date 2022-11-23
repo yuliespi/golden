@@ -117,7 +117,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Listado Registros Actividad</h4>
-                                <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ Registrar</a>
+                                <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" sec:authorize="hasAnyAuthority('COACH')">+ Registrar</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -145,7 +145,7 @@
                                                         <!--EDITAR-->
 														<a role="button" th:href="@{/actividad/actualizarA/} + ${a.id}"  class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
 														<!--ELIMINAR-->
-                                                        <a role="button" th:href="@{/actividad/deleteA/}+${a.id}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('¿Estas seguro de eliminar la Actividad?');"><i class="fa fa-trash"></i></a>
+                                                        <a sec:authorize="hasAnyAuthority('COACH')" role="button" th:href="@{/actividad/deleteA/}+${a.id}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('¿Estas seguro de eliminar la Actividad?');"><i class="fa fa-trash"></i></a>
 													</div>												
 												</td>	
                                             </tr>

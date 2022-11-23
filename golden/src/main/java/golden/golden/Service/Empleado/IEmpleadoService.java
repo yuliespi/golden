@@ -9,4 +9,5 @@ public interface IEmpleadoService {
     public void save (Empleado empleado);
     public Empleado findOne (Integer id);
     public void delete (Integer id); 
+    public Empleado registrar(Empleado emple);
 }

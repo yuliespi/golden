@@ -75,8 +75,7 @@
                                                 <th>Teléfono</th>
                                                 <th>Correo Electroníco</th>
                                                 <th>Contraseña</th>
-                                                <th>Id Cargo</th>
-                                                <th>Nombre Cargo</th>
+                                                <th>Cargo</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -91,8 +90,15 @@
                                                 <td th:text="${e.telefonoEmpleado}"></td>
                                                 <td th:text="${e.correoEmpleado}"></td>
                                                 <td th:text="${e.contraseñaEmpleado}"></td>
+<<<<<<< HEAD
                                                 <td th:text="${e.Cargo.id}"></td>
                                                 <td th:text="${e.Cargo.nombreCargo}"></td>
+=======
+                                                <td th:text="${e.roles}"></td>
+                                                <td th:text="${e.estadoEmpleado}"></td>
+                                            
+                                            <!--BOTONES ACCIONES-->
+>>>>>>> 2bf246c (login y manejo de roles check)
                                                 <td>
                                                     <a th:if="${e.estadoEmpleado==true}" role="button"
                                                         class="btn btn-outline-warning"

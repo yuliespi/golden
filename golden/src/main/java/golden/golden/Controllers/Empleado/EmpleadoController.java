@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import golden.golden.Models.Empleado.Empleado;
-import golden.golden.Service.Cargo.ICargoService;
+import golden.golden.Models.Rol.Roles;
 import golden.golden.Service.Empleado.IEmpleadoService;
+import golden.golden.Service.Rol.RolServiceImpl;
+
+import java.util.List;
+
 import javax.validation.Valid;
 
 
@@ -27,7 +31,7 @@ public class EmpleadoController {
     private IEmpleadoService empleadog;
 
     @Autowired
-    private ICargoService cargog;
+    private RolServiceImpl roles;
 
     @GetMapping(path={"/tablaE"})
     public String listar(Model a){
@@ -38,6 +42,12 @@ public class EmpleadoController {
     @GetMapping("/formE")     
     public String form(Model a){
     Empleado empleado=new Empleado();
+    List<Roles> listaRoles = (List<Roles>) roles.findAll();
+
+    if( listaRoles.size() > 0){
+        a.addAttribute("roles", listaRoles);
+    }
+    a.addAttribute("roles", listaRoles);
     a.addAttribute("empleado", empleado);
         return "views/Empleado/formE";
     }
@@ -64,12 +74,10 @@ public class EmpleadoController {
     public String actualizarE(@PathVariable Integer id,Model a){
         Empleado empleado=null;
         if(id>0){
-            a.addAttribute("cargo", cargog.findAll());
             empleado=empleadog.findOne(id);
         }else{
             return "redirect:tablaE";
         }
-        a.addAttribute("cargo", cargog.findAll());
         a.addAttribute("empleado" ,empleado);
         a.addAttribute("accion", "Actualizar el empleado");
         return "views/Empleado/formE";
@@ -91,5 +99,5 @@ public class EmpleadoController {
     @RequestMapping("/**")
     public String handleError() {
         return "/error404";
-}
+    }
 }

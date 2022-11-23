@@ -46,7 +46,7 @@
             Nav header start
         ***********************************-->
         <div th:fragment="logo" class="nav-header">
-            <a th:href="@{menu}" class="brand-logo">
+            <a th:href="@{/menu}" class="brand-logo">
                 <img class="logo-abbr" th:src="@{/img/logo/lgol.png}">
                 <img class="logo-compact" th:src="@{/img/logotext.png}">
                 <img class="brand-title" th:src="@{/img/logotext.png}">
@@ -72,7 +72,8 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                !Bienvenido Usuario!
+                                Bienvenido/a <span th:if="${session.empleado !=null}" th:text="${session.empleado.nombreEmpleado}"></span>
+                                <span sec:authentication="principal.authorities"></span>
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">
@@ -93,7 +94,11 @@
                                             <polyline points="16 17 21 12 16 7"></polyline>
                                             <line x1="21" y1="12" x2="9" y2="12"></line>
                                         </svg>
-                                        <span class="ml-2">Cerrar Sesión </span>
+                                        <span class="ml-2">
+                                            <form th:action="@{/logout}" method="post">
+                                                <button type="submit">Cerrar Sesión</button>
+                                            </form>
+                                        </span>
                                     </a>
                                 </div>
                             </li>
@@ -126,17 +131,31 @@
                             <span class="nav-text">Configuración</span>
                         </a>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li sec:authorize="hasAnyAuthority('COACH')">
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-notepad"></i>
                             <span class="nav-text">Formularios</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a th:href="@{/actividad/formA}">Actividad</a></li>
-                            <li><a th:href="@{/bitacora/formB}">Bitácora</a></li>
+                            <li>
+                                <a th:href="@{/actividad/formA}">Actividad</a>
+                            </li>
+                            
+                            <li>
+                                <a th:href="@{/bitacora/formB}">Bitácora</a>
+                            </li>
+                            
                             <li><a th:href="@{/cargo/formC}">Cargo</a></li>
-                            <li><a th:href="@{/categoria/formCT}">Catégoria</a></li>
+                            
+                            <li>
+                                <a th:href="@{/categoria/formCT}">Catégoria</a>
+                            </li>
+                            
                             <li><a th:href="@{/empleado/formE}">Empleado</a></li>
-                            <li><a th:href="@{/implemento/formI}">Implemento</a></li>
+                            
+                            <li>
+                                <a th:href="@{/implemento/formI}">Implemento</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -146,9 +165,9 @@
                         <ul aria-expanded="false">
                             <li><a th:href="@{/actividad/tablaA}">Actividad</a></li>
                             <li><a th:href="@{/bitacora/tablaB}">Bitácora</a></li>
-                            <li><a th:href="@{/cargo/tablaC}">Cargo</a></li>
+                            <li><a th:href="@{/cargo/tablaC}" sec:authorize="hasAnyAuthority('COACH')">Cargo</a></li>
                             <li><a th:href="@{/categoria/tablaCT}">Catégoria</a></li>
-                            <li><a th:href="@{/empleado/tablaE}">Empleado</a></li>
+                            <li><a th:href="@{/empleado/tablaE}" sec:authorize="hasAnyAuthority('COACH')">Empleado</a></li>
                             <li><a th:href="@{/implemento/tablaI}">Implemento</a></li>
                         </ul>
                     </li>
