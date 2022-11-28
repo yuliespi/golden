@@ -109,24 +109,16 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <!--EDITAR-->
-<<<<<<< HEAD
                                                         <a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}"
                                                             class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                                 class="fa fa-pencil"></i></a>
                                                         <!--ELIMINAR-->
-                                                        <a role="button" th:href="@{/bitacora/delete/} + ${b.id}"
+                                                        <a sec:authorize="hasAnyAuthority('COACH')" role="button" th:href="@{/bitacora/delete/} + ${b.id}"
                                                             onclick="return confirm('¿Estas seguro de eliminar la Bitácora?');"
                                                             class="btn btn-danger shadow btn-xs sharp"><i
                                                                 class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
-=======
-														<a role="button" th:href="@{/bitacora/actualizarB/} + ${b.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-														<!--ELIMINAR-->
-                                                        <a sec:authorize="hasAnyAuthority('COACH')" role="button" th:href="@{/bitacora/delete/} + ${b.id}" onclick="return confirm('¿Estas seguro de eliminar la Bitácora?');" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-													</div>												
-												</td>	
->>>>>>> 2bf246c (login y manejo de roles check)
                                             </tr>
 
                                         </tbody>
