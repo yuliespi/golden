@@ -72,8 +72,8 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                Bienvenido/a <span th:if="${session.empleado !=null}" th:text="${session.empleado.nombreEmpleado}"></span>
-                                <span sec:authentication="principal.authorities"></span>
+                                Bienvenido/a <span th:if="${session.empleado !=null}" th:text="${session.empleado.nombreEmpleado}" class="nombreu"></span>
+                                <!-- <span sec:authentication="principal.authorities" class="rolu"></span> -->
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">

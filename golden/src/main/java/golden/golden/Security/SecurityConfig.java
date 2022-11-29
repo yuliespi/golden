@@ -29,17 +29,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-        // .antMatchers("/","/auth/**","/public/**","/css/**","/js/**","/empleado/**")
-        // .permitAll().anyRequest().authenticated()
-
+        .antMatchers("/","/auth/**","/public/**","/css/**","/js/**","/empleado/**")
+        .permitAll().anyRequest().authenticated()
         // .antMatchers("/index")
         // .permitAll() 
 
-        .antMatchers("/menu/*","/actividad/tablaA","/bitacora/tablaB","/categoria/tablaCT","/implemento/tablaI")
-        .hasAnyAuthority("GERENTE ADMIN","COACH")
+        // .antMatchers("/menu/*","/actividad/tablaA","/bitacora/tablaB","/categoria/tablaCT","/implemento/tablaI")
+        // .hasAnyAuthority("GERENTE ADMIN","COACH")
 
-        .antMatchers("/actividad/formA","/bitacora/formB","/cargo/formC","/categoria/formCT","/empleado/formE","/implemento/formI")
-        .hasAnyAuthority("COACH")
+        // .antMatchers("/actividad/formA","/bitacora/formB","/cargo/formC","/categoria/formCT","/empleado/formE","/implemento/formI")
+        // .hasAnyAuthority("COACH")
 
         .and()
             .formLogin().loginPage("/login")

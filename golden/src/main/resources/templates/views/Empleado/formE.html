@@ -131,16 +131,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-<<<<<<< HEAD
                                                         <select class="form-control default-select" id="selectcargo" name="selectcargo" th:field="*{roles}" th:if="${roles != null}">
                                                             <option value=""></option>
                                                             <option th:each="e:${roles}" th:text="${e.nombreRol}" th:value="${e.id}"></option>
-=======
-                                                        <select class="form-control default-select" id="selectcargo" name="selectcargo" th:field="*{cargo}">
-                                                            <th:block th:each="e:${cargo}">
-                                                                <option th:text="${e.nombreCargo}" th:value="${e.id}"></option>
-                                                            </th:block>
->>>>>>> 789ee62 (estadosymultiselectok)
                                                         </select>
                                                     </div>
                                                 </div>

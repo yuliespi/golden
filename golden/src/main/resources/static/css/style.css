@@ -398,6 +398,21 @@ legend {
   color: inherit;
   white-space: normal; }
 
+
+/*VISTA DE RPOLES EN PROYECTO*/
+.nombreu{
+  font-size: 1.125rem;
+  color: #FF9333;
+  border:#000 solid 1px;
+
+}
+
+.rolu{
+  font-size: 1.125rem;
+  color: #FF9333;
+  border:#000 solid 1px;
+}
+
 progress {
   vertical-align: baseline; }
 

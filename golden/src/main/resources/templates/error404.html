@@ -1,19 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/assets/css/error404.css}">
-    <title>Document</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="layout/base::head"></head>
+
 <body>
-    <div class="container">
-        <h1>4</h1>
-        <div class="balonn"></div>
-        <h1>4</h1>
-        <hr>
-        <h2>Archivo no encontrado </h2>
-    </div>    
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div th:replace="layout/base::preloader" id="preloader"></div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+       
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <body class="h-100">
+            <div class="authincation h-100">
+                <div class="container h-100">
+                    <div class="row justify-content-center h-100 align-items-center">
+                        <div class="col-md-5">
+                            <div class="form-input-content text-center error-page">
+                                <h1 class="error-text  font-weight-bold">403</h1>
+                                <h4><i class="fa fa-times-circle text-danger"></i> Error Prohibido!</h4>
+                                <p>No tienes permiso para ver este recurso.</p>
+                                <div>
+                                    <a class="btn btn-primary" th:href="@{/menu}">Volver al menú</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <div th:replace="layout/base::script"></div>
+
 </body>
+
 </html>
