@@ -127,11 +127,11 @@
 
                                             <div class="col-xl-6">
                                                 <div class="form-group row"> 
-                                                    <label class="col-lg-4 col-form-label" for="selectcargo">Seleccione el Cargo
+                                                    <label class="col-lg-4 col-form-label" for="selectrol">Seleccione el Cargo
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="selectcargo" name="selectcargo" th:field="*{roles}" th:if="${roles != null}">
+                                                        <select class="form-control default-select" id="selectrol" name="selectrol" th:field="*{roles}" th:if="${roles != null}">
                                                             <option value=""></option>
                                                             <option th:each="e:${roles}" th:text="${e.nombreRol}" th:value="${e.id}"></option>
                                                         </select>

@@ -72,8 +72,13 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                Bienvenido/a <span th:if="${session.empleado !=null}" th:text="${session.empleado.nombreEmpleado}" class="nombreu"></span>
-                                <!-- <span sec:authentication="principal.authorities" class="rolu"></span> -->
+                                Bienvenido/a
+                                <span th:if="${session.empleado !=null}" th:text="${session.empleado.nombreEmpleado}"
+                                    style="color: #fff;"></span>
+                                <span style="color: #fff;" th:each="authority : ${#authentication.getAuthorities()}"
+                                    th:if="${authority.getAuthority()}"
+                                    th:text="${authority.getAuthority()}">
+                                </span>
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">
@@ -140,19 +145,19 @@
                             <li>
                                 <a th:href="@{/actividad/formA}">Actividad</a>
                             </li>
-                            
+
                             <li>
                                 <a th:href="@{/bitacora/formB}">Bitácora</a>
                             </li>
-                            
-                            <li><a th:href="@{/cargo/formC}">Cargo</a></li>
-                            
+
                             <li>
                                 <a th:href="@{/categoria/formCT}">Catégoria</a>
                             </li>
-                            
-                            <li><a th:href="@{/empleado/formE}">Empleado</a></li>
-                            
+
+                            <li>
+                                <a th:href="@{/empleado/formE}">Empleado</a>
+                            </li>
+
                             <li>
                                 <a th:href="@{/implemento/formI}">Implemento</a>
                             </li>
@@ -165,9 +170,9 @@
                         <ul aria-expanded="false">
                             <li><a th:href="@{/actividad/tablaA}">Actividad</a></li>
                             <li><a th:href="@{/bitacora/tablaB}">Bitácora</a></li>
-                            <li><a th:href="@{/cargo/tablaC}" sec:authorize="hasAnyAuthority('COACH')">Cargo</a></li>
                             <li><a th:href="@{/categoria/tablaCT}">Catégoria</a></li>
-                            <li><a th:href="@{/empleado/tablaE}" sec:authorize="hasAnyAuthority('COACH')">Empleado</a></li>
+                            <li><a th:href="@{/empleado/tablaE}" sec:authorize="hasAnyAuthority('COACH')">Empleado</a>
+                            </li>
                             <li><a th:href="@{/implemento/tablaI}">Implemento</a></li>
                         </ul>
                     </li>
@@ -184,7 +189,7 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-                
+
             </div>
         </div>
     </div>
@@ -247,19 +252,19 @@
 
         <script th:src="@{/vendor/jqueryui/js/jquery-ui.min.js}"></script>
         <script th:src="@{/vendor/moment/moment.min.js}"></script>
-    
+
         <script th:src="@{/vendor/fullcalendar/js/fullcalendar.min.js}"></script>
         <script th:src="@{/js/plugins-init/fullcalendar-init.js}"></script>
 
-         <!-- Jquery Validation -->
+        <!-- Jquery Validation -->
         <script th:src="@{../vendor/jquery-validation/jquery.validate.min.js}"></script>
         <script th:src="@{../js/validaciones.js}"></script>
         <!-- Form validate init -->
         <script th:src="@{../js/plugins-init/jquery.validate-init.js}"></script>
 
         <!-- SELECT-MULTIPLE -->
-        <script th:src="@{../js/bitacora.js}"></script> 
-        
+        <script th:src="@{../js/bitacora.js}"></script>
+
         <script>
             function carouselReview() {
                 /*  event-bx one function by = owl.carousel.js */

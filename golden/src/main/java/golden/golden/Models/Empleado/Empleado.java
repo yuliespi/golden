@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import golden.golden.Models.Bitacora.Bitacora;
-import golden.golden.Models.Cargo.Cargo;
 import golden.golden.Models.Rol.Roles;
 
 @Entity
@@ -43,10 +42,6 @@ public class Empleado {
     @ManyToMany(mappedBy = "Empleado", fetch = FetchType.LAZY)
     private List<Bitacora> Bitacora;
 
-    // -------------Relacion con Cargo----------------//
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Cargo Cargo;
-
     // -------------Relacion con Rol----------------//
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -62,7 +57,7 @@ public class Empleado {
     public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
             Integer telefonoEmpleado, @NotEmpty String correoEmpleado, @NotEmpty String contrasenaEmpleado,
             Boolean estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
-            golden.golden.Models.Cargo.Cargo cargo, List<Roles> roles) {
+            List<Roles> roles) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
@@ -72,7 +67,6 @@ public class Empleado {
         this.contrasenaEmpleado = contrasenaEmpleado;
         this.estadoEmpleado = estadoEmpleado;
         Bitacora = bitacora;
-        Cargo = cargo;
         this.roles = roles;
     }
 
@@ -146,14 +140,6 @@ public class Empleado {
 
     public void setBitacora(List<Bitacora> bitacora) {
         Bitacora = bitacora;
-    }
-
-    public Cargo getCargo() {
-        return Cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        Cargo = cargo;
     }
 
     public List<Roles> getRoles() {

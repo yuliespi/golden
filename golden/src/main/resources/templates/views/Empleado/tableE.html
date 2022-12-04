@@ -74,7 +74,6 @@
                                                 <th>Dirección</th>
                                                 <th>Teléfono</th>
                                                 <th>Correo Electroníco</th>
-                                                <th>Contraseña</th>
                                                 <th>Cargo</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
@@ -89,23 +88,15 @@
                                                 <td th:text="${e.direccionEmpleado}"></td>
                                                 <td th:text="${e.telefonoEmpleado}"></td>
                                                 <td th:text="${e.correoEmpleado}"></td>
-                                                <td th:text="${e.contraseñaEmpleado}"></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                <td th:text="${e.Cargo.id}"></td>
-                                                <td th:text="${e.Cargo.nombreCargo}"></td>
-=======
-                                                <td th:text="${e.roles}"></td>
-                                                <td th:text="${e.estadoEmpleado}"></td>
-                                            
-                                            <!--BOTONES ACCIONES-->
->>>>>>> 2bf246c (login y manejo de roles check)
-=======
-                                                <th:block th:each="e:${e.cargo}">
-                                                    <td th:text="${e.id}"></td>
-                                                    <td th:text="${e.nombreCargo}"></td>
-                                                </th:block>
->>>>>>> 789ee62 (estadosymultiselectok)
+                                                <td>
+                                                    <ul>
+                                                        <th:block th:each=" role : ${e.roles}">
+                                                            <li th:text="${role.nombreRol}"></li>
+                                                        </th:block>
+                                                    </ul>
+                                                </td>
+
+                                                <!--BOTONES ESTADOS-->
                                                 <td>
                                                     <a th:if="${e.estadoEmpleado==true}" role="button"
                                                         class="btn btn-outline-warning"
@@ -127,7 +118,7 @@
                                                             class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                                 class="fa fa-pencil"></i></a>
                                                         <!--ELIMINAR-->
-                                                        <a  role="button" th:href="@{/empleado/delete/} + ${e.id}"
+                                                        <a role="button" th:href="@{/empleado/delete/} + ${e.id}"
                                                             onclick="return confirm('¿Estas seguro de eliminar el Empleado?');"
                                                             class="btn btn-danger shadow btn-xs sharp"><i
                                                                 class="fa fa-trash"></i></a>
