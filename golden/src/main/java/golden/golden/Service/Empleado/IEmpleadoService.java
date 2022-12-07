@@ -10,4 +10,5 @@ public interface IEmpleadoService {
     public Empleado findOne (Integer id);
     public void delete (Integer id); 
     public Empleado registrar(Empleado emple);
+    public Empleado findByExistCorreoEmpleado(String correo);
 }

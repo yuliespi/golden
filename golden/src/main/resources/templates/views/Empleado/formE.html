@@ -26,7 +26,7 @@
         <!--**********************************
             Nav header end
         ***********************************-->
-		
+
         <!--**********************************
             Header start
         ***********************************-->
@@ -49,12 +49,12 @@
         <div class="content-body">
             <div class="container-fluid">
                 <div class="page-titles">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Empleado</a></li>
-					</ol>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Empleado</a></li>
+                    </ol>
                 </div>
-                
+
                 <!-- row -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -64,80 +64,138 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" th:action="@{/empleado/add}" th:object="${empleado}" method="post">
+                                    <div th:if="${mensaje!=null}" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong th:text="${mensaje}">Holy guacamole!</strong> <div th:text="${duplicado}"></div>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form class="form-valide" th:action="@{/empleado/add}" th:object="${empleado}"
+                                        method="post">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="nempleado">Nombre Empleado
+                                                    <label class="col-lg-4 col-form-label" for="nempleado">Nombre
+                                                        Empleado
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="nempleado" name="nempleado" placeholder="Digite aqui el nombre del empleado" th:field="*{nombreEmpleado}" onkeypress="return sololetras(event)" required minlength="5" maxlength="10">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreEmpleado')}" th:errors="*{nombreEmpleado}"></div>
+                                                        <input type="text" class="form-control" id="nempleado"
+                                                            name="nempleado"
+                                                            placeholder="Digite aqui el nombre del empleado"
+                                                            th:field="*{nombreEmpleado}"
+                                                            onkeypress="return sololetras(event)" required minlength="5"
+                                                            maxlength="10">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('nombreEmpleado')}"
+                                                            th:errors="*{nombreEmpleado}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="aempleado">Apellido Empleado <span
-                                                            class="text-danger">*</span>
+                                                    <label class="col-lg-4 col-form-label" for="aempleado">Apellido
+                                                        Empleado <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="aempleado" name="aempleado" placeholder="Digite aqui el apellido del empleado" th:field="*{apellidoEmpleado}" onkeypress="return sololetras(event)" required minlength="5" maxlength="10">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('apellidoEmpleado')}" th:errors="*{apellidoEmpleado}"></div>
+                                                        <input type="text" class="form-control" id="aempleado"
+                                                            name="aempleado"
+                                                            placeholder="Digite aqui el apellido del empleado"
+                                                            th:field="*{apellidoEmpleado}"
+                                                            onkeypress="return sololetras(event)" required minlength="5"
+                                                            maxlength="10">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('apellidoEmpleado')}"
+                                                            th:errors="*{apellidoEmpleado}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="dempleado">Dirección Empleado
+                                                    <label class="col-lg-4 col-form-label" for="dempleado">Dirección
+                                                        Empleado
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="dempleado" name="dempleado" placeholder="Digite aqui la dirección del empleado" th:field="*{direccionEmpleado}" onkeypress="return letrasynum(event)" required minlength="10" maxlength="20">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('direccionEmpleado')}" th:errors="*{direccionEmpleado}"></div>
+                                                        <input type="text" class="form-control" id="dempleado"
+                                                            name="dempleado"
+                                                            placeholder="Digite aqui la dirección del empleado"
+                                                            th:field="*{direccionEmpleado}"
+                                                            onkeypress="return letrasynum(event)" required
+                                                            minlength="10" maxlength="20">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('direccionEmpleado')}"
+                                                            th:errors="*{direccionEmpleado}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="templeado">Teléfono Empleado<span
-                                                            class="text-danger">*</span>
+                                                    <label class="col-lg-4 col-form-label" for="templeado">Teléfono
+                                                        Empleado<span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="tel" class="form-control" id="templeado" name="templeado" placeholder="Digite aqui el teléfono del empleado" th:field="*{telefonoEmpleado}" onkeypress="return solonumeros(event)" required minlength="7" maxlength="10">
-                                                        <div class="form-text text-danger" th:if="${#fields.hasErrors('telefonoEmpleado')}" th:errors="*{telefonoEmpleado}"></div>
+                                                        <input type="number" class="form-control" id="templeado"
+                                                            name="templeado"
+                                                            placeholder="Digite aqui el teléfono del empleado"
+                                                            th:field="*{telefonoEmpleado}"
+                                                            onkeypress="return solonumeros(event)" required
+                                                            minlength="7" maxlength="10">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('telefonoEmpleado')}"
+                                                            th:errors="*{telefonoEmpleado}"></div>
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="correoEmpleado">Correo
+                                                        Empleado
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="email" class="form-control" id="correoEmpleado"
+                                                            name="correoEmpleado"
+                                                            placeholder="Digite aqui el correo del empleado"
+                                                            th:field="*{correoEmpleado}">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('correoEmpleado')}"
+                                                            th:errors="*{correoEmpleado}"></div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="passEmpleado">Contraseña
+                                                        Empleado
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="password" class="form-control" id="passEmpleado"
+                                                            name="passEmpleado"
+                                                            placeholder="Digite aqui la contraseña del empleado"
+                                                            th:field="*{contrasenaEmpleado}">
+                                                        <div class="form-text text-danger"
+                                                            th:if="${#fields.hasErrors('contrasenaEmpleado')}"
+                                                            th:errors="*{contrasenaEmpleado}"></div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="correoEmpleado">Correo Empleado
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="email" class="form-control" id="correoEmpleado" name="correoEmpleado" placeholder="Digite aqui el correo del empleado" th:field="*{correoEmpleado}">
-                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('correoEmpleado')}" th:errors="*{correoEmpleado}"></div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="passEmpleado">Contraseña Empleado
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="password" class="form-control" id="passEmpleado" name="passEmpleado" placeholder="Digite aqui la contraseña del empleado" th:field="*{contrasenaEmpleado}">
-                                                    <div class="form-text text-danger" th:if="${#fields.hasErrors('contrasenaEmpleado')}" th:errors="*{contrasenaEmpleado}"></div>
-                                                </div>
-                                            </div>
 
                                             <div class="col-xl-6">
-                                                <div class="form-group row"> 
-                                                    <label class="col-lg-4 col-form-label" for="selectrol">Seleccione el Cargo
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="selectrol">Seleccione el
+                                                        Rol
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <select class="form-control default-select" id="selectrol" name="selectrol" th:field="*{roles}" th:if="${roles != null}">
+                                                        <select class="form-control default-select" id="selectrol"
+                                                            name="selectrol" th:field="*{roles}"
+                                                            th:if="${roles != null}">
                                                             <option value=""></option>
-                                                            <option th:each="e:${roles}" th:text="${e.nombreRol}" th:value="${e.id}"></option>
+                                                            <option th:each="e:${roles}" th:text="${e.nombreRol}"
+                                                                th:value="${e.id}"></option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                            
+
+
+
                                                 <div class="form-group row">
                                                     <div class="col-lg-8 ml-auto">
                                                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -174,7 +232,7 @@
            Support ticket button end
         ***********************************-->
 
-        
+
     </div>
     <!--**********************************
         Main wrapper end

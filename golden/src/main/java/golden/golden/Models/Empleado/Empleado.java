@@ -25,10 +25,10 @@ public class Empleado {
     private String direccionEmpleado;
 
     @Column(name ="telefonoEmpleado", length=10)
-    private Integer telefonoEmpleado;
+    private Long telefonoEmpleado;
 
     @NotEmpty
-    @Column(length=50)
+    @Column(length=20, unique = true, nullable = false )
     private String correoEmpleado;
 
     @NotEmpty
@@ -43,7 +43,7 @@ public class Empleado {
     private List<Bitacora> Bitacora;
 
     // -------------Relacion con Rol----------------//
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "empleados_roles",
         joinColumns = @JoinColumn(name = "empleado_id"),
@@ -55,7 +55,7 @@ public class Empleado {
     }
 
     public Empleado(Integer id, @NotEmpty String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado,
-            Integer telefonoEmpleado, @NotEmpty String correoEmpleado, @NotEmpty String contrasenaEmpleado,
+            Long telefonoEmpleado, @NotEmpty String correoEmpleado, @NotEmpty String contrasenaEmpleado,
             Boolean estadoEmpleado, List<golden.golden.Models.Bitacora.Bitacora> bitacora,
             List<Roles> roles) {
         this.id = id;
@@ -102,11 +102,11 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
     }
 
-    public Integer getTelefonoEmpleado() {
+    public Long getTelefonoEmpleado() {
         return telefonoEmpleado;
     }
 
-    public void setTelefonoEmpleado(Integer telefonoEmpleado) {
+    public void setTelefonoEmpleado(Long telefonoEmpleado) {
         this.telefonoEmpleado = telefonoEmpleado;
     }
 

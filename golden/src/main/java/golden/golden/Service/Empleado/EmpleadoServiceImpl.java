@@ -39,6 +39,11 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
     
     @Override
+    public Empleado findByExistCorreoEmpleado(String correo) {
+        return empleadog.findByCorreoEmpleado(correo);
+    }
+
+    @Override
     public Empleado registrar(Empleado empleado) {
         empleado.setContrasenaEmpleado(passwordEncoder.encode(empleado.getContrasenaEmpleado()));
         return empleadog.save(empleado);
