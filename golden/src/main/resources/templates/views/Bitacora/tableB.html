@@ -70,11 +70,9 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Observación</th>
-                                                <th>Cantidad Implementos Usados</th>
+                                                <th>Implementos Usados</th>
                                                 <th>Fecha</th>
-                                                <th>Id Actividad</th>
                                                 <th>Fecha Actividad</th>
-                                                <th>Id Implemento</th>
                                                 <th>Nombre Implemento</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
@@ -87,9 +85,7 @@
                                                 <td th:text="${b.observacionesBitacora}"></td>
                                                 <td th:text="${b.cantidadImplementosUsados}"></td>
                                                 <td th:text="${b.fechaBitacora}"></td>
-                                                <td th:text="${b.Actividad.id}"></td>
                                                 <td th:text="${b.Actividad.fechaActividad}"></td>
-                                                <td th:each="i:${b.Implemento}" th:text="${i.id}"></td>
                                                 <td>
                                                     <p th:each="i:${b.Implemento}" th:text="${i.nombreImplemento}"></p>
                                                 </td>
